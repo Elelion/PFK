@@ -2,7 +2,11 @@
 *.log
 *.pdf
 *.psd
+
 node_modules/
 npm_debug.*
-src/css/*.css
 Thumbs.db
+
+src/css/*.css
+src/css/.sass-cache
+src/css/.styles.css.map
