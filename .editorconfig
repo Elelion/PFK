@@ -1,0 +1,22 @@
+# File with settings for code-redactor (on gitHub)
+# http://editorconfig.org -> Downloads a Plugin
+# downloading this extension for your code-redactor
+
+# Root file EditorConfig
+root = true
+
+# For all files we use unix-compatible line breaks
+[*]
+# necessarily
+end_of_line = lf
+insert_final_newline = true
+
+# indentation of 4 spaces
+indent_size = 2
+indent_style = space
+
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false

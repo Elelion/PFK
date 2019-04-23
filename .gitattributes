@@ -1,0 +1,10 @@
+# for git: correctly perceived the ends of the lines
+
+* text eol = lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.woff binary
+*.woff2 binary
