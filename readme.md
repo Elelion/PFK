@@ -2,15 +2,14 @@
 
 ### О проекте:
 
-* Исполнитель: [Гинц Александр](https://htmlacademy.ru/profile/id701371).
-<br>
+Боевой Проект для компании ООО «ПФК»
 
 ---
 
-### Description:
+### Описание:
 
-Folder with source files — **`src/`**.<br>
-**Do not delete or pay attention to files: <br>**
+Директория с исходниками — **`src/`**.<br>
+**Не удаляйте и не обращайте внимания на файлы: <br>**
 `.editorconfig`,<br>
 `.gitattributes`,<br>
 `.gitignore`,<br>
@@ -33,3 +32,10 @@ Folder with source files — **`src/`**.<br>
 The repository is created for training on an intensive online course 
 «[Professional HTML and CSS](https://htmlacademy.ru/intensive/adaptive)»", 
 level 2 from [HTML Academy](https://htmlacademy.ru).
+
+---
+
+### Профиль:
+
+* Ссылка на: [htmlacademy](https://htmlacademy.ru/profile/id701371).
+* Ссылка на: [HH.ru](https://stavropol.hh.ru/resume/c063f00aff02d1e0900039ed1f747853505472).
