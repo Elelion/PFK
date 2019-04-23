@@ -10,3 +10,5 @@ Thumbs.db
 src/css/*.css
 src/css/.sass-cache
 src/css/.styles.css.map
+
+index.html
