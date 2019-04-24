@@ -1,0 +1,24 @@
+mixin chapter(parameter)
+  -var parameter = parameter || {};
+  -var titleType = parameter.titleType || "h1";
+  -var title = parameter.title || 'TITLE_TEXT';
+  -var color = parameter.color || 'black';
+
+  -
+    var classes = [
+      'chapter__title',
+      `chapter__color-${color}`
+    ];
+
+  //-
+
+  .chapter
+    case titleType
+      when 'h1'
+        h1(class=classes)= title
+      when 'h2'
+        h2(class=classes)= title
+      when 'h3'
+        h3(class=classes)= title
+      default
+        p(class=classes)= title
