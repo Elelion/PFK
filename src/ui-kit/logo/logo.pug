@@ -1,0 +1,12 @@
+mixin logo(parameter)
+  -var parameter = parameter || {};
+  -var alt = parameter.alt || "SEO alt";
+  -var title = parameter.title || "SEO title";
+
+  //-
+
+  .logo
+    img.logo__image(
+      src="http://placehold.it/80x115"
+      alt= alt
+      title= title)
