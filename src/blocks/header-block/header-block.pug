@@ -1,0 +1,14 @@
+mixin header-block(parameter)
+  -var parameter = parameter || {};
+  -var titleType = parameter.titleType || "h1";
+
+  //-
+
+  .header-block
+    button.header-block__toggle.header-block__toggle--opened(
+      type='button') Меню
+    +menu
+
+    .header-block__logo
+      a.header-block__logo-link(href='#')
+        +logo
