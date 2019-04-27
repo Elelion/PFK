@@ -1,0 +1,53 @@
+doctype html
+html(lang="ru")
+  +head
+
+body
+  header.header
+    +header-block
+
+  main.main
+    section.slider
+      +slider-block
+
+    section.news
+      +news-block
+
+    section.services
+      +services-block
+
+  footer.footer
+    +footer-block
+
+
+
+
+
+//- NOTE:
+//- format for all objects: ({parameter: 'value', parameter: number})
+//- if any parameter is NOT specified, value will be - the default
+
+//- ---
+
+//- chapter:
+//-     titleType: "h1, h2, h3, or P - if default",
+//-     title: "text",
+//-     color: "white, or black - if default"
+
+//- ---
+
+//- logo:
+//-     alt: "text",
+//-     title: "text"
+
+//- ---
+
+//- catalog-block:
+//-     catalogImage: "namePictureInFolder",
+//-     catalogImageAlt: "text",
+//-     catalogImageTitle: "text",
+//-     title: "text",
+//-     description: "text",
+//-     choise: "text",
+//-     choiseImage: "namePictureInFolder",
+//-     choiseImageAlt: "text",
