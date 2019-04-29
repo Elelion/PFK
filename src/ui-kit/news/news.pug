@@ -4,11 +4,12 @@ mixin news(parameter)
   //-
 
   .news
-    img.news__image(
-      src="http://placehold.it/300x300"
-      alt= alt
-      title= title)
+    a.news__link(href="#")
+      img.news__image(
+        src="http://placehold.it/300x300"
+        alt= alt
+        title= title)
 
-    .news__content
-      p.news__title
-      p.news__description
+      .news__content
+        p.news__title
+        p.news__desc
