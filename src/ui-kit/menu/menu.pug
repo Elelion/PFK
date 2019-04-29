@@ -1,18 +1,23 @@
 mixin menu(parameter)
   -var parameter = parameter || {};
+  -var firstItem = parameter.firstItem || 'Главная';
+  -var secondItem = parameter.secondItem || 'Каталог';
+  -var thirdItem = parameter.thirdItem || 'Сервис';
+  -var fourthItem = parameter.fourthItem || 'Контакты';
 
   //-
 
   .menu
-    ul.menu__list
-      li.menu__item
-        a.menu__link(href="index.html") Главная
+    .menu-nav
+      ul.menu-nav__list
+        li.menu-nav__item.menu-nav__item--cerrent
+          a.menu-nav__link(href="index.html")= firstItem
 
-      li.menu__item
-        a.menu__link(href="catalog.html") Каталог
+        li.menu-nav__item
+          a.menu-nav__link(href="catalog.html")= secondItem
 
-      li.nav__item
-        a.menu__link(href="service.html") Сервис
+        li.menu-nav__item
+          a.menu-nav__link(href="service.html")= thirdItem
 
-      li.nav__item
-        a.menu__link(href="contacts.html") Контакты
+        li.menu-nav__item
+          a.menu-nav__link(href="contacts.html")= fourthItem
