@@ -15,9 +15,13 @@ style.sass -> blocks + ui-kits + pages + mixins + variables
 • Пишем стили для:
 
 ui-kit's
+
 block's
+
 page's
+
 mixin's
+
 variable's
 
 **PS: адаптив будет потом**
