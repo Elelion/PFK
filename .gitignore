@@ -8,7 +8,9 @@ npm_debug.*
 Thumbs.db
 
 src/*.css
-src/.sass-cache
-src/.styles.css.map
+src/sass/.sass-cache
+src/sass/.styles.css.map
+
+src/css/*
 
 index.html
