@@ -14,15 +14,11 @@ style.sass -> blocks + ui-kits + pages + mixins + variables
 <br>
 • Пишем стили для:
 
-ui-kit's
-
-block's
-
-page's
-
-mixin's
-
-variable's
+ui-kit's<br>
+block's<br>
+page's<br>
+mixin's<br>
+variable's<br>
 
 **PS: адаптив будет потом**
 
