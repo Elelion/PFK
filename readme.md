@@ -13,17 +13,17 @@ style.sass -> blocks + ui-kits + pages + mixins + variables
 • Пишем конфиг для gulp'a.
 <br>
 • Пишем стили для:
-<br>
+
 - ui-kit's
-<br>
+
 - block's
-<br>
+
 - page's
-<br>
+
 - mixin's
-<br>
+
 - variable's
-<br>
+
 **PS: адаптив будет потом**
 
 
