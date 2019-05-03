@@ -1,14 +1,20 @@
 mixin logo(parameter)
   -var parameter = parameter || {};
-  -var alt = parameter.alt || "SEO alt";
-  -var title = parameter.title || "SEO title";
+  -var title = parameter.title || "Title";
+  -var slogan = parameter.slogan || "Slogan";
+  -var sloganSpan = parameter.sloganSpan || "SloganSpan";
+
+  -var altImage = parameter.altImage || "SEO alt";
+  -var titleImage = parameter.titleImage || "SEO title";
 
   //-
 
   .logo
     img.logo__image(
-      src="http://placehold.it/80x115"
-      alt= alt
-      title= title)
-    p.logo__title
-    p.logo__slogan
+      src="./images/logo.png"
+      alt= altImage
+      title= titleImage)
+
+    p.logo__title= title
+    p.logo__slogan= slogan
+      span.logo__slogan-span= sloganSpan
