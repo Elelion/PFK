@@ -9,6 +9,7 @@ Thumbs.db
 
 src/*.css
 src/sass/.sass-cache
+src/.sass-cache
 src/sass/.styles.css.map
 
 src/css/*
