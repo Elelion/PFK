@@ -8,9 +8,12 @@ mixin menu(parameter)
   //-
 
   .menu
-    .menu-nav
+    input#menuBurger.menu-nav__button-checkbox(type="checkbox")
+    label.menu-nav__button(for="menuBurger") Меню
+
+    nav.menu-nav
       ul.menu-nav__list
-        li.menu-nav__item.menu-nav__item--cerrent
+        li.menu-nav__item
           a.menu-nav__link(href="index.html")= firstItem
 
         li.menu-nav__item
