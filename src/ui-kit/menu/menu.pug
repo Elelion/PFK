@@ -1,0 +1,23 @@
+mixin menu(parameter)
+  -var parameter = parameter || {};
+  -var firstItem = parameter.firstItem || 'Главная';
+  -var secondItem = parameter.secondItem || 'Каталог';
+  -var thirdItem = parameter.thirdItem || 'Сервис';
+  -var fourthItem = parameter.fourthItem || 'Контакты';
+
+  //-
+
+  .menu
+    .menu-nav
+      ul.menu-nav__list
+        li.menu-nav__item.menu-nav__item--cerrent
+          a.menu-nav__link(href="index.html")= firstItem
+
+        li.menu-nav__item
+          a.menu-nav__link(href="catalog.html")= secondItem
+
+        li.menu-nav__item
+          a.menu-nav__link(href="service.html")= thirdItem
+
+        li.menu-nav__item
+          a.menu-nav__link(href="contacts.html")= fourthItem

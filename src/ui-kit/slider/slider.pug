@@ -1,0 +1,18 @@
+mixin slider(parameter)
+  -var parameter = parameter || {};
+  -var alt = parameter.alt || "SEO alt";
+  -var title = parameter.title || "SEO title";
+
+  //-
+
+  .slider
+    img.slider__image(
+      src="http://placehold.it/800x300"
+      alt= alt
+      title= title)
+
+    .slider__poster
+      p.slider__poster-title
+      p.slider__poster-desc
+
+
