@@ -4,4 +4,9 @@ mixin news-block(parameter)
   //-
 
   .news-block
-    +news
+    .news-block__wrapper
+      +chapter({
+        title: "новости"
+      })
+
+      +news
