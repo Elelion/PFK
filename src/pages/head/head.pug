@@ -1,6 +1,7 @@
 mixin head(parameter)
 	//- FIXME: check the path, when importing the block to other projects
-	-var patch = './blocks/';
+	-var patchBlock = './blocks/';
+	-var patchUiKit = './ui-kit/';
 
 	//- TODO: дописать SEO ключевики
 	-var parameter = parameter || {};
@@ -24,4 +25,5 @@ mixin head(parameter)
 			href='src/images/favicon.png')
 
 		//- NOTE: JS:
-		script(src = patch + 'header-block/header-block.js' defer)
+		script(src = patchBlock + 'header-block/header-block.js' defer)
+		script(src = patchUiKit + 'button/button__ripple.js' defer)
