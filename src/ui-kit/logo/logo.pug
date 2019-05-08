@@ -10,11 +10,12 @@ mixin logo(parameter)
   //-
 
   .logo
-    img.logo__image(
-      src="./images/logo.png"
-      alt= altImage
-      title= titleImage)
+    .logo__wrapper
+      img.logo__image(
+        src="./images/logo.png"
+        alt= altImage
+        title= titleImage)
 
-    p.logo__title= title
+      p.logo__title= title
     p.logo__slogan= slogan
       span.logo__slogan-span= sloganSpan
