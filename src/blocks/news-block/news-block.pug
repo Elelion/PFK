@@ -9,4 +9,13 @@ mixin news-block(parameter)
         title: "новости"
       })
 
-      +news
+      .news-block__content
+        +news({
+          imageName: "news-1"
+        })
+
+        +news
+
+        +news({
+          imageName: "news-3"
+        })
