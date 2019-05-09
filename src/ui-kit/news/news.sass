@@ -1,0 +1,49 @@
+.news
+  // float: left
+  width: 35rem
+  height: 25rem
+  +border-black
+  // margin-right: 7rem
+
+  &:last-child
+    margin-right: 0
+
+
+  &:hover .news__image
+    opacity: 0.8
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)
+
+  &__link
+    width: 34rem
+    height: 24rem
+    margin: 1rem auto 0 auto
+    text-decoration: none
+
+  &__image
+    transition: all 0.4s
+
+  &__content
+    width: 35rem
+    height: 10rem
+    margin-top: 1rem
+    +border-blue
+    text-decoration: none
+
+  &__title
+    margin: 0.5rem
+    +border-red
+
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+    font-size: $sizeTitleFont
+    color: $colorFontTitle
+
+  &__desc
+    height: 5rem
+    margin: 0.5rem
+    +border-red
+    overflow: hidden
+    font-size: $sizeRegularFont
+    color: $colorFontText

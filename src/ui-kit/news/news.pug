@@ -1,15 +1,25 @@
 mixin news(parameter)
   -var parameter = parameter || {};
 
+  -var link = parameter.link || "#"
+
+  -var imageName = parameter.imageName || "news-2"
+  -var imageAlt = parameter.imageAlt || "SEO alt";
+  -var imageTitle = parameter.imageTitle || "SEO title";
+
+  -var title = parameter.title || "title";
+  -var description = parameter.description || "desc";
+
   //-
 
   .news
-    a.news__link(href="#")
+    a.news__link(href= link)
       img.news__image(
-        src="http://placehold.it/300x300"
+        src="./images/news/" + imageName + ".jpg"
         alt= alt
-        title= title)
-
+        title= title
+        width= '350px'
+        height= '250px')
       .news__content
-        p.news__title
-        p.news__desc
+        p.news__title= title
+        p.news__desc= description
