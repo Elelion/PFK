@@ -3,6 +3,7 @@ mixin chapter(parameter)
   -var titleType = parameter.titleType || "";
   -var title = parameter.title || "Chapter title text";
   -var color = parameter.color || "standard";
+  -var indent = parameter.indent || "false";
 
   -
     var classes = [
@@ -10,9 +11,7 @@ mixin chapter(parameter)
       `chapter__color-${color}`
     ];
 
-  //-
-
-  .chapter
+  mixin chapter-content
     case titleType
       when "h1"
         h1(class=classes)= title
@@ -22,3 +21,13 @@ mixin chapter(parameter)
         h3(class=classes)= title
       default
         p(class=classes)= title
+
+  //-
+
+  if (indent === "true")
+    .chapter.chapter__indent
+      +chapter-content
+  else
+    .chapter
+      +chapter-content
+
