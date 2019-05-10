@@ -1,0 +1,39 @@
+.slider
+  +border-blue
+  width: auto
+  height: auto
+  display: flex
+  align-items: center
+  justify-content: center
+
+  &__image
+    margin: 0 auto 0 auto
+    min-width: 100%
+    min-height: 100%
+    max-height: 85rem
+
+  &__wrapper
+    position: absolute
+    width: $contentWidth
+    height: 50rem
+    +border-red
+
+  &__poster
+    width: 55rem
+    height: 25rem
+    margin-top: 5rem
+    +border-green
+    color: white
+    background: $colorPoster
+    opacity: 0.7
+
+    &-title,
+    &-desc
+      margin-left: 1rem
+      +border-green
+
+
+  &__button
+    width: 20rem
+    height: 4.5rem
+    +border-blue

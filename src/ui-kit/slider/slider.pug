@@ -1,18 +1,24 @@
 mixin slider(parameter)
   -var parameter = parameter || {};
-  -var alt = parameter.alt || "SEO alt";
-  -var title = parameter.title || "SEO title";
+  -var imageName = parameter.imageName || "slider-1"
+  -var imageAlt = parameter.imageAlt || "SEO alt";
+  -var imageTitle = parameter.imageTitle || "SEO title";
+
+  -var title = parameter.title || "title";
+  -var description = parameter.description || "desc";
 
   //-
 
   .slider
     img.slider__image(
-      src="http://placehold.it/800x300"
-      alt= alt
-      title= title)
+      src="./images/sliders/" + imageName + ".jpg"
+      alt= imageAlt
+      title= imageTitle)
 
-    .slider__poster
-      p.slider__poster-title
-      p.slider__poster-desc
+    .slider__wrapper
+      .slider__poster
+        p.slider__poster-title= title
+        p.slider__poster-desc= description
 
-
+        .slider__button
+          +button
