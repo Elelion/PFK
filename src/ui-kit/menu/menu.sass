@@ -1,0 +1,38 @@
+.menu
+  width: auto
+  height: auto
+  margin: 0 auto 0 atuo
+  +border-red
+
+
+  &-nav
+    width: inherit
+    height: inherit
+    +border-blue
+    display: flex
+    align-items: center
+
+    &__button
+      display: none
+
+      &-checkbox
+        display: none
+
+    &__list
+      float: left
+      +border-green
+
+    &__item
+      float: left
+      width: 20rem
+      +border-green
+      text-align: center
+      font-size: $sizeTitleFont
+      list-style-type: none
+
+      &:first-letter
+        text-transform: uppercase
+
+    &__link
+      color: $colorFontWhite
+      text-decoration: none
