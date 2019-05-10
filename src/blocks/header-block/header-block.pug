@@ -5,10 +5,17 @@ mixin header-block(parameter)
   //-
 
   .header-block
-    button.header-block__toggle.header-block__toggle--opened(
-      type="button") Меню
-    +menu
+    .header-block__wrapper
+      .header-block__logo
+        a.header-block__logo-link(href="index.html")
+          +logo({
+            title: "пфк",
+            slogan: "гарантия ",
+            sloganSpan: "качества"
+          })
 
-    .header-block__logo
-      a.header-block__logo-link(href="#")
-        +logo
+      .header-block__menu
+        +menu
+
+      //- TODO: for step #4
+      .header-block__authorization
