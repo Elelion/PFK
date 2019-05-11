@@ -1,12 +1,22 @@
 mixin service(parameter)
   -var parameter = parameter || {};
 
+  -var link = parameter.link || "#"
+
+  -var imageName = parameter.imageName || "news-1"
+  -var imageAlt = parameter.imageAlt || "SEO alt";
+  -var imageTitle = parameter.imageTitle || "SEO title";
+
+  -var title = parameter.title || "title";
+
   //-
 
   .service
-    img.service__image(
-      src="http://placehold.it/150x150"
-      alt= alt
-      title= title)
+    a.service__link(href= link)
+      //- src="./images/news/" + imageName + ".jpg"
+      img.service__image(
+        src="http://placehold.it/150x150"
+        alt= imageAlt
+        title= imageTitle)
 
-    p.service__title
+      p.service__title= title

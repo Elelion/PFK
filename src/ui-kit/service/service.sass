@@ -1,0 +1,32 @@
+.service
+  width: 17rem
+  height: 22rem
+  +border-black
+  display: flex
+  justify-content: center
+
+  &:hover .service__image
+    opacity: 0.8
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.8)
+
+  &__link
+    +border-blue
+    text-decoration: none
+
+  &__image
+    width: 15rem
+    height: 15rem
+    transition: all 0.4s
+
+  &__title
+    height: 5rem
+    width: 13.7rem
+    margin: 0.5rem
+    +border-red
+    color: $colorFontText
+    font-size: $sizeRegularFont
+    text-transform: lowercase
+    overflow: hidden
+
+    &:first-letter
+      text-transform: uppercase
