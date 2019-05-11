@@ -4,4 +4,15 @@ mixin services-block(parameter)
   //-
 
   .services-block
-    +service
+    .services-block__wrapper
+      +chapter({
+          title: "услуги",
+          indent: "true"
+        })
+
+      .services-block__content
+        +service
+        +service
+        +service
+        +service
+        +service
