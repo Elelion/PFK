@@ -23,14 +23,16 @@
     height: 18rem
     margin-top: 5rem
     +border-green
-    // background: $colorGeneralFon
     color: $colorFontTitle
-    // opacity: 0.7
 
     &-title,
     &-desc
       margin-left: 1rem
       +border-green
+      text-transform: lowercase
+
+      &:first-letter
+        text-transform: uppercase
 
 
   &__button
