@@ -4,4 +4,19 @@ mixin articles-block(parameter)
   //-
 
   .articles-block
-    +article
+    .articles-block__wrapper
+      +chapter({
+          title: "Статьи",
+          indent: "true"
+        })
+
+      .articles-block__content
+        +article({title: "1"})
+        +article({title: "2"})
+        +article({title: "3"})
+        +article({title: "4"})
+        +article({title: "5"})
+        +article({title: "6"})
+
+        .articles-block__button
+          +button({caption: 'все статьи'})
