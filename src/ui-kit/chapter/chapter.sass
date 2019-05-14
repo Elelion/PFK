@@ -1,6 +1,5 @@
 .chapter
   width: 100%
-  height: 7rem
   +border-black
   display: flex
   align-items: center
@@ -8,8 +7,6 @@
   &__title
     width: auto
     +border-green
-    color: $colorFontTitle
-    font-size: $sizeTitleFont
     font-weight: bold
     text-align: center
     text-transform: lowercase
@@ -20,3 +17,14 @@
 
   &__indent
     margin-top: 3.5rem
+
+  &__size
+    &-standard
+      height: 7rem
+      font-size: $sizeTitleFont
+      color: $colorFontTitle
+
+    &-small
+      height: 3rem
+      font-size: $sizeRegularFont
+      color: $colorFontText
