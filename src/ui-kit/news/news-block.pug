@@ -1,0 +1,21 @@
+mixin header-block(parameter)
+  -var parameter = parameter || {};
+  -var titleType = parameter.titleType || "h1";
+
+  //-
+
+  .header-block
+    .header-block__wrapper
+      .header-block__logo
+        a.header-block__logo-link(href="index.html")
+          +logo({
+            title: "пфк",
+            slogan: "гарантия ",
+            sloganSpan: "качества"
+          })
+
+      .header-block__menu
+        +menu
+
+      //- TODO: for step #4
+      .header-block__authorization
