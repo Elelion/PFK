@@ -1,0 +1,21 @@
+mixin events-block(parameter)
+  -var parameter = parameter || {};
+
+  //-
+
+  .events-block
+    .events-block__wrapper
+      +chapter({
+        title: "события"
+      })
+
+      .events-block__content
+        +events({
+          imageName: "news-1"
+        })
+
+        +events
+
+        +events({
+          imageName: "news-3"
+        })
