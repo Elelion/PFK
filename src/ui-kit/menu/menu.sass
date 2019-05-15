@@ -42,7 +42,6 @@
       text-decoration: none
 
       &:after
-        content: ""
         position: absolute
         top: 100%
         left: 0
@@ -52,7 +51,10 @@
         opacity: 0
         transition: opacity 0.3s, transform 0.3s
         transform: translateY(1rem)
+        content: ""
+        visibility: hidden
 
       &:hover::after
         opacity: 1
         transform: translateY(0rem)
+        visibility: visible
