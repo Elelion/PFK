@@ -11,11 +11,25 @@ mixin events-block(parameter)
 
       .events-block__content
         +events({
-          imageName: "news-1"
+          imageName: "news-1",
+          imageAlt: "",
+          imageTitle: "",
+          title: "новинки",
+          description: "просмотреть новинки от 01.06.2019"
         })
 
-        +events
+        +events({
+          imageName: "news-2",
+          imageAlt: "",
+          imageTitle: "",
+          title: "лови момент",
+          description: "узнать подробности акции, действующей до 1.06.2019"
+        })
 
         +events({
-          imageName: "news-3"
+          imageName: "news-3",
+          imageAlt: "",
+          imageTitle: "",
+          title: "сайт в доработке",
+          description: "описание планируемых доработок и изменений"
         })
