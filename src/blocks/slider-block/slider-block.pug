@@ -10,4 +10,9 @@ mixin slider-block(parameter)
     .main-slider__wrapper
       ul.main-slider__list
         li.main-slider__item
-          +slider
+          +slider({
+            title: "Надежные окна в каждый дом",
+            description: `Защитите себя и свою семью от пыли,
+              шума и не погоды уже сегодня.`,
+            ButtonCaption: "подробнее"
+          })
