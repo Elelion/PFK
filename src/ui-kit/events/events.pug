@@ -1,7 +1,7 @@
 mixin events(parameter)
   -var parameter = parameter || {};
   -var link = parameter.link || "#";
-  -var imageName = parameter.imageName || "news-2";
+  -var imageName = parameter.imageName || "news";
   -var imageAlt = parameter.imageAlt || "SEO alt";
   -var imageTitle = parameter.imageTitle || "SEO title";
   -var title = parameter.title || "title";
@@ -12,9 +12,9 @@ mixin events(parameter)
   .news
     a.news__link(href= link)
       img.news__image(
-        src="./images/news/" + imageName + ".jpg"
-        alt= alt
-        title= title)
+        src="./images/events/" + imageName + ".jpg"
+        alt= imageAlt
+        title= imageTitle)
       .news__content
         p.news__title= title
         p.news__desc= description
