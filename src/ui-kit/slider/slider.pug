@@ -7,6 +7,8 @@ mixin slider(parameter)
   -var title = parameter.title || "title";
   -var description = parameter.description || "desc";
 
+  -var ButtonCaption = parameter.ButtonCaption || "caption";
+
   //-
 
   .slider
@@ -21,4 +23,6 @@ mixin slider(parameter)
         p.slider__poster-desc= description
 
         .slider__button
-          +button
+          +button({
+            caption: ButtonCaption
+          })
