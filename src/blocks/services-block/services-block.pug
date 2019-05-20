@@ -11,8 +11,27 @@ mixin services-block(parameter)
         })
 
       .services-block__content
-        +service
-        +service
-        +service
-        +service
-        +service
+        +service({
+          imageName: "service-1",
+          title: "комплексное остекление"
+        })
+
+        +service({
+          imageName: "service-2",
+          title: "ремонт окон"
+        })
+
+        +service({
+          imageName: "service-3",
+          title: "гарантийное обслуживание"
+        })
+
+        +service({
+          imageName: "service-4",
+          title: "бесплатный замер"
+        })
+
+        +service({
+          imageName: "service-5",
+          title: "качественная доставка"
+        })
