@@ -27,7 +27,7 @@ class headerBlock {
         this.getFlex('block');
       } else {
         this.getShowMenu('absolute');
-        this.getHeightMenu('8rem');
+        this.getHeightMenu('7rem');
         this.getDisplayLogo('block');
         this.getFlex('flex');
       }
