@@ -12,8 +12,8 @@
     margin-left: 0
 
   &:hover
-    opacity: 0.8
-    box-shadow: 0 0 14px rgba(0, 0, 0, 0.8)
+    opacity: $opacity
+    box-shadow: $box-shadow
 
   &:hover .article__image
     transform: scale(1.07)
@@ -31,7 +31,7 @@
     height: 3.5rem
     margin: 1rem
     +border-green
-    transition: all 0.4s
+    transition: $transition
 
   &__title
     margin: 1.5rem 0 0 2.7rem
