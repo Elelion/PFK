@@ -1,0 +1,81 @@
+.article
+  float: left
+  width: 38rem
+  height: 25rem
+  margin: 1rem
+  border: 0.1rem solid $colorGeneralFon
+  display: flex
+  justify-content: center
+  transition: all 0.4s
+
+  &__picture
+    position: absolute
+    z-index: 1
+    width: 38rem
+    height: 25rem
+    transition: $transition
+    // opacity: $opacity
+
+  &:nth-child(3n+1)
+    margin-left: 0
+
+  &:hover
+    opacity: $opacity
+    box-shadow: $box-shadow
+
+  &:hover .article__image
+    transform: scale(1.08)
+
+  &:hover .article__picture
+    opacity: 0.4
+
+  &:hover .article__title
+    margin: 1.5rem 0 0 2.7rem
+    color: $colorFontTitle
+
+  &:hover .article__desc
+    display: block
+
+  &__link
+    z-index: 2
+    width: 100%
+    height: 100%
+    margin: 0 auto 0 auto
+    +border-blue
+    text-decoration: none
+
+  &__image
+    float: right
+    width: 3.6rem
+    height: 3.5rem
+    margin: 1rem
+    +border-green
+    transition: $transition
+
+  &__title
+    // margin: 1.5rem 0 0 2.7rem
+    margin: 21rem 0 0 0.5rem
+    +border-blue
+    color: $colorFontWhite
+    font-size: $sizeTitleFont
+    text-overflow: ellipsis
+    text-transform: lowercase
+    overflow: hidden
+    white-space: nowrap
+
+    &:first-letter
+      text-transform: uppercase
+
+  &__desc
+    width: 32rem
+    height: 18rem
+    margin: 0.5rem auto 0 auto
+    +border-blue
+    color: $colorFontText
+    font-size: $sizeRegularFont
+    text-transform: lowercase
+    overflow: hidden
+    display: none
+
+    &:first-letter
+      text-transform: uppercase

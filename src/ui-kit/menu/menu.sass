@@ -1,0 +1,60 @@
+.menu
+  width: auto
+  height: auto
+  margin: 0 auto 0 atuo
+  +border-red
+
+  &-nav
+    width: inherit
+    height: 3rem
+    +border-blue
+    display: flex
+    align-items: center
+
+    &__button
+      display: none
+
+      &-checkbox
+        display: none
+
+    &__list
+      float: left
+      margin-left: 0
+      padding-left: 0
+      +border-green
+
+    &__item
+      float: left
+      width: 15rem
+      +border-green
+      text-align: center
+      text-transform: lowercase
+      font-size: $sizeTitleFont
+      list-style-type: none
+
+      &:first-letter
+        text-transform: uppercase
+
+    &__link
+      position: relative
+      padding-bottom: 0.2rem
+      color: $colorFontWhite
+      text-decoration: none
+
+      &:after
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        height: 0.2rem
+        background-color: $colorYellow
+        opacity: 0
+        transition: $transition
+        transform: translateY(1rem)
+        content: ""
+        visibility: hidden
+
+      &:hover::after
+        opacity: 1
+        transform: translateY(0rem)
+        visibility: visible

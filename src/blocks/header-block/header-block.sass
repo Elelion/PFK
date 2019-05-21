@@ -1,0 +1,44 @@
+.header-block
+  position: absolute
+  z-index: $zHeaderBlock
+  width: 100%
+  height: 7rem
+  +border-red
+  background: $colorBlue
+  opacity: 0.9
+  transition: all 0.4s
+
+  &__wrapper
+    width: $contentWidth
+    height: inherit
+    margin: 0 auto 0 auto
+    +border-green
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &__logo
+    width: auto
+    height: inherit
+    margin-right: auto
+    +border-black
+
+    &-link
+      width: inherit
+      height: inherit
+      +border-black
+      text-decoration: none
+      display: block
+
+  &__menu
+    float: left
+    width: auto
+    +border-blue
+
+  // TODO: for step #4
+  &__authorization
+    float: right
+    width: 15rem
+    height: inherit
+    margin: 0 auto 0 auto
+    +border-black

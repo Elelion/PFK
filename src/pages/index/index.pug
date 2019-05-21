@@ -1,0 +1,46 @@
+doctype html
+html(lang="ru")
+  +head
+
+body
+  header.header
+    +header-block
+
+  main.main-content
+    section.main-content__slider
+      +slider-block
+
+    section.main-content__news
+      +events-block
+
+    section.main-content__services
+      +services-block
+
+    section.main-content__articles
+      +articles-block
+
+  footer.footer
+    +footer-block
+
+
+
+
+
+//- NOTE:
+//- format for all objects: ({parameter: 'value', parameter: number})
+//- if any parameter is NOT specified, value will be - the default
+
+//- ---
+
+//- chapter:
+//-     titleType: "h1, h2, h3, or P - if default",
+//-     title: "text",
+//-     color: "white, or black - if default"
+
+//- ---
+
+//- logo:
+//-     alt: "text",
+//-     title: "text"
+
+//- ---
