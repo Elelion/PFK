@@ -8,6 +8,14 @@
   justify-content: center
   transition: all 0.4s
 
+  &__picture
+    position: absolute
+    z-index: 1
+    width: 38rem
+    height: 25rem
+    transition: $transition
+    // opacity: $opacity
+
   &:nth-child(3n+1)
     margin-left: 0
 
@@ -16,9 +24,20 @@
     box-shadow: $box-shadow
 
   &:hover .article__image
-    transform: scale(1.07)
+    transform: scale(1.08)
+
+  &:hover .article__picture
+    opacity: 0.4
+
+  &:hover .article__title
+    margin: 1.5rem 0 0 2.7rem
+    color: $colorFontTitle
+
+  &:hover .article__desc
+    display: block
 
   &__link
+    z-index: 2
     width: 100%
     height: 100%
     margin: 0 auto 0 auto
@@ -34,9 +53,10 @@
     transition: $transition
 
   &__title
-    margin: 1.5rem 0 0 2.7rem
+    // margin: 1.5rem 0 0 2.7rem
+    margin: 21rem 0 0 0.5rem
     +border-blue
-    color: $colorFontTitle
+    color: $colorFontWhite
     font-size: $sizeTitleFont
     text-overflow: ellipsis
     text-transform: lowercase
@@ -55,6 +75,7 @@
     font-size: $sizeRegularFont
     text-transform: lowercase
     overflow: hidden
+    display: none
 
     &:first-letter
       text-transform: uppercase

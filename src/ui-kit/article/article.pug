@@ -1,7 +1,7 @@
 mixin article(parameter)
   -var parameter = parameter || {};
   -var link = parameter.link || "#";
-  -var imageName = parameter.imageName || "quotes";
+  -var imageName = parameter.imageName || "none";
   -var imageAlt = parameter.imageAlt || "SEO alt";
   -var imageTitle = parameter.imageTitle || "SEO title";
   -var title = parameter.title || "title";
@@ -10,9 +10,14 @@ mixin article(parameter)
   //-
 
   .article
+    img.article__picture(
+      src="./images/articles/picture/" + imageName + ".jpg"
+      alt= ""
+      title= "")
+
     a.article__link(href= link)
       img.article__image(
-        src="./images/articles/" + imageName + ".svg"
+        src="./images/articles/quotes.svg"
         alt= imageAlt
         title= imageTitle)
       p.article__title= title
