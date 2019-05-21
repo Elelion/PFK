@@ -12,13 +12,13 @@ mixin article(parameter)
   .article
     img.article__picture(
       src="./images/articles/picture/" + imageName + ".jpg"
-      alt= ""
-      title= "")
+      alt= imageAlt
+      title= imageTitle)
 
     a.article__link(href= link)
       img.article__image(
         src="./images/articles/quotes.svg"
-        alt= imageAlt
-        title= imageTitle)
+        alt= "Статьи"
+        title= "Блок полезных статей")
       p.article__title= title
       article.article__desc= description
