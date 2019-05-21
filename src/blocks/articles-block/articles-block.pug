@@ -10,12 +10,21 @@ mixin articles-block(parameter)
         })
 
       .articles-block__content
-        +article({title: "1"})
-        +article({title: "2"})
-        +article({title: "3"})
-        +article({title: "4"})
-        +article({title: "5"})
-        +article({title: "6"})
+        +article({
+          title: "Статья отсутствует",
+          description: `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
+
+        +article({
+          title: "Статья отсутствует",
+          description: `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
+
+        +article({
+          title: "Статья отсутствует",
+          description: `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
+
 
         .articles-block__button
           +button({caption: 'все статьи'})
