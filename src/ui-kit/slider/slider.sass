@@ -6,11 +6,22 @@
   align-items: center
   justify-content: center
 
+  @media screen and (max-width: 1300px)
+    justify-content: flex-start
+
+  @media screen and (max-width: 1000px)
+    height: 70rem
+
   &__image
     margin: 0 auto 0 auto
     min-width: 100%
     min-height: 100%
     max-height: 85rem
+
+    @media screen and (max-width: 1000px)
+      height: 100vh
+      max-width: 100%
+      object-fit: cover
 
   &__wrapper
     position: absolute
@@ -18,12 +29,30 @@
     height: 50rem
     +border-red
 
+    @media screen and (max-width: 1300px)
+      width: auto
+      height: auto
+      margin-left: 3vh
+      margin-right: 4vh
+
+    @media screen and (max-width: 1000px)
+      // margin-top: 1rem
+
+    @media screen and (max-width: 880px)
+      // margin-top: 5vh
+
+    @media screen and (max-width: 730px)
+      // margin-top: 10vh
+      // min-width: $minWidth
+
   &__poster
     width: 55rem
     height: auto
-    margin-top: 5rem
     +border-green
     color: $colorFontTitle
+
+    @media screen and (max-width: 600px)
+      width: auto
 
     &-title,
     &-desc
@@ -39,6 +68,13 @@
       font-size: $sizeBigFont
       font-weight: 700
 
+      @media screen and (max-width: 730px)
+        // margin-top: auto
+
+      @media screen and (max-width: 700px)
+        // font-size: $sizeTitleFont
+        width: auto
+
     &-desc
       color: $colorFontText
       font-size: $sizeRegularFont
@@ -47,3 +83,7 @@
     width: 20rem
     height: 4.5rem
     +border-blue
+
+    @media screen and (max-width: 600px)
+      margin-left: auto
+      margin-right: auto
