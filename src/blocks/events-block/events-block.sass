@@ -3,12 +3,30 @@
   height: 45.5rem
   +border-red
 
+  @media screen and (max-width: 830px)
+    height: auto
+
   &__wrapper
     width: $contentWidth
     height: inherit
     margin: 0 auto 0 auto
     +border-black
 
+    @media screen and (max-width: 1250px)
+      width: auto
+      margin: 0 1rem 0 1rem
+
+    @media screen and (max-width: 830px)
+      width: 35.5rem
+      height: auto
+      margin: 0 auto 0 auto
+
+    @media screen and (max-width: 360px)
+      width: auto
+
   &__content
     display: flex
     justify-content: space-between
+
+    @media screen and (max-width: 830px)
+      flex-direction: column
