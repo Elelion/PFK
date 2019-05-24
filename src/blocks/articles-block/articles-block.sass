@@ -6,15 +6,33 @@
 
   &__wrapper
     width: $contentWidth
-    height: inherit
+    height: 100%
     margin: 0 auto 0 auto
     +border-black
     margin-bottom: 6.1rem
 
+    @media screen and (max-width: 830px)
+      width: 35.5rem
+
   &__content
     width: 100%
-    height: auto
+    height: 100%
     +border-black
+    margin: 0 auto 0 auto
+
+    @media screen and (max-width: 1210px)
+      width: 95rem
+      height: 55rem
+
+    @media screen and (max-width: 970px)
+      width: 80rem
+
+    @media screen and (max-width: 830px)
+      width: 35.5rem
+      height: 163rem
+
+    @media screen and (max-width: 360px)
+      width: auto
 
   &__button
     float: right
