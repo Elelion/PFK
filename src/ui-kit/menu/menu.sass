@@ -4,12 +4,82 @@
   margin: 0 auto 0 atuo
   +border-red
 
+  // NOTE: activate burger menu
+  @media screen and (max-width: 1160px)
+    .menu-nav__burger
+      position: absolute
+      top: 2.3rem
+      right: 2rem
+      z-index: 1
+      display: block
+      width: 2.5rem
+      height: 2.3rem
+      font-size: 0
+      color: transparent
+      background: url("../images/menu/menu-burger.svg") no-repeat
+      cursor: pointer
+
+    .menu-nav__burger-checkbox:checked + .menu-nav__burger
+      background-image: url("../images/menu/menu-cross.svg")
+
+    .menu-nav
+      position: absolute
+      top: 5rem
+      // left: 0
+      right: 0
+      // float: right
+      z-index: 100
+      display: none
+      // width: 100%
+
+      .menu-nav__list
+        width: 30rem
+
+      &__item
+        display: block
+        height: 5.6rem
+        width: 100%
+        // font-size: 1.4rem
+        // font-weight: bold
+        text-align: center
+        // text-transform: uppercase
+        text-decoration: none
+        color: #fff
+        background-color: #4583d8
+        transition: background-color 0.1s linear, color 0.1s linear
+        line-height: 5.6rem
+
+        &:not(:first-of-type)
+          border-top: 0.1rem solid rgba(255, 255, 255, 0.2)
+
+        &:not(:last-of-type)
+          border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2)
+
+        &:last-of-type
+          box-shadow: inset 0 -0.5rem 0.1rem -0.5rem rgba(0, 0, 0, 0.4)
+
+        &:hover
+          background-color: #2768c1
+
+        &:active
+          color: #fff
+          background-color: #2768c1
+
+    .menu-nav__burger-checkbox:checked ~ .menu-nav
+      display: block
+
+  // **
+
   &-nav
+    display: flex
     width: inherit
     height: 3rem
     +border-blue
-    display: flex
     align-items: center
+
+    &__burger-checkbox,
+    &__burger
+      display: none
 
     &__button
       display: none
@@ -26,10 +96,10 @@
     &__item
       float: left
       width: 15rem
-      +border-green
+      font-size: $sizeTitleFont
       text-align: center
       text-transform: lowercase
-      font-size: $sizeTitleFont
+      +border-green
       list-style-type: none
 
       &:first-letter
@@ -38,8 +108,11 @@
     &__link
       position: relative
       padding-bottom: 0.2rem
-      color: $colorFontWhite
       text-decoration: none
+      color: $colorFontWhite
+
+      @media screen and (max-width: 1160px)
+        display: block
 
       &:after
         position: absolute
@@ -53,6 +126,11 @@
         transform: translateY(1rem)
         content: ""
         visibility: hidden
+
+        @media screen and (max-width: 1160px)
+          width: 35%
+          left: 32.5%
+          top: 80%
 
       &:hover::after
         opacity: 1
