@@ -10,12 +10,18 @@
     height: 5.1rem
     margin: 0 auto 0 auto
 
+    @media screen and (max-width: 1160px)
+      width: 7rem
+
   &__image
     float: left
     width: 6.8rem
     height: 4.6rem
     margin: 0.3rem auto 0 auto
     +border-green
+
+    @media screen and (max-width: 1160px)
+      margin-top: 0
 
   &__slogan
     float: right
@@ -28,6 +34,9 @@
     text-transform: uppercase
     text-align: center
     word-spacing: 0.5rem
+
+    @media screen and (max-width: 1160px)
+      display: none
 
     &-span
       color: $colorYellow
