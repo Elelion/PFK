@@ -8,8 +8,14 @@ class headerBlock {
 
   initDOMElements() {
     this.menu = document.getElementsByClassName('header-block')[0];
-    this.logo = document.getElementsByClassName('header-block__logo')[0];
-    this.wrapper = document.getElementsByClassName('header-block__wrapper')[0];
+    this.burgerMenu = document.getElementsByClassName('menu-nav__burger')[0];
+    this.menuNav = document.getElementsByClassName('menu-nav')[0];
+    this.headerBlockLogo =
+      document.getElementsByClassName('header-block__logo')[0];
+
+    this.widthClientBrowser =
+        window.innerWidth || document.documentElement.clientWidth ||
+        document.body.clientWidth;
   }
 
   // **
@@ -20,36 +26,40 @@ class headerBlock {
 
       this.scroll = window.pageYOffset || document.documentElement.scrollTop;
 
+      // NOTE: general top menu bar
       if (this.scroll > 100) {
-        this.getShowMenu('fixed');
-        this.getHeightMenu('4.1rem');
-        this.getDisplayLogo('none');
-        this.getFlex('block');
+        this.setPosition(this.menu, 'fixed');
+        this.setHeight(this.menu, '4.1rem');
+        this.setTop(this.burgerMenu, '1rem');
+        this.setTop(this.menuNav, '2rem');
       } else {
-        this.getShowMenu('absolute');
-        this.getHeightMenu('7rem');
-        this.getDisplayLogo('block');
-        this.getFlex('flex');
+        this.setPosition(this.menu, 'absolute');
+        this.setHeight(this.menu, '7rem');
+        this.setTop(this.burgerMenu, '2.3rem');
+        this.setTop(this.menuNav, '5rem');
+      }
+
+      // NOTE: logo
+      if (this.scroll < 100 && this.widthClientBrowser >= 1160) {
+        this.setHeight(this.headerBlockLogo, '6.1rem');
+      } else {
+        this.setHeight(this.headerBlockLogo, '6.2rem');
       }
     })
   }
 
   // **
 
-  getShowMenu(position) {
-    this.menu.style.position = position;
+  setPosition(target, position) {
+    target.style.position = position;
   }
 
-  getHeightMenu(height) {
-    this.menu.style.height = height;
+  setTop(target, top) {
+    target.style.top = top;
   }
 
-  getDisplayLogo(display) {
-    this.logo.style.display = display;
-  }
-
-  getFlex(value) {
-    this.wrapper.style.display = value;
+  setHeight(target, height) {
+    target.style.height = height;
   }
 
   // **
