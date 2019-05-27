@@ -1,0 +1,71 @@
+.header-block
+  position: absolute
+  z-index: $zHeaderBlock
+  width: 100%
+  height: 7rem
+  +border-red
+  background: $colorBlue
+  opacity: 0.9
+  transition: all 0.4s
+
+  &__wrapper
+    width: $contentWidth
+    height: inherit
+    margin: 0 auto 0 auto
+    +border-green
+    display: flex
+    justify-content: center
+    align-items: center
+
+    @media screen and (max-width: 1160px)
+      display: block
+
+  &__logo
+    display: block
+    width: auto
+    height: 6.1rem
+    margin-right: auto
+    +border-black
+    background: $colorBlue
+
+    @media screen and (max-width: 1160px)
+      position: absolute
+      left: 43%
+      width: 8rem
+      height: 6.2rem
+      border-bottom-left-radius: 0.4rem
+      border-bottom-right-radius: 0.4rem
+
+    @media screen and (max-width: 400px)
+      display: none
+
+    &-link
+      width: inherit
+      height: inherit
+      +border-black
+      text-decoration: none
+      display: block
+
+      @media screen and (max-width: 1160px)
+        border-bottom-left-radius: 0.2rem
+        border-bottom-right-radius: 0.2rem
+
+  &__menu
+    float: left
+    width: auto
+    +border-red
+
+    @media screen and (max-width: 1160px)
+      float: right
+
+  // TODO: for step #4
+  &__authorization
+    float: right
+    width: 15rem
+    height: inherit
+    margin: 0 auto 0 auto
+    +border-black
+
+    @media screen and (max-width: 1160px)
+      position: absolute
+      left: 0

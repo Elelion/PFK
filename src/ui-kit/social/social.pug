@@ -1,0 +1,15 @@
+mixin social(parameter)
+  -var parameter = parameter || {};
+  -var link = parameter.link || "#";
+  -var imageName = parameter.imageName || "empty";
+  -var imageAlt = parameter.imageAlt || "SEO alt";
+  -var imageTitle = parameter.imageTitle || "SEO title";
+
+  //-
+
+  .social
+    a.social__link(href= link target= "_blank")
+      img.social__image(
+        src="./images/socials/" + imageName + ".jpg"
+        alt= alt
+        title= title)

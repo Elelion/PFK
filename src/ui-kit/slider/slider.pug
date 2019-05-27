@@ -1,0 +1,28 @@
+mixin slider(parameter)
+  -var parameter = parameter || {};
+  -var imageName = parameter.imageName || "slider-1";
+  -var imageAlt = parameter.imageAlt || "SEO alt";
+  -var imageTitle = parameter.imageTitle || "SEO title";
+
+  -var title = parameter.title || "title";
+  -var description = parameter.description || "desc";
+
+  -var ButtonCaption = parameter.ButtonCaption || "caption";
+
+  //-
+
+  .slider
+    img.slider__image(
+      src="./images/sliders/" + imageName + ".jpg"
+      alt= imageAlt
+      title= imageTitle)
+
+    .slider__wrapper
+      .slider__poster
+        p.slider__poster-title= title
+        p.slider__poster-desc= description
+
+        .slider__button
+          +button({
+            caption: ButtonCaption
+          })

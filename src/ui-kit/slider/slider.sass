@@ -1,0 +1,75 @@
+.slider
+  +border-blue
+  width: auto
+  height: auto
+  display: flex
+  align-items: center
+  justify-content: center
+
+  @media screen and (max-width: 1300px)
+    justify-content: flex-start
+
+  @media screen and (max-width: 1000px)
+    height: 70rem
+
+  &__image
+    margin: 0 auto 0 auto
+    min-width: 100%
+    min-height: 100%
+    max-height: 85rem
+
+    @media screen and (max-width: 1000px)
+      height: 100vh
+      max-width: 100%
+      object-fit: cover
+
+  &__wrapper
+    position: absolute
+    width: $contentWidth
+    height: 50rem
+    +border-red
+
+    @media screen and (max-width: 1300px)
+      width: auto
+      height: auto
+      margin-left: 3vh
+      margin-right: 4vh
+
+  &__poster
+    width: 55rem
+    height: auto
+    +border-green
+    color: $colorFontTitle
+
+    @media screen and (max-width: 600px)
+      width: auto
+
+    &-title,
+    &-desc
+      margin-left: 1rem
+      +border-green
+      text-transform: lowercase
+
+      &:first-letter
+        text-transform: uppercase
+
+    &-title
+      width: 33rem
+      font-size: $sizeBigFont
+      font-weight: 700
+
+      @media screen and (max-width: 700px)
+        width: auto
+
+    &-desc
+      color: $colorFontText
+      font-size: $sizeRegularFont
+
+  &__button
+    width: 20rem
+    height: 4.5rem
+    +border-blue
+
+    @media screen and (max-width: 600px)
+      margin-left: auto
+      margin-right: auto
