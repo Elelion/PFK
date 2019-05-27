@@ -1,0 +1,29 @@
+.chapter
+  width: 100%
+  +border-black
+  display: flex
+  align-items: center
+
+  &__title
+    width: auto
+    +border-green
+    font-weight: bold
+    text-transform: lowercase
+    letter-spacing: 0.12rem
+
+    &:first-letter
+      text-transform: uppercase
+
+  &__indent
+    margin-top: 3.5rem
+
+  &__size
+    color: $colorFontTitle
+
+    &-standard
+      height: 7rem
+      font-size: $sizeTitleFont
+
+    &-small
+      height: 3rem
+      font-size: $sizeSmallTitleFont

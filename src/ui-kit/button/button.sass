@@ -1,0 +1,139 @@
+// FIXME: arrow - check the path, when importing the block to other projects
+$path: '../ui-kit/button/images/arrows.png'
+
+.button
+	/**
+		* NOTE:
+		* for ripple animation:
+		* position: relative
+		* overflow: hidden
+		*/
+
+	&-standard
+		position: relative
+		margin: 0 auto 0 auto
+		color: $colorFontTitle
+		font-family: "customFont"
+		text-align: center
+		text-decoration: none
+		text-transform: lowercase
+		text-overflow: ellipsis
+		display: block
+		cursor: pointer
+		overflow: hidden
+		white-space: nowrap
+
+		&:first-letter
+			text-transform: uppercase
+
+		&:active
+			border-bottom: 0.1rem solid $colorBlue
+			transform: translate(0rem, 0.8rem)
+
+		&__size
+			&-standard
+				width: 18.5rem
+				height: 4rem
+				padding: 0
+				font-size: $sizeTitleFont
+
+			// TODO: completed it:
+			// &-small
+			// 	width: 11.2rem
+			// 	height: 4rem
+			// 	padding-left: 0.2rem
+			// 	font-size: $sizeTitleFont
+
+		&__color
+			border: 0.1rem solid $colorBlue
+			border-bottom: 0.25rem solid $colorBlue
+			border-radius: 2rem
+			background: white
+
+			&:hover
+				background: $colorGeneralFon
+
+		&__effect
+			transition: all 0.1s
+
+		// TODO: completed it:
+		/* NOTE: for site component's */
+		// &__extension
+		// 	&-slider
+		// 		background: #4EB7A8
+		// 		color: white
+
+		// 		@media screen and (max-width: 420px)
+		// 			width: 100%
+		// 			min-width: 21.2rem
+
+		// 		&:hover
+		// 			background: #0C9581
+
+	&-arrow
+		position: relative
+		float: left
+		width: 4.4rem
+		height: 4.4rem
+		margin: 0 .5rem
+		+border-red
+		border-color: transparent
+		border-radius: 50%
+		background: url($path) no-repeat
+		display: inline-block
+		cursor: pointer
+		overflow: hidden
+		outline: none
+		vertical-align: bottom
+
+		&__direction
+			&-left
+				margin: 0.5rem 0.5rem
+				background-position: -9px -7px
+
+			&-right
+				margin: 0.5rem 0.5rem
+				background-position: -65px -7px
+
+			&-left:hover
+				background-position: -121px -7px
+
+			&-right:hover
+				background-position: -177px -7px
+
+			&-left:active
+				background-position: -232px -7px
+
+			&-right:active
+				background-position: -288px -7px
+
+/* NOTE: ripple effect, look in ripple.js */
+.ripple_standard
+	position: absolute
+	width: 0
+	height: 0
+	border-radius: 50%
+	background: rgba(50,102,217,0.7)
+	transform: scale(0)
+	opacity: 1
+	animation: ripple_standard 0.4s linear
+
+@keyframes ripple_standard
+	100%
+		transform: scale(2)
+		opacity: 0
+
+.ripple_arrow
+	position: absolute
+	width: 0
+	height: 0
+	border-radius: 50%
+	background: rgba(255,204,0,0.7)
+	transform: scale(0)
+	opacity: 1
+	animation: ripple_standard 0.4s linear
+
+@keyframes ripple_arrow
+	100%
+		transform: scale(2)
+		opacity: 0

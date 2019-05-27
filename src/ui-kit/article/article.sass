@@ -1,0 +1,133 @@
+.article
+  float: left
+  width: 38rem
+  height: 25rem
+  margin: 1rem
+  border: 0.1rem solid $colorGeneralFon
+  display: flex
+  justify-content: center
+  transition: all 0.4s
+
+  @media screen and (max-width: 1210px)
+    width: 30rem
+
+  @media screen and (max-width: 970px)
+    width: 25rem
+
+  @media screen and (max-width: 830px)
+    width: 34rem
+    margin: 1rem 1rem 1rem 0
+
+  @media screen and (max-width: 360px)
+    width: auto
+    margin-left: 1rem
+    margin-right: 1rem
+
+  &:nth-child(3n)
+    margin-right: 0
+
+  &__picture
+    position: absolute
+    z-index: 1
+    width: 38rem
+    height: 25rem
+    transition: $transition
+
+    @media screen and (max-width: 1210px)
+      width: 30rem
+      object-fit: cover
+
+    @media screen and (max-width: 970px)
+      width: 25rem
+
+    @media screen and (max-width: 830px)
+      width: 34rem
+
+    @media screen and (max-width: 360px)
+      width: 25rem
+      border: 1px solid red
+      margin-left: 1.5rem
+      margin-right: 1.5rem
+
+  &:nth-child(3n+1)
+    margin-left: 0
+
+    @media screen and (max-width: 360px)
+      margin-left: 1.5rem
+
+  &:hover
+    opacity: $opacity
+    box-shadow: $box-shadow
+
+  &:hover .article__image
+    transform: scale(1.08)
+
+  &:hover .article__picture
+    opacity: 0.4
+
+  &:hover .article__title
+    margin: 1.5rem 0 0 2.7rem
+    color: $colorFontTitle
+
+    @media screen and (max-width: 360px)
+      margin: 1.5rem 0 0 0
+
+  &:hover .article__desc
+    display: block
+
+
+  &__link
+    z-index: 2
+    width: 100%
+    height: 100%
+    margin: 0 auto 0 auto
+    +border-blue
+    text-decoration: none
+
+  &__image
+    float: right
+    width: 3.6rem
+    height: 3.5rem
+    margin: 1rem
+    +border-green
+    transition: $transition
+
+  &__title
+    margin: 21rem 0 0 0.5rem
+    +border-blue
+    color: $colorFontWhite
+    font-size: $sizeTitleFont
+    text-overflow: ellipsis
+    text-transform: lowercase
+    overflow: hidden
+    white-space: nowrap
+
+    &:first-letter
+      text-transform: uppercase
+
+  &__desc
+    width: 32rem
+    height: 18rem
+    margin: 0.5rem auto 0 auto
+    +border-blue
+    color: $colorFontText
+    font-size: $sizeRegularFont
+    text-transform: lowercase
+    overflow: hidden
+    display: none
+
+    @media screen and (max-width: 1210px)
+      width: 28rem
+
+    @media screen and (max-width: 970px)
+      width: 23rem
+
+    @media screen and (max-width: 830px)
+      width: 28rem
+
+    @media screen and (max-width: 360px)
+      width: 23rem
+      margin: 0.5rem auto 0 1.5rem
+
+    &:first-letter
+      text-transform: uppercase

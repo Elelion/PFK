@@ -1,0 +1,14 @@
+mixin mini-menu(parameter)
+  -var parameter = parameter || {};
+  -var value = parameter.value || "value";
+  -var type = parameter.type || "paragraph";
+  -var link = parameter.link || "#";
+
+  //-
+
+  .mini-menu
+    case type
+      when "paragraph"
+        p.mini-menu__paragraph= value
+      default
+        a.mini-menu__link(href= link)= value

@@ -1,0 +1,18 @@
+mixin slider-block(parameter)
+  -var parameter = parameter || {};
+
+  //-
+
+  .main-slider
+    .main-slider__button-back
+    .main-slider__button-forward
+
+    .main-slider__wrapper
+      ul.main-slider__list
+        li.main-slider__item
+          +slider({
+            title: "Надежные окна в каждый дом",
+            description: `Защитите себя и свою семью от пыли,
+              шума и не погоды уже сегодня.`,
+            ButtonCaption: "подробнее"
+          })

@@ -1,0 +1,46 @@
+mixin chapter(parameter)
+  -var parameter = parameter || {};
+  -var titleType = parameter.titleType || "";
+  -var title = parameter.title || "Chapter title text";
+  -var color = parameter.color || "standard";
+  -var size = parameter.size || "standard";
+  -var indent = parameter.indent || "false";
+
+  -
+    var classesText = [
+      "chapter__title",
+      `chapter__color-${color}`
+    ];
+
+  mixin chapter-content
+    case titleType
+      when "h1"
+        h1(class=classesText)= title
+      when "h2"
+        h2(class=classesText)= title
+      when "h3"
+        h3(class=classesText)= title
+      default
+        p(class=classesText)= title
+
+  //-
+
+  if (indent === "true")
+    -
+      var classesDiv = [
+        "chapter",
+        "chapter__indent",
+        `chapter__size-${size}`
+      ];
+  else
+    -
+      var classesDiv = [
+        "chapter",
+        `chapter__size-${size}`
+      ];
+
+  //-
+
+  div(class=classesDiv)
+    +chapter-content
+

@@ -7,8 +7,10 @@ node_modules/
 npm_debug.*
 Thumbs.db
 
-src/css/*.css
-src/css/.sass-cache
-src/css/.styles.css.map
+src/*.css
+src/sass/.sass-cache
+src/.sass-cache
+src/sass/.styles.css.map
 
-index.html
+src/css/*
+src/*.html
