@@ -3,8 +3,8 @@
   height: auto
   margin-top: 0rem
   padding: 0.8rem 0 0.2rem 0
-  +border-black
   font-size: $sizeSmallRegularFont
+  +border-black
   letter-spacing: 0.05rem
   word-spacing: 0.2rem
 
@@ -13,9 +13,9 @@
 
   &__link
     position: relative
-    color: $colorFontLink
     text-transform: lowercase
     text-decoration: none
+    color: $colorFontLink
 
     &:after
       position: absolute
@@ -27,8 +27,8 @@
       opacity: 0
       transition: $transition
       transform: translateY(1rem)
-      content: ""
       visibility: hidden
+      content: ""
 
     &:hover::after
       opacity: 1
