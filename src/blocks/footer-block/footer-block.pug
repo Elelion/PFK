@@ -6,100 +6,102 @@ mixin footer-block(parameter)
   //-
 
   .footer-block
-    .footer-block__socials
-      .footer-block__socials-title
-        +chapter({
-          size: "small",
-          title: "мы в соц.сетях"
-        })
+    .footer-block__wrapper
+      .footer-block__socials
+        .footer-block__socials-title
+          +chapter({
+            size: "small",
+            title: "мы в соц.сетях"
+          })
 
-      .footer-block__socials-content
-        +social({
-          link: "https://www.instagram.com/elitkomplekt.ru/",
-          imageName: "instagram"
-        })
+        .footer-block__socials-content
+          +social({
+            link: "https://www.instagram.com/elitkomplekt.ru/",
+            imageName: "instagram"
+          })
 
-    //-
+      //-
 
-    .footer-block__differents
-      .footer-block__contacts-title
-        +chapter({
-          size: "small",
-          title: "покупателям"
-        })
+      .footer-block__differents
+        .footer-block__contacts-title
+          +chapter({
+            size: "small",
+            title: "покупателям"
+          })
 
-      .footer-block__contacts-content
-        +mini-menu({
-          value: "самовывоз",
-          type: "url"
-        })
+        .footer-block__contacts-content
+          +mini-menu({
+            value: "самовывоз",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "способы оплаты",
-          type: "url"
-        })
+          +mini-menu({
+            value: "способы оплаты",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "гарантийная политика",
-          type: "url"
-        })
+          +mini-menu({
+            value: "гарантийная политика",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "обработка персональных данных",
-          type: "url"
-        })
+          +mini-menu({
+            value: "обработка персональных данных",
+            type: "url"
+          })
 
-    //-
+      //-
 
-    .footer-block__about
-      .footer-block__about-title
-        +chapter({
-          size: "small",
-          title: "о компании"
-        })
+      .footer-block__about
+        .footer-block__about-title
+          +chapter({
+            size: "small",
+            title: "о компании"
+          })
 
-      .footer-block__about-content
-        +mini-menu({
-          value: "вакансии",
-          type: "url"
-        })
+        .footer-block__about-content
+          +mini-menu({
+            value: "вакансии",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "логистика",
-          type: "url"
-        })
+          +mini-menu({
+            value: "логистика",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "документы",
-          type: "url"
-        })
+          +mini-menu({
+            value: "документы",
+            type: "url"
+          })
 
-        +mini-menu({
-          value: "скачать презентацию",
-          type: "url"
-        })
+          +mini-menu({
+            value: "скачать презентацию",
+            type: "url"
+          })
 
-    //-
+      //-
 
-    .footer-block__contacts
-      .footer-block__contacts-title
-        +chapter({
-          size: "small",
-          title: "контакты"
-        })
+      .footer-block__contacts
+        .footer-block__contacts-title
+          +chapter({
+            size: "small",
+            title: "контакты"
+          })
 
-      .footer-block__contacts-content
-        +mini-menu({
-          value: "ООО «ПФК»",
-          type: "paragraph"
-        })
+        .footer-block__contacts-content
+          +mini-menu({
+            value: "ООО «ПФК»",
+            type: "paragraph"
+          })
 
-        +mini-menu({
-          value: "ИНН: 4805016829",
-          type: "paragraph"
-        })
+          +mini-menu({
+            value: "ИНН: 4805016829",
+            type: "paragraph"
+          })
 
-        +mini-menu({
-          value: "399140, Липецкая область, Добровский  район, с.Доброе, Советский переулок, дом № 6 А, кабинет 1",
-          type: "paragraph"
-        })
+          +mini-menu({
+            value: `399140, Липецкая область, Добровский  район, с.Доброе,
+              Советский переулок, дом № 6 А, кабинет 1`,
+            type: "paragraph"
+          })
