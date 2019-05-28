@@ -1,6 +1,6 @@
 .header-block
   position: absolute
-  z-index: $zHeaderBlock
+  z-index: $zHiIndex
   width: 100%
   height: 7rem
   +border-red
@@ -27,6 +27,10 @@
     margin-right: auto
     +border-black
     background: $colorBlue
+
+    @media screen and (max-width: 680px)
+      position: absolute
+      z-index: $zHiIndex
 
     @media screen and (max-width: 1160px)
       position: absolute
