@@ -44,6 +44,16 @@
         transition: background-color 0.1s linear, color 0.1s linear
         line-height: 5.6rem
 
+        @media screen and (max-width: 550px)
+          &:first-child
+            height: 7rem
+            padding-top: 1rem
+
+        @media screen and (max-width: 400px)
+          &:first-child
+            height: 5.6rem
+            padding-top: 0
+
         &:not(:first-of-type)
           border-top: 0.1rem solid rgba(255, 255, 255, 0.2)
 
