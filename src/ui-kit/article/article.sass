@@ -1,10 +1,10 @@
 .article
+  display: flex
   float: left
   width: 38rem
   height: 25rem
   margin: 1rem
   border: 0.1rem solid $colorGeneralFon
-  display: flex
   justify-content: center
   transition: all 0.4s
 
@@ -45,9 +45,9 @@
 
     @media screen and (max-width: 360px)
       width: 25rem
-      border: 1px solid red
       margin-left: 1.5rem
       margin-right: 1.5rem
+      +border-red
 
   &:nth-child(3n+1)
     margin-left: 0
@@ -81,8 +81,8 @@
     width: 100%
     height: 100%
     margin: 0 auto 0 auto
-    +border-blue
     text-decoration: none
+    +border-blue
 
   &__image
     float: right
@@ -94,11 +94,11 @@
 
   &__title
     margin: 21rem 0 0 0.5rem
-    +border-blue
-    color: $colorFontWhite
     font-size: $sizeTitleFont
     text-overflow: ellipsis
     text-transform: lowercase
+    color: $colorFontWhite
+    +border-blue
     overflow: hidden
     white-space: nowrap
 
@@ -106,15 +106,15 @@
       text-transform: uppercase
 
   &__desc
+    display: none
     width: 32rem
     height: 18rem
     margin: 0.5rem auto 0 auto
-    +border-blue
-    color: $colorFontText
     font-size: $sizeRegularFont
     text-transform: lowercase
+    color: $colorFontText
+    +border-blue
     overflow: hidden
-    display: none
 
     @media screen and (max-width: 1210px)
       width: 28rem

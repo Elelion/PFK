@@ -1,8 +1,8 @@
 .service
+  display: flex
   width: 16rem
   height: 22rem
   +border-black
-  display: flex
   justify-content: center
 
   &:hover .service__image
@@ -24,8 +24,8 @@
     margin: 0 1rem 2rem 1rem
 
   &__link
-    +border-blue
     text-decoration: none
+    +border-blue
 
   &__image
     width: 15rem
@@ -40,11 +40,11 @@
     height: 5rem
     width: 13.7rem
     margin: 0.5rem
-    +border-red
-    color: $colorFontText
     font-size: $sizeRegularFont
     text-transform: lowercase
     text-align: center
+    color: $colorFontText
+    +border-red
     overflow: hidden
 
     &:first-letter

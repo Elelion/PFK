@@ -1,8 +1,8 @@
 .slider
-  +border-blue
+  display: flex
   width: auto
   height: auto
-  display: flex
+  +border-blue
   align-items: center
   justify-content: center
 
@@ -38,8 +38,8 @@
   &__poster
     width: 55rem
     height: auto
-    +border-green
     color: $colorFontTitle
+    +border-green
 
     @media screen and (max-width: 600px)
       width: auto
@@ -47,8 +47,8 @@
     &-title,
     &-desc
       margin-left: 1rem
-      +border-green
       text-transform: lowercase
+      +border-green
 
       &:first-letter
         text-transform: uppercase
@@ -62,8 +62,8 @@
         width: auto
 
     &-desc
-      color: $colorFontText
       font-size: $sizeRegularFont
+      color: $colorFontText
 
   &__button
     width: 20rem

@@ -1,15 +1,14 @@
 .articles-block
+  display: flex
   width: 100%
   min-height: auto
   +border-red
-  display: flex
 
   &__wrapper
     width: $contentWidth
     height: 100%
-    margin: 0 auto 0 auto
+    margin: 0 auto 6.1rem auto
     +border-black
-    margin-bottom: 6.1rem
 
     @media screen and (max-width: 830px)
       width: $generalMinWidthForBlock
@@ -38,5 +37,5 @@
     float: right
     width: 20rem
     height: 5rem
-    +border-green
     margin-top: 2.5rem
+    +border-green

@@ -11,14 +11,14 @@ $path: '../ui-kit/button/images/arrows.png'
 
 	&-standard
 		position: relative
+		display: block
 		margin: 0 auto 0 auto
-		color: $colorFontTitle
 		font-family: "customFont"
 		text-align: center
 		text-decoration: none
 		text-transform: lowercase
 		text-overflow: ellipsis
-		display: block
+		color: $colorFontTitle
 		cursor: pointer
 		overflow: hidden
 		white-space: nowrap
@@ -45,10 +45,10 @@ $path: '../ui-kit/button/images/arrows.png'
 			// 	font-size: $sizeTitleFont
 
 		&__color
+			background: white
 			border: 0.1rem solid $colorBlue
 			border-bottom: 0.25rem solid $colorBlue
 			border-radius: 2rem
-			background: white
 
 			&:hover
 				background: $colorGeneralFon
@@ -72,15 +72,15 @@ $path: '../ui-kit/button/images/arrows.png'
 
 	&-arrow
 		position: relative
+		display: inline-block
 		float: left
 		width: 4.4rem
 		height: 4.4rem
 		margin: 0 .5rem
+		background: url($path) no-repeat
 		+border-red
 		border-color: transparent
 		border-radius: 50%
-		background: url($path) no-repeat
-		display: inline-block
 		cursor: pointer
 		overflow: hidden
 		outline: none
@@ -112,10 +112,10 @@ $path: '../ui-kit/button/images/arrows.png'
 	position: absolute
 	width: 0
 	height: 0
-	border-radius: 50%
 	background: rgba(50,102,217,0.7)
-	transform: scale(0)
+	border-radius: 50%
 	opacity: 1
+	transform: scale(0)
 	animation: ripple_standard 0.4s linear
 
 @keyframes ripple_standard
@@ -129,8 +129,8 @@ $path: '../ui-kit/button/images/arrows.png'
 	height: 0
 	border-radius: 50%
 	background: rgba(255,204,0,0.7)
-	transform: scale(0)
 	opacity: 1
+	transform: scale(0)
 	animation: ripple_standard 0.4s linear
 
 @keyframes ripple_arrow
