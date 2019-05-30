@@ -1,6 +1,15 @@
 mixin slider-block(parameter)
   -var parameter = parameter || {};
 
+  -var sliderImageName = parameter.sliderImageName || "slider-1";
+  -var sliderImageAlt = parameter.sliderImageAlt || "slider SEO alt";
+  -var sliderImageTitle = parameter.sliderImageTitle || "slider SEO title";
+
+  -var sliderTitle = parameter.sliderTitle || "slider title";
+  -var sliderDescription = parameter.sliderDescription || "slider desc";
+
+  -var sliderButtonCaption = parameter.sliderButtonCaption || "slider caption";
+
   //-
 
   .main-slider
@@ -11,8 +20,13 @@ mixin slider-block(parameter)
       ul.main-slider__list
         li.main-slider__item
           +slider({
+            imageName: sliderImageName,
+            imageAlt: sliderImageAlt,
+            imageTitle: sliderImageTitle,
+
             title: "Надежные окна в каждый дом",
             description: `Защитите себя и свою семью от пыли,
               шума и не погоды уже сегодня.`,
+
             ButtonCaption: "подробнее"
           })

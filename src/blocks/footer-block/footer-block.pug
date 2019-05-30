@@ -1,7 +1,12 @@
 mixin footer-block(parameter)
   -var parameter = parameter || {};
+  -var chapterTitile = parameter.chapterTitile || "";
 
-  -var titleSocials = parameter.titleSocials || "test";
+  -var socialsTitile = parameter.socialsTitile || "мы в соц.сетях";
+  -var differentsTitile = parameter.differentsTitile || "покупателям";
+  -var aboutTitile = parameter.aboutTitile || "о компании";
+  -var contactsTitile = parameter.contactsTitile || "контакты";
+  -var chapterSize = parameter.chapterSize || "small";
 
   //-
 
@@ -10,8 +15,8 @@ mixin footer-block(parameter)
       .footer-block__socials
         .footer-block__socials-title
           +chapter({
-            size: "small",
-            title: "мы в соц.сетях"
+            size: chapterSize,
+            title: socialsTitile
           })
 
         .footer-block__socials-content
@@ -25,8 +30,8 @@ mixin footer-block(parameter)
       .footer-block__differents
         .footer-block__contacts-title
           +chapter({
-            size: "small",
-            title: "покупателям"
+            size: chapterSize,
+            title: differentsTitile
           })
 
         .footer-block__contacts-content
@@ -55,8 +60,8 @@ mixin footer-block(parameter)
       .footer-block__about
         .footer-block__about-title
           +chapter({
-            size: "small",
-            title: "о компании"
+            size: chapterSize,
+            title: aboutTitile
           })
 
         .footer-block__about-content
@@ -85,8 +90,8 @@ mixin footer-block(parameter)
       .footer-block__contacts
         .footer-block__contacts-title
           +chapter({
-            size: "small",
-            title: "контакты"
+            size: chapterSize,
+            title: contactsTitile
           })
 
         .footer-block__contacts-content

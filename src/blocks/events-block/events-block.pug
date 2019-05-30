@@ -1,35 +1,85 @@
 mixin events-block(parameter)
   -var parameter = parameter || {};
 
+  -var eventsTitile = parameter.eventsTitile || "события";
+
+  -
+    var
+      eventsFirstLink =
+        parameter.eventsFirstLink || "";
+      eventsFirstImageName =
+        parameter.eventsFirstImageName || "events news image";
+      eventsFirstImageAlt =
+        parameter.eventsFirstImageAlt || "events SEO alt";
+      eventsFirstImageTitle =
+        parameter.eventsFirstImageTitle || "events SEO title";
+      eventsFirstTitle =
+        parameter.eventsFirstTitle || "events title";
+      eventsFirstDescription =
+        parameter.eventsFirstDescription || "events desc";
+
+  -
+    var
+      eventsSecondLink =
+        parameter.eventsSecondLink || "";
+      eventsSecondImageName =
+        parameter.eventsSecondImageName || "events news image";
+      eventsSecondImageAlt =
+        parameter.eventsSecondImageAlt || "events SEO alt";
+      eventsSecondImageTitle =
+        parameter.eventsSecondImageTitle || "events SEO title";
+      eventsSecondTitle =
+        parameter.eventsSecondTitle || "events title";
+      eventsSecondDescription =
+        parameter.eventsSecondDescription || "events desc";
+
+  -
+    var
+      eventsThirdLink =
+        parameter.eventsThirdLink || "";
+      eventsThirdImageName =
+        parameter.eventsThirdImageName || "events news image";
+      eventsThirdImageAlt =
+        parameter.eventsThirdImageAlt || "events SEO alt";
+      eventsThirdImageTitle =
+        parameter.eventsThirdImageTitle || "events SEO title";
+      eventsThirdTitle =
+        parameter.eventsThirdTitle || "events title";
+      eventsThirdDescription =
+        parameter.eventsThirdDescription || "events desc";
+
   //-
 
   .events-block
     .events-block__wrapper
       +chapter({
-        title: "события"
+        title: eventsTitile
       })
 
       .events-block__content
         +events({
-          imageName: "news-1",
-          imageAlt: "",
-          imageTitle: "",
-          title: "новинки",
-          description: "просмотреть новинки от 01.06.2019"
+          link: eventsFirstLink,
+          imageName: eventsFirstImageName,
+          imageAlt: eventsFirstImageAlt,
+          imageTitle: eventsFirstImageTitle,
+          title: eventsFirstTitle,
+          description: eventsFirstDescription
         })
 
         +events({
-          imageName: "news-2",
-          imageAlt: "",
-          imageTitle: "",
-          title: "лови момент",
-          description: "узнать подробности акции, действующей до 1.06.2019"
+          link: eventsSecondLink,
+          imageName: eventsSecondImageName,
+          imageAlt: eventsSecondImageAlt,
+          imageTitle: eventsSecondImageTitle,
+          title: eventsSecondTitle,
+          description: eventsSecondDescription
         })
 
         +events({
-          imageName: "news-3",
-          imageAlt: "",
-          imageTitle: "",
-          title: "сайт в доработке",
-          description: "описание планируемых доработок и изменений"
+          link: eventsThirdLink,
+          imageName: eventsThirdImageName,
+          imageAlt: eventsThirdImageAlt,
+          imageTitle: eventsThirdImageTitle,
+          title: eventsThirdTitle,
+          description: eventsThirdDescription
         })

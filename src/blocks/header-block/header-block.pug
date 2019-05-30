@@ -1,6 +1,24 @@
 mixin header-block(parameter)
   -var parameter = parameter || {};
-  -var titleType = parameter.titleType || "h1";
+
+  -var logoImage = parameter.image || "logo";
+  -var logoAltImage = parameter.altImage || "logo SEO alt";
+  -var logoTitleImage = parameter.titleImage || "logo SEO title";
+  -var logoTitle = parameter.logoTitle || "пфк";
+  -var logoSlogan = parameter.logoSlogan || "гарантия ";
+  -var logoSloganSpan = parameter.logoSloganSpan || "качества";
+
+  -var menuFirstItemTitile = parameter.menuFirstItemTitile || "главная";
+  -var menuSecondItemTitile = parameter.menuSecondItemTitile || "каталог";
+  -var menuThirdItemTitile = parameter.menuThirdItemTitile || "услуги";
+  -var menuFourthItemTitile = parameter.menuFourthItemTitile || "сервис";
+  -var menuFifthItemTitile = parameter.menuFifthItemTitile || "контакты";
+
+  -var menuFirstItemLink = parameter.menuFirstItemLink || "index.html";
+  -var menuSecondItemLink = parameter.menuSecondItemLink || "catalog.html";
+  -var menuThirdItemLink = parameter.menuThirdItemLink || "services.html";
+  -var menuFourthItemLink = parameter.menuFourthItemLink || "service.html";
+  -var menuFifthItemLink = parameter.menuFifthItemLink || "contacts.html";
 
   //-
 
@@ -9,13 +27,28 @@ mixin header-block(parameter)
       .header-block__logo
         a.header-block__logo-link(href="index.html")
           +logo({
-            title: "пфк",
-            slogan: "гарантия ",
-            sloganSpan: "качества"
+            image: logoImage,
+            altImage: logoAltImage,
+            titleImage: logoTitleImage,
+            title: logoTitle,
+            slogan: logoSlogan,
+            sloganSpan: logoSloganSpan
           })
 
       .header-block__menu
-        +menu
+        +menu({
+          firstItemTitile: menuFirstItemTitile,
+          secondItemTitile: menuSecondItemTitile,
+          thirdItemTitile: menuThirdItemTitile,
+          fourthItemTitile: menuFourthItemTitile,
+          fifthItemTitile: menuFifthItemTitile,
+
+          firstItemLink: menuFirstItemLink,
+          secondItemLink: menuSecondItemLink,
+          thirdItemLink: menuThirdItemLink,
+          fourthItemLink: menuFourthItemLink,
+          fifthItemLink: menuFifthItemLink
+        })
 
       //- TODO: for step #4
       .header-block__authorization

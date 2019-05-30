@@ -1,16 +1,19 @@
 mixin logo(parameter)
   -var parameter = parameter || {};
-  -var slogan = parameter.slogan || "Slogan";
-  -var sloganSpan = parameter.sloganSpan || "SloganSpan";
+
+  -var image = parameter.image || "path";
   -var altImage = parameter.altImage || "SEO alt";
   -var titleImage = parameter.titleImage || "SEO title";
+
+  -var slogan = parameter.slogan || "Slogan";
+  -var sloganSpan = parameter.sloganSpan || "SloganSpan";
 
   //-
 
   .logo
     .logo__wrapper
       img.logo__image(
-        src="./images/logo.png"
+        src="./images/" + image + ".png"
         alt= altImage
         title= titleImage)
 

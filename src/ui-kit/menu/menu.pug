@@ -1,10 +1,19 @@
 mixin menu(parameter)
   -var parameter = parameter || {};
-  -var firstItem = parameter.firstItem || "главная";
-  -var secondItem = parameter.secondItem || "каталог";
-  -var thirdItem = parameter.thirdItem || "услуги";
-  -var fourthItem = parameter.fourthItem || "сервис";
-  -var fifthItem = parameter.fifthItem || "контакты";
+
+  -var firstItemTitile = parameter.firstItemTitile || "menu-1";
+  -var secondItemTitile = parameter.secondItemTitile || "menu-2";
+  -var thirdItemTitile = parameter.thirdItemTitile || "menu-3";
+  -var fourthItemTitile = parameter.fourthItemTitile || "menu-4";
+  -var fifthItemTitile = parameter.fifthItemTitile || "menu-5";
+
+  //-
+
+  -var firstItemLink = parameter.firstItemLink || "";
+  -var secondItemLink = parameter.secondItemLink || "";
+  -var thirdItemLink = parameter.thirdItemLink || "";
+  -var fourthItemLink = parameter.fourthItemLink || "";
+  -var fifthItemLink = parameter.fifthItemLink || "";
 
   //-
 
@@ -15,16 +24,16 @@ mixin menu(parameter)
     nav.menu-nav
       ul.menu-nav__list
         li.menu-nav__item
-          a.menu-nav__link(href="index.html")= firstItem
+          a.menu-nav__link(href=firstItemLink)= firstItemTitile
 
         li.menu-nav__item
-          a.menu-nav__link(href="catalog.html")= secondItem
+          a.menu-nav__link(href=secondItemLink)= secondItemTitile
 
         li.menu-nav__item
-          a.menu-nav__link(href="services.html")= thirdItem
+          a.menu-nav__link(href=thirdItemLink)= thirdItemTitile
 
         li.menu-nav__item
-          a.menu-nav__link(href="service.html")= fourthItem
+          a.menu-nav__link(href=fourthItemLink)= fourthItemTitile
 
         li.menu-nav__item
-          a.menu-nav__link(href="contacts.html")= fifthItem
+          a.menu-nav__link(href=fifthItemLink)= fifthItemTitile
