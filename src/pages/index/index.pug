@@ -12,6 +12,8 @@ body
 
     section.main-content__news
       +events-block({
+        eventsTitile: "события",
+
         firstLink: "",
         firstImageName: "news-1",
         firstImageAlt: "",
@@ -35,7 +37,39 @@ body
       })
 
     section.main-content__services
-      +services-block
+      +services-block({
+        title: "услуги",
+
+        firstLink: "",
+        firstImageName: "service-1",
+        firstImageAlt: "",
+        firstImageTitle: "",
+        firstTitile: "комплексное остекление",
+
+        secondLink: "",
+        secondImageName: "service-2",
+        secondImageAlt: "",
+        secondImageTitle: "",
+        secondTitile: "ремонт окон",
+
+        thirdLink: "",
+        thirdImageName: "service-3",
+        thirdImageAlt: "",
+        thirdImageTitle: "",
+        thirdTitile: "гарантийное обслуживание",
+
+        fourthLink: "",
+        fourthImageName: "service-4",
+        fourthImageAlt: "",
+        fourthImageTitle: "",
+        fourthTitile: "бесплатный замер",
+
+        fifthLink: "",
+        fifthImageName: "service-5",
+        fifthImageAlt: "",
+        fifthImageTitle: "",
+        fifthTitile: "качественная доставка"
+      })
 
     section.main-content__articles
       +articles-block
