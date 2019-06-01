@@ -1,37 +1,94 @@
 mixin services-block(parameter)
   -var parameter = parameter || {};
 
+  -var title = parameter.title || "titile";
+
+  -
+    var
+      firstLink = parameter.firstLink || "";
+      firstImageName = parameter.firstImageName || "services image";
+      firstImageAlt = parameter.firstImageAlt || "services SEO alt"
+      firstImageTitle = parameter.firstImageTitle || "services SEO titile"
+      firstTitile = parameter.firstTitile || "services titile";
+
+  -
+    var
+      secondLink = parameter.secondLink || "";
+      secondImageName = parameter.secondImageName || "services image";
+      secondImageAlt = parameter.secondImageAlt || "services SEO alt"
+      secondImageTitle = parameter.secondImageTitle || "services SEO titile"
+      secondTitile = parameter.secondTitile || "services titile";
+
+  -
+    var
+      thirdLink = parameter.thirdLink || "";
+      thirdImageName = parameter.thirdImageName || "services image";
+      thirdImageAlt = parameter.thirdImageAlt || "services SEO alt"
+      thirdImageTitle = parameter.thirdImageTitle || "services SEO titile"
+      thirdTitile = parameter.thirdTitile || "services titile";
+
+  -
+    var
+      fourthLink = parameter.fourthLink || "";
+      fourthImageName = parameter.fourthImageName || "services image";
+      fourthImageAlt = parameter.fourthImageAlt || "services SEO alt"
+      fourthImageTitle = parameter.fourthImageTitle || "services SEO titile"
+      fourthTitile = parameter.fourthTitile || "services titile";
+
+  -
+    var
+      fifthLink = parameter.fifthLink || "";
+      fifthImageName = parameter.fifthImageName || "services image";
+      fifthImageAlt = parameter.fifthImageAlt || "services SEO alt"
+      fifthImageTitle = parameter.fifthImageTitle || "services SEO titile"
+      fifthTitile = parameter.fifthTitile || "services titile";
+
   //-
 
   .services-block
     .services-block__wrapper
       +chapter({
-          title: "услуги",
+          title: title,
           indent: "true"
         })
 
       .services-block__content
         +service({
-          imageName: "service-1",
-          title: "комплексное остекление"
+          link: firstLink,
+          imageName: firstImageName,
+          imageAlt: firstImageAlt,
+          imageTitile: firstImageTitle,
+          title: firstTitile
         })
 
         +service({
-          imageName: "service-2",
-          title: "ремонт окон"
+          link: secondLink,
+          imageName: secondImageName,
+          imageAlt: secondImageAlt,
+          imageTitile: secondImageTitle,
+          title: secondTitile
         })
 
         +service({
-          imageName: "service-3",
-          title: "гарантийное обслуживание"
+          link: thirdLink,
+          imageName: thirdImageName,
+          imageAlt: thirdImageAlt,
+          imageTitile: thirdImageTitle,
+          title: thirdTitile
         })
 
         +service({
-          imageName: "service-4",
-          title: "бесплатный замер"
+          link: fourthLink,
+          imageName: fourthImageName,
+          imageAlt: fourthImageAlt,
+          imageTitile: fourthImageTitle,
+          title: fourthTitile
         })
 
         +service({
-          imageName: "service-5",
-          title: "качественная доставка"
+          link: fifthLink,
+          imageName: fifthImageName,
+          imageAlt: fifthImageAlt,
+          imageTitile: fifthImageTitle,
+          title: fifthTitile
         })
