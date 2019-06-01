@@ -5,48 +5,30 @@ mixin events-block(parameter)
 
   -
     var
-      eventsFirstLink =
-        parameter.eventsFirstLink || "";
-      eventsFirstImageName =
-        parameter.eventsFirstImageName || "events news image";
-      eventsFirstImageAlt =
-        parameter.eventsFirstImageAlt || "events SEO alt";
-      eventsFirstImageTitle =
-        parameter.eventsFirstImageTitle || "events SEO title";
-      eventsFirstTitle =
-        parameter.eventsFirstTitle || "events title";
-      eventsFirstDescription =
-        parameter.eventsFirstDescription || "events desc";
+      firstLink = parameter.firstLink || "";
+      firstImageName = parameter.firstImageName || "events image";
+      firstImageAlt = parameter.firstImageAlt || "events SEO alt";
+      firstImageTitle = parameter.firstImageTitle || "events SEO title";
+      firstTitle = parameter.firstTitle || "events title";
+      firstDescription = parameter.firstDescription || "events desc";
 
   -
     var
-      eventsSecondLink =
-        parameter.eventsSecondLink || "";
-      eventsSecondImageName =
-        parameter.eventsSecondImageName || "events news image";
-      eventsSecondImageAlt =
-        parameter.eventsSecondImageAlt || "events SEO alt";
-      eventsSecondImageTitle =
-        parameter.eventsSecondImageTitle || "events SEO title";
-      eventsSecondTitle =
-        parameter.eventsSecondTitle || "events title";
-      eventsSecondDescription =
-        parameter.eventsSecondDescription || "events desc";
+      secondLink = parameter.secondLink || "";
+      secondImageName = parameter.secondImageName || "events image";
+      secondImageAlt = parameter.secondImageAlt || "events SEO alt";
+      secondImageTitle = parameter.secondImageTitle || "events SEO title";
+      secondTitle = parameter.secondTitle || "events title";
+      secondDescription = parameter.secondDescription || "events desc";
 
   -
     var
-      eventsThirdLink =
-        parameter.eventsThirdLink || "";
-      eventsThirdImageName =
-        parameter.eventsThirdImageName || "events news image";
-      eventsThirdImageAlt =
-        parameter.eventsThirdImageAlt || "events SEO alt";
-      eventsThirdImageTitle =
-        parameter.eventsThirdImageTitle || "events SEO title";
-      eventsThirdTitle =
-        parameter.eventsThirdTitle || "events title";
-      eventsThirdDescription =
-        parameter.eventsThirdDescription || "events desc";
+      thirdLink = parameter.thirdLink || "";
+      thirdImageName = parameter.thirdImageName || "events image";
+      thirdImageAlt = parameter.thirdImageAlt || "events SEO alt";
+      thirdImageTitle = parameter.thirdImageTitle || "events SEO title";
+      thirdTitle = parameter.thirdTitle || "events title";
+      thirdDescription = parameter.thirdDescription || "events desc";
 
   //-
 
@@ -58,28 +40,28 @@ mixin events-block(parameter)
 
       .events-block__content
         +events({
-          link: eventsFirstLink,
-          imageName: eventsFirstImageName,
-          imageAlt: eventsFirstImageAlt,
-          imageTitle: eventsFirstImageTitle,
-          title: eventsFirstTitle,
-          description: eventsFirstDescription
+          link: firstLink,
+          imageName: firstImageName,
+          imageAlt: firstImageAlt,
+          imageTitle: firstImageTitle,
+          title: firstTitle,
+          description: firstDescription
         })
 
         +events({
-          link: eventsSecondLink,
-          imageName: eventsSecondImageName,
-          imageAlt: eventsSecondImageAlt,
-          imageTitle: eventsSecondImageTitle,
-          title: eventsSecondTitle,
-          description: eventsSecondDescription
+          link: secondLink,
+          imageName: secondImageName,
+          imageAlt: secondImageAlt,
+          imageTitle: secondImageTitle,
+          title: secondTitle,
+          description: secondDescription
         })
 
         +events({
-          link: eventsThirdLink,
-          imageName: eventsThirdImageName,
-          imageAlt: eventsThirdImageAlt,
-          imageTitle: eventsThirdImageTitle,
-          title: eventsThirdTitle,
-          description: eventsThirdDescription
+          link: thirdLink,
+          imageName: thirdImageName,
+          imageAlt: thirdImageAlt,
+          imageTitle: thirdImageTitle,
+          title: thirdTitle,
+          description: thirdDescription
         })
