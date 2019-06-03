@@ -3,7 +3,7 @@ mixin articles-block(parameter)
     var
       parameter = parameter || {};
 
-      title = parameter.title || "titile";
+      titleChapter = parameter.titleChapter || "titile";
 
       titles = parameter.titles || ["Статья отсутствует", "no article"];
       descriptions = parameter.descriptions ||
@@ -14,7 +14,7 @@ mixin articles-block(parameter)
   .articles-block
     .articles-block__wrapper
       +chapter({
-        title: title
+        title: titleChapter
       })
 
       .articles-block__content
