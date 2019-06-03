@@ -18,7 +18,7 @@ mixin articles-block(parameter)
       })
 
       .articles-block__content
-        - for (var i = 1; i <= titles.length; i++)
+        -for (var i = 1; i <= titles.length; i++)
           +article({
             title: titles[i - 1],
             description: descriptions[i - 1]
