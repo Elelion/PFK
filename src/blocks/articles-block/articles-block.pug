@@ -1,45 +1,28 @@
 mixin articles-block(parameter)
-  -var parameter = parameter || {};
+  -
+    var
+      parameter = parameter || {};
+
+      title = parameter.title || "titile";
+
+      titles = parameter.titles || ["Статья отсутствует", "no article"];
+      descriptions = parameter.descriptions ||
+        ["Описание отсутствует", "no description"];
 
   //-
 
   .articles-block
     .articles-block__wrapper
       +chapter({
-          title: "статьи"
-        })
+        title: title
+      })
 
       .articles-block__content
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
-        +article({
-          title: "Статья отсутствует",
-          description: `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`})
-
+        - for (var i = 1; i <= titles.length; i++)
+          +article({
+            title: titles[i - 1],
+            description: descriptions[i - 1]
+          })
 
         .articles-block__button
           +button({caption: 'все статьи'})
