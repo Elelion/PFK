@@ -1,67 +1,31 @@
 mixin events-block(parameter)
-  -var parameter = parameter || {};
-
-  -var eventsTitile = parameter.eventsTitile || "title";
-
   -
     var
-      firstLink = parameter.firstLink || "";
-      firstImageName = parameter.firstImageName || "events image";
-      firstImageAlt = parameter.firstImageAlt || "events SEO alt";
-      firstImageTitle = parameter.firstImageTitle || "events SEO title";
-      firstTitle = parameter.firstTitle || "events title";
-      firstDescription = parameter.firstDescription || "events desc";
+      parameter = parameter || {};
 
-  -
-    var
-      secondLink = parameter.secondLink || "";
-      secondImageName = parameter.secondImageName || "events image";
-      secondImageAlt = parameter.secondImageAlt || "events SEO alt";
-      secondImageTitle = parameter.secondImageTitle || "events SEO title";
-      secondTitle = parameter.secondTitle || "events title";
-      secondDescription = parameter.secondDescription || "events desc";
+      titleChapter = parameter.titleChapter || "title";
 
-  -
-    var
-      thirdLink = parameter.thirdLink || "";
-      thirdImageName = parameter.thirdImageName || "events image";
-      thirdImageAlt = parameter.thirdImageAlt || "events SEO alt";
-      thirdImageTitle = parameter.thirdImageTitle || "events SEO title";
-      thirdTitle = parameter.thirdTitle || "events title";
-      thirdDescription = parameter.thirdDescription || "events desc";
+      imagesName = parameter.imagesName || ["imageName", "imageName"];
+      imagesAlt = parameter.imagesAlt || ["alt SEO", "alt SEO"];
+      imagesTitle = parameter.imagesTitle || ["title SEO", "title SEO"];
+      titles = parameter.titles || ["title", "title"];
+      descriptions = parameter.description || ["desc", "desc"];
 
   //-
 
   .events-block
     .events-block__wrapper
       +chapter({
-        title: eventsTitile
+        title: titleChapter
       })
 
       .events-block__content
-        +events({
-          link: firstLink,
-          imageName: firstImageName,
-          imageAlt: firstImageAlt,
-          imageTitle: firstImageTitle,
-          title: firstTitle,
-          description: firstDescription
-        })
-
-        +events({
-          link: secondLink,
-          imageName: secondImageName,
-          imageAlt: secondImageAlt,
-          imageTitle: secondImageTitle,
-          title: secondTitle,
-          description: secondDescription
-        })
-
-        +events({
-          link: thirdLink,
-          imageName: thirdImageName,
-          imageAlt: thirdImageAlt,
-          imageTitle: thirdImageTitle,
-          title: thirdTitle,
-          description: thirdDescription
-        })
+        -for (var i = 1; i <= titles.length; i++)
+          +events({
+            link: "",
+            imageName: imagesName[i - 1],
+            imageAlt: imagesAlt[i - 1],
+            imageTitle: imagesTitle[ i - 1],
+            title: titles[i - 1],
+            description: descriptions[i - 1]
+          })

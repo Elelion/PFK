@@ -12,90 +12,92 @@ body
 
     section.main-content__news
       +events-block({
-        eventsTitile: "события",
+        titleChapter: "события",
 
-        firstLink: "",
-        firstImageName: "news-1",
-        firstImageAlt: "",
-        firstImageTitle: "",
-        firstTitle: "новинки",
-        firstDescription: "просмотреть новинки от 01.06.2019",
+        imagesName: [
+          "news-1",
+          "news-2",
+          "news-3"
+        ],
 
-        secondLink: "",
-        secondImageName: "news-2",
-        secondImageAlt: "",
-        secondImageTitle: "",
-        secondTitle: "лови момент",
-        secondDescription: "узнать подробности акции, до 1.06.2019",
+        imagesAlt: [
 
-        thirdLink: "",
-        thirdImageName: "news-3",
-        thirdImageAlt: "",
-        thirdImageTitle: "",
-        thirdTitle: "сайт в доработке",
-        thirdDescription: "описание планируемых доработок и изменений"
+        ],
+
+        imagesTitle: [
+
+        ],
+
+        titles: [
+          "новинки",
+          "лови момент",
+          "сайт в доработке"
+        ],
+
+        description: [
+          "просмотреть новинки от 01.06.2019",
+          "узнать подробности акции, до 1.06.2019",
+          "описание планируемых доработок и изменений"
+        ]
       })
 
     section.main-content__services
       +services-block({
-        title: "услуги",
+        titleChapter: "услуги",
 
-        firstLink: "",
-        firstImageName: "service-1",
-        firstImageAlt: "",
-        firstImageTitle: "",
-        firstTitile: "комплексное остекление",
+        imagesName: [
+          "service-1",
+          "service-2",
+          "service-3",
+          "service-4",
+          "service-5"
+        ],
 
-        secondLink: "",
-        secondImageName: "service-2",
-        secondImageAlt: "",
-        secondImageTitle: "",
-        secondTitile: "ремонт окон",
+        imagesAlt: [
 
-        thirdLink: "",
-        thirdImageName: "service-3",
-        thirdImageAlt: "",
-        thirdImageTitle: "",
-        thirdTitile: "гарантийное обслуживание",
+        ],
 
-        fourthLink: "",
-        fourthImageName: "service-4",
-        fourthImageAlt: "",
-        fourthImageTitle: "",
-        fourthTitile: "бесплатный замер",
+        imagesTitle: [
 
-        fifthLink: "",
-        fifthImageName: "service-5",
-        fifthImageAlt: "",
-        fifthImageTitle: "",
-        fifthTitile: "качественная доставка"
+        ],
+
+        titles: [
+          "комплексное остекление",
+          "ремонт окон",
+          "гарантийное обслуживание",
+          "бесплатный замер",
+          "качественная доставка"
+        ]
       })
 
     section.main-content__articles
-      +articles-block
+      +articles-block({
+        titleChapter: "статьи",
+
+        titles: [
+          "Статья отсутствует",
+          "Статья отсутствует",
+          "Статья отсутствует",
+          "Статья отсутствует",
+          "Статья отсутствует",
+          "Статья отсутствует"
+        ],
+
+        descriptions: [
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
+          `Ой, что то пошло не так, и с статьей случилось что то
+            страшное и ужасное. Обещаем, что мы скоро все исправим!`
+        ]
+      })
 
   footer.footer
     +footer-block
-
-
-
-
-
-//- NOTE:
-//- format for all objects: ({parameter: 'value', parameter: number})
-//- if any parameter is NOT specified, value will be - the default
-
-//- ---
-
-//- chapter:
-//-     titleType: "h1, h2, h3, or P - if default",
-//-     title: "text",
-//-     color: "white, or black - if default"
-
-//- ---
-
-//- logo:
-//-     alt: "text",
-//-     title: "text"
-
-//- ---
