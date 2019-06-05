@@ -1,7 +1,9 @@
 .events
+  display: inline-block
   width: 35rem
   height: auto
-  +border-black
+  border: 0.1rem solid $colorGeneralFon
+  overflow: hidden
 
   &:first-child
     margin-right: 2rem
@@ -36,7 +38,7 @@
 
   &:hover .events__image
     opacity: $opacity
-    box-shadow: $box-shadow
+    transform: $transformEvents
 
   &__link
     width: 34rem
