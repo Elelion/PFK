@@ -9,8 +9,21 @@ mixin header-block(parameter)
       logoSlogan = parameter.logoSlogan || "гарантия ";
       logoSloganSpan = parameter.logoSloganSpan || "качества";
 
-      menuTitles = parameter.menuTitles || ["1", "2", "3", "4", "5"];
-      menuLinks = parameter.menuLinks || [""];
+      menuTitles = parameter.menuTitles || [
+        "главная",
+        "каталог",
+        "услуги",
+        "сервис",
+        "контакты"
+      ];
+
+      menuLinks = parameter.menuLinks || [
+        "index.html",
+        "catalog.html",
+        "services.html",
+        "service.html",
+        "contacts.html"
+      ];
 
   //-
 
