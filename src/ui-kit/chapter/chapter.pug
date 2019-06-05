@@ -1,17 +1,18 @@
 mixin chapter(parameter)
-  -var parameter = parameter || {};
-
-  -var titleType = parameter.titleType || "";
-  -var title = parameter.title || "Chapter title text";
-  -var color = parameter.color || "standard";
-  -var size = parameter.size || "standard";
-  -var indent = parameter.indent || "false";
-
   -
-    var classesText = [
-      "chapter__title",
-      `chapter__color-${color}`
-    ];
+    var
+      parameter = parameter || {};
+
+      titleType = parameter.titleType || "";
+      title = parameter.title || "Chapter title text";
+      color = parameter.color || "standard";
+      size = parameter.size || "standard";
+      indent = parameter.indent || "false";
+
+      classesText = [
+        "chapter__title",
+        `chapter__color-${color}`
+      ];
 
   mixin chapter-content
     case titleType

@@ -1,12 +1,14 @@
 mixin button(parameter)
-	-var parameter = parameter || {};
+	-
+		var
+			parameter = parameter || {};
 
-	-var size = parameter.size || "standard";
-	-var caption = parameter.caption || "button";
-	-var extension = parameter.extension || "";
+			size = parameter.size || "standard";
+			caption = parameter.caption || "button";
+			extension = parameter.extension || "";
 
-	-var type = parameter.type || "standard";
-	-var direction = parameter.direction || "left";
+			type = parameter.type || "standard";
+			direction = parameter.direction || "left";
 
 	case type
 		when "arrow"

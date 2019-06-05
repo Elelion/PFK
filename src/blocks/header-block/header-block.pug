@@ -1,30 +1,16 @@
 mixin header-block(parameter)
-  -var parameter = parameter || {};
-
   -
     var
+      parameter = parameter || {};
+
       logoImage = parameter.image || "logo";
       logoAltImage = parameter.altImage || "logo SEO alt";
       logoTitleImage = parameter.titleImage || "logo SEO title";
-      logoTitle = parameter.logoTitle || "пфк";
       logoSlogan = parameter.logoSlogan || "гарантия ";
       logoSloganSpan = parameter.logoSloganSpan || "качества";
 
-  -
-    var
-      menuFirstItemTitile = parameter.menuFirstItemTitile || "главная";
-      menuSecondItemTitile = parameter.menuSecondItemTitile || "каталог";
-      menuThirdItemTitile = parameter.menuThirdItemTitile || "услуги";
-      menuFourthItemTitile = parameter.menuFourthItemTitile || "сервис";
-      menuFifthItemTitile = parameter.menuFifthItemTitile || "контакты";
-
-  -
-    var
-      menuFirstItemLink = parameter.menuFirstItemLink || "index.html";
-      menuSecondItemLink = parameter.menuSecondItemLink || "catalog.html";
-      menuThirdItemLink = parameter.menuThirdItemLink || "services.html";
-      menuFourthItemLink = parameter.menuFourthItemLink || "service.html";
-      menuFifthItemLink = parameter.menuFifthItemLink || "contacts.html";
+      menuTitles = parameter.menuTitles || ["1", "2", "3", "4", "5"];
+      menuLinks = parameter.menuLinks || [""];
 
   //-
 
@@ -36,24 +22,14 @@ mixin header-block(parameter)
             image: logoImage,
             altImage: logoAltImage,
             titleImage: logoTitleImage,
-            title: logoTitle,
             slogan: logoSlogan,
             sloganSpan: logoSloganSpan
           })
 
       .header-block__menu
         +menu({
-          firstItemTitile: menuFirstItemTitile,
-          secondItemTitile: menuSecondItemTitile,
-          thirdItemTitile: menuThirdItemTitile,
-          fourthItemTitile: menuFourthItemTitile,
-          fifthItemTitile: menuFifthItemTitile,
-
-          firstItemLink: menuFirstItemLink,
-          secondItemLink: menuSecondItemLink,
-          thirdItemLink: menuThirdItemLink,
-          fourthItemLink: menuFourthItemLink,
-          fifthItemLink: menuFifthItemLink
+          titles: menuTitles,
+          links: menuLinks
         })
 
       //- TODO: for step #4
