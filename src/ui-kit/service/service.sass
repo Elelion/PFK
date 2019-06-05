@@ -2,8 +2,12 @@
   display: flex
   width: 16rem
   height: 22rem
-  +border-black
+  border-bottom: $lineHeight solid white
+  transition: $transition
   justify-content: center
+
+  &:hover
+    border-color: transparent
 
   &:hover .service__image
     opacity: $opacity
