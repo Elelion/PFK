@@ -1,12 +1,64 @@
 mixin footer-block(parameter)
-  -var parameter = parameter || {};
-  -var chapterTitile = parameter.chapterTitile || "";
+  -
+    var
+      parameter = parameter || {};
 
-  -var socialsTitile = parameter.socialsTitile || "мы в соц.сетях";
-  -var differentsTitile = parameter.differentsTitile || "покупателям";
-  -var aboutTitile = parameter.aboutTitile || "о компании";
-  -var contactsTitile = parameter.contactsTitile || "контакты";
-  -var chapterSize = parameter.chapterSize || "small";
+      titles = parameter.titles || [
+        "мы в соц.сетях",
+        "покупателям",
+        "о компании",
+        "контакты"
+        ];
+
+      chapterSize = parameter.chapterSize || "small";
+
+      //- NOTE: we are in social networks
+      contentLink = parameter.contentLink || [
+        "https://www.instagram.com/elitkomplekt.ru/"
+      ];
+
+      contentImage = parameter.contentImage || [
+        "instagram"
+      ];
+
+
+      //- NOTE: to buyers
+      differentsTitle = parameter.differentsTitle || [
+        "самовывоз",
+        "способы оплаты",
+        "гарантийная политика",
+        "обработка персональных данных"
+      ];
+
+      differentsLink = parameter.differentsLink || [
+        "",
+        "",
+        "",
+        ""
+      ];
+
+      //- NOTE: about
+      aboutTitle = parameter.aboutTitle || [
+        "вакансии",
+        "логистика",
+        "документы",
+        "скачать презентацию"
+      ];
+
+      aboutLink = parameter.aboutLink || [
+        "",
+        "",
+        "",
+        ""
+      ];
+
+      //- NOTE: contacts
+      contactsTitle = parameter.contactsTitle || [
+        "ООО «ПФК»",
+        "ИНН: 4805016829",
+        `399140, Липецкая область, Добровский  район, с.Доброе,
+        Советский переулок, дом № 6 А, кабинет 1`
+      ];
 
   //-
 
@@ -16,14 +68,15 @@ mixin footer-block(parameter)
         .footer-block__socials-title
           +chapter({
             size: chapterSize,
-            title: socialsTitile
+            title: titles[0]
           })
 
         .footer-block__socials-content
-          +social({
-            link: "https://www.instagram.com/elitkomplekt.ru/",
-            imageName: "instagram"
-          })
+          -for (var i = 1; i <= contentLink.length; i++)
+            +social({
+              link: contentLink[i - 1],
+              imageName: contentImage[i - 1]
+            })
 
       //-
 
@@ -31,29 +84,16 @@ mixin footer-block(parameter)
         .footer-block__contacts-title
           +chapter({
             size: chapterSize,
-            title: differentsTitile
+            title: titles[1]
           })
 
         .footer-block__contacts-content
-          +mini-menu({
-            value: "самовывоз",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "способы оплаты",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "гарантийная политика",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "обработка персональных данных",
-            type: "url"
-          })
+          -for (var i = 1; i <= differentsTitle.length; i++)
+            +mini-menu({
+              value: differentsTitle[i - 1],
+              link: differentsLink[i - 1],
+              type: "url"
+            })
 
       //-
 
@@ -61,29 +101,16 @@ mixin footer-block(parameter)
         .footer-block__about-title
           +chapter({
             size: chapterSize,
-            title: aboutTitile
+            title: titles[2]
           })
 
         .footer-block__about-content
-          +mini-menu({
-            value: "вакансии",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "логистика",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "документы",
-            type: "url"
-          })
-
-          +mini-menu({
-            value: "скачать презентацию",
-            type: "url"
-          })
+          -for (var i = 1; i <= aboutTitle.length; i++)
+            +mini-menu({
+              value: aboutTitle[i - 1],
+              link: aboutLink[i - 1],
+              type: "url"
+            })
 
       //-
 
@@ -91,22 +118,12 @@ mixin footer-block(parameter)
         .footer-block__contacts-title
           +chapter({
             size: chapterSize,
-            title: contactsTitile
+            title: titles[3]
           })
 
         .footer-block__contacts-content
-          +mini-menu({
-            value: "ООО «ПФК»",
-            type: "paragraph"
-          })
-
-          +mini-menu({
-            value: "ИНН: 4805016829",
-            type: "paragraph"
-          })
-
-          +mini-menu({
-            value: `399140, Липецкая область, Добровский  район, с.Доброе,
-              Советский переулок, дом № 6 А, кабинет 1`,
-            type: "paragraph"
-          })
+          -for (var i = 1; i <= contactsTitle.length; i++)
+            +mini-menu({
+              value: contactsTitle[i - 1],
+              type: "paragraph"
+            })
