@@ -1,0 +1,34 @@
+mixin slider-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      sliderImageName = parameter.sliderImageName || "slider-1";
+      sliderImageAlt = parameter.sliderImageAlt || "slider SEO alt";
+      sliderImageTitle = parameter.sliderImageTitle || "slider SEO title";
+
+      sliderTitle = parameter.sliderTitle || "slider title";
+      sliderDescription = parameter.sliderDescription || "slider desc";
+
+      sliderButtonCaption = parameter.sliderButtonCaption || "slider caption";
+
+  //-
+
+  .main-slider
+    .main-slider__button-back
+    .main-slider__button-forward
+
+    .main-slider__wrapper
+      ul.main-slider__list
+        li.main-slider__item
+          +slider({
+            imageName: sliderImageName,
+            imageAlt: sliderImageAlt,
+            imageTitle: sliderImageTitle,
+
+            title: "Надежные окна в каждый дом",
+            description: `Защитите себя и свою семью от пыли,
+              шума и не погоды уже сегодня.`,
+
+            ButtonCaption: "подробнее"
+          })

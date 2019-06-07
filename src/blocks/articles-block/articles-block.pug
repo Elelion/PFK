@@ -1,0 +1,27 @@
+mixin articles-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      titleChapter = parameter.titleChapter || "titile";
+
+      titles = parameter.titles || ["title", "title"];
+      descriptions = parameter.descriptions || ["desc", "desc"];
+
+  //-
+
+  .articles-block
+    .articles-block__wrapper
+      +chapter({
+        title: titleChapter
+      })
+
+      .articles-block__content
+        -for (var i = 1; i <= titles.length; i++)
+          +article({
+            title: titles[i - 1],
+            description: descriptions[i - 1]
+          })
+
+        .articles-block__button
+          +button({caption: 'все статьи'})
