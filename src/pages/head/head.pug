@@ -1,0 +1,21 @@
+mixin head(parameter)
+	//- TODO: writing a SEO words
+	-var parameter = parameter || {};
+	-var keywords = parameter.keywords || 'SEO keywords';
+	-var description = parameter.description || 'SEO description';
+	-var title = parameter.title || 'SEO title';
+
+	//-
+
+	head
+		title= title
+
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		meta(name='keywords', content= keywords)
+		meta(name='description', content= description)
+		meta(name='viewport', content='width=device-width, \
+			initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+
+		link(rel='stylesheet', href='css/style.css')
+		link(rel='shortcut icon', type='image/x-icon',
+			href='images/favicon.png')
