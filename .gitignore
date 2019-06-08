@@ -1,8 +1,4 @@
-*.ai
-*.log
-*.pdf
-*.psd
-
+#NOTE: caches
 node_modules/
 npm_debug.*
 Thumbs.db
@@ -12,5 +8,18 @@ src/sass/.sass-cache
 src/.sass-cache
 src/sass/.styles.css.map
 
+#NOTE: images
+src/images/articles/jpg
+src/images/events/jpg
+src/images/services/jpg
+src/images/sliders/jpg
+
+#NOTE: web files
 src/css/*
 src/*.html
+
+#NOTE: differents
+*.ai
+*.log
+*.pdf
+*.psd
