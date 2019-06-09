@@ -1,0 +1,50 @@
+// NOTE: import general style's
+// import ./mixins
+@import ./mixins
+@import ./variables
+
+/**/
+
+// NOTE: default font
+@font-face
+	font-family: "customFont"
+	src: url("../fonts/Exo2.ttf")
+
+/**/
+
+html
+	overflow-x: hidden
+	font-size: 10px
+
+body
+	width: 100%
+	margin: 0
+	padding: 0
+	+default-font
+	font-size: $sizeRegularFont
+
+// **
+
+// NOTE: import ui-kit's
+// @import ../ui-kit/menu/menu
+@import ../ui-kit/chapter/chapter
+@import ../ui-kit/button/button
+@import ../ui-kit/logo/logo
+@import ../ui-kit/menu/menu
+@import ../ui-kit/slider/slider
+@import ../ui-kit/events/events
+@import ../ui-kit/service/service
+@import ../ui-kit/article/article
+@import ../ui-kit/social/social
+@import ../ui-kit/mini-menu/mini-menu
+
+// NOTE: import block's
+@import ../blocks/header-block/header-block
+@import ../blocks/slider-block/slider-block
+@import ../blocks/events-block/events-block
+@import ../blocks/services-block/services-block
+@import ../blocks/articles-block/articles-block
+@import ../blocks/footer-block/footer-block
+
+// NOTE: import pages's
+@import ../pages/index/index
