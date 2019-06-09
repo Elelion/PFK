@@ -10,9 +10,11 @@ src/sass/.styles.css.map
 
 #NOTE: images
 src/images/articles/jpg
+src/images/articles/templates
 src/images/events/jpg
 src/images/services/jpg
 src/images/sliders/jpg
+src/images/logo/jpg
 
 #NOTE: web files
 src/css/*
