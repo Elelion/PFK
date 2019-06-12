@@ -1,63 +1,105 @@
 'use strict';
 
-// NOTE: including plugin's
-var gulp = require('gulp'),
-    plumber = require('gulp-plumber'),
-    sass = require('gulp-sass'),
-    del = require('del'),
-    autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync').create();;
+var
+	gulp = require('gulp'),
+	plumber = require('gulp-plumber'),
+	sass = require('gulp-sass'),
+	pug = require('gulp-pug'),
+	del = require('del'),
+	autoprefixer = require('gulp-autoprefixer'),
+	rename = require('gulp-rename'),
+	csso = require('gulp-csso'),
+	webp = require('gulp-webp');
+
+// watch = require('gulp-watch'),
+// browserSync = require('browser-sync').create();
 
 // **
 
-// NOTE: functions...
-gulp.task('clean', function () {
-  return del('./src/css/*');
+gulp.task('clean', function() {
+	del('./build/src/images/*')
+	del('./build/src/fonts/*')
+	del('./build/src/css/*')
+	return del('./build/src/*.html');
 });
 
 // **
 
-gulp.task('style', function() {
-  // NOTE: получаем контент
-  return gulp.src('./src/sass/**/style.sass')
+gulp.task('sass', function() {
+	return gulp.src('./src/sass/**/style.sass')
 
-  // NOTE: прогоняем наш контент через sass
-  .pipe(sass())
+	.pipe(sass())
+	.pipe(plumber())
 
-  // NOTE: указываем куда ложим наш готовенький *.css
-  .pipe(gulp.dest('./src/css/'))
+	.pipe(autoprefixer({
+		browsers: ['last 4 versions']
+	}))
 
-  // NOTE: автоматизируем наш компилятор, что бы он не стопался из за ошибок
-  .pipe(plumber())
-
-  // NOTE: добавляем авто перфиксы для 4 прошлых версий браузеров
-  .pipe(autoprefixer({
-    browsers: ['last 4 versions']
-  }))
+	.pipe(csso())
+	.pipe(gulp.dest('./build/src/css/'));
 });
 
 // **
 
-gulp.task('serve', function() {
-  browserSync.init({
-    server: {
-      baseDir: './src'
-    }
-  });
+gulp.task('pug', function() {
+  return gulp.src('./src/index.pug')
+    .pipe(pug({
+      pretty: true
+    }))
 
-  browserSync.watch('./src', browserSync.reload)
+    .pipe(gulp.dest('./build/src/'))
+    .pipe(plumber());
 })
 
-gulp.task('watch', function() {
-  gulp.watch('./src/css/**/*.css', gulp.series('css'));
+// **
+
+gulp.task('copy_SRC', function() {
+	return gulp.src([
+		'./src/fonts/*.ttf',
+		'./src/images/**/*.{webp,svg}'
+	], {
+		base: 'src'
+	})
+
+	.pipe(gulp.dest('build/src/'));
+});
+
+gulp.task('copy_JS', function() {
+	return gulp.src([
+		'./src/blocks/header-block/header-block.js',
+		'./src/ui-kit/button/button__ripple.js'
+	], {
+		base: 'src'
+	})
+
+	.pipe(rename({ dirname: '' }))
+	.pipe(gulp.dest('build/src/js/'));
 });
 
 // **
 
-gulp.task('default',
-  gulp.series(
-    'clean',
-    'style',
-    gulp.parallel('watch', 'serve')
-  )
+gulp.task('webp', () =>
+	gulp.src('src/images/events/**/*.webp')
+		.pipe(webp({quality: 70}))
+		.pipe(gulp.dest('build/src/images/events/')),
+
+	gulp.src('src/images/articles/**/*.webp')
+		.pipe(webp({quality: 70}))
+		.pipe(gulp.dest('build/src/images/articles/'))
+);
+
+// **
+
+gulp.task('build',
+	gulp.series(
+		'clean',
+		'copy_SRC',
+		'copy_JS',
+		'webp',
+
+		gulp.parallel(
+			'sass',
+			'pug'
+		)
+	)
 );
