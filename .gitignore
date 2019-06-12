@@ -4,7 +4,6 @@ build/
 npm_debug.*
 Thumbs.db
 
-src/*.css
 src/sass/.sass-cache
 src/.sass-cache
 src/sass/.styles.css.map
@@ -18,6 +17,7 @@ src/images/sliders/jpg
 src/images/logo/jpg
 
 #NOTE: web files
+src/*.css
 src/css/*
 src/*.html
 
