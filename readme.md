@@ -9,9 +9,9 @@
 <br>
 • Добавить папку `build` в `.gitignore` <br>
 • Копирование нужных файлов в папку `build`: <br>
-    - images <br>
-    - fonts <br>
-    - *.js's <br>
+    - ./images <br>
+    - ./fonts <br>
+    - ./*.js's <br>
 <br>
 • Минификаци¤ стилей (`SASS -> CSS`) <br>
 • Оптимизация изображений.
