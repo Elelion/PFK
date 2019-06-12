@@ -1,5 +1,6 @@
 #NOTE: caches
 node_modules/
+build/
 npm_debug.*
 Thumbs.db
 
