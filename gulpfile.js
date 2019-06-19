@@ -51,7 +51,10 @@ gulp.task('pug', function() {
 
 gulp.task('minify_HTML', () => {
   return gulp.src('./build/src/*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(htmlmin({
+			collapseWhitespace: true
+		}))
+
     .pipe(gulp.dest('./build/src/'));
 });
 
