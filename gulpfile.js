@@ -9,10 +9,8 @@ var
 	autoprefixer = require('gulp-autoprefixer'),
 	rename = require('gulp-rename'),
 	csso = require('gulp-csso'),
-	webp = require('gulp-webp');
-
-// watch = require('gulp-watch'),
-// browserSync = require('browser-sync').create();
+	webp = require('gulp-webp'),
+	htmlmin = require('gulp-htmlmin');
 
 // **
 
@@ -32,7 +30,7 @@ gulp.task('sass', function() {
 	.pipe(plumber())
 
 	.pipe(autoprefixer({
-		browsers: ['last 4 versions']
+		overrideBrowserslist: ['last 4 versions']
 	}))
 
 	.pipe(csso())
@@ -42,14 +40,20 @@ gulp.task('sass', function() {
 // **
 
 gulp.task('pug', function() {
-  return gulp.src('./src/index.pug')
+	return gulp.src('./src/index.pug')
     .pipe(pug({
       pretty: true
-    }))
+		}))
 
     .pipe(gulp.dest('./build/src/'))
     .pipe(plumber());
-})
+});
+
+gulp.task('minify_HTML', () => {
+  return gulp.src('./build/src/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('./build/src/'));
+});
 
 // **
 
@@ -100,6 +104,8 @@ gulp.task('build',
 		gulp.parallel(
 			'sass',
 			'pug'
-		)
+		),
+
+		'minify_HTML'
 	)
 );
