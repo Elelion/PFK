@@ -1,0 +1,49 @@
+mixin header-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      logoImage = parameter.image || "logo";
+      logoAltImage = parameter.altImage || "logo SEO alt";
+      logoTitleImage = parameter.titleImage || "logo SEO title";
+      logoSlogan = parameter.logoSlogan || "гарантия ";
+      logoSloganSpan = parameter.logoSloganSpan || "качества";
+
+      menuTitles = parameter.menuTitles || [
+        "главная",
+        "каталог",
+        "услуги",
+        "сервис",
+        "контакты"
+      ];
+
+      menuLinks = parameter.menuLinks || [
+        "index.html",
+        "catalog.html",
+        "services.html",
+        "service.html",
+        "contacts.html"
+      ];
+
+  //-
+
+  .header-block
+    .header-block__wrapper
+      .header-block__logo
+        a.header-block__logo-link(href="index.html")
+          +logo({
+            image: logoImage,
+            altImage: logoAltImage,
+            titleImage: logoTitleImage,
+            slogan: logoSlogan,
+            sloganSpan: logoSloganSpan
+          })
+
+      .header-block__menu
+        +menu({
+          titles: menuTitles,
+          links: menuLinks
+        })
+
+      //- TODO: for step #4
+      .header-block__authorization

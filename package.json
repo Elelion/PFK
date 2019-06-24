@@ -1,0 +1,37 @@
+{
+  "name": "pfk",
+  "version": "1.0.0",
+  "description": "Private project",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "for-in": "^1.0.2",
+    "fresh": "^0.5.2",
+    "fsevents": "^1.2.9",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-webp": "^4.0.1",
+    "node-sass": "^4.12.0"
+  },
+  "devDependencies": {
+    "del": "^4.1.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elelion/PFK.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elelion/PFK/issues"
+  },
+  "homepage": "https://github.com/Elelion/PFK#readme"
+}
