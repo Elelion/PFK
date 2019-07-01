@@ -1,0 +1,57 @@
+doctype html
+html(lang="ru")
+  +head
+
+body
+  header.header
+    +header-block
+
+  main.contacts-content
+    section.contacts-content__info
+      +contact-info({
+        titleChapter: [
+          "контакты",
+          "напишите нам"
+        ],
+
+        contactImageAlt: [
+          "",
+          "",
+          ""
+        ],
+
+        contactImageTitle: [
+          "",
+          "",
+          ""
+        ],
+
+        contactValue: [
+          "+7 (4742) 559 925",
+          `399140, Липецкая область, Добровский  район,
+            Доброе село, Советский переулок, дом № 6 А, кабинет 1`,
+          "elelion@yandex.ru"
+        ]
+      })
+
+    section.contacts-content__feed-back
+      +feedback-block({
+        feedbackDescription: `Ответим в ближайшее время,
+          обязательные для заполнения поля помечены знаком *`,
+
+        feedbackName: "Имя *",
+        feedbackPhone: "Телефон *",
+        feedbackMail: "eMail",
+        feedbackMessage: "Вопрос",
+        feedbackButton: "Отправить"
+      })
+
+    section.contacts-content__map
+      +contact-map
+
+  footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include
