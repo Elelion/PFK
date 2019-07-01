@@ -1,0 +1,31 @@
+mixin contact(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      link = parameter.link || "#";
+      imageName = parameter.imageName || "mail";
+      imageAlt = parameter.imageAlt || "SEO alt";
+      imageTitle = parameter.imageTitle || "SEO title";
+      type = parameter.type || "paragraph"
+      value = parameter.value || "title";
+
+  //-
+
+  .contact
+    img.contact__image(
+      src="./images/contact/" + imageName + ".webp"
+      alt= imageAlt
+      title= imageTitle)
+
+    case type
+      when "phone"
+        a.contact__caption.contact__phone(
+          href=`tel: + ${value}`)= value
+      when "mail"
+        a.contact__caption.contact__mail(
+          href=`mailto: ${value}`)= value
+      default
+        p.contact__caption= value
+
+    .contact__border

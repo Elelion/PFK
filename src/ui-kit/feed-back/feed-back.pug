@@ -1,0 +1,51 @@
+mixin feed-back(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      description = parameter.description || "desc";
+      namePlaceholder = parameter.namePlaceholder || "name";
+      phonePlaceholder = parameter.phonePlaceholder || "phone";
+      emailPlaceholder = parameter.emailPlaceholder || "email";
+      messagePlaceholder = parameter.messagePlaceholder || "message";
+      formButtonCaption = parameter.formButtonCaption || "button";
+
+  //-
+
+  form
+    .feed-back__label-wrapper
+      p.feed-back__label= description
+
+    .feed-back__form
+      input.feed-back__input.feed-back__name(
+        type='text',
+        name='name',
+        placeholder= namePlaceholder,
+        maxlength='50')
+
+      //- TODO: phoneFormat - do it for js...
+      input.feed-back__input.feed-back__phone(
+        type='text',
+        name='phone',
+        placeholder= phonePlaceholder,
+        maxlength='11'
+        onkeyup='phoneFormat(this)')
+
+      input.feed-back__input.feed-back__email(
+        type='email',
+        name='email',
+        placeholder= emailPlaceholder,
+        maxlength='40')
+
+      //- TODO: weightDistanceFormat - do it for js...
+      input.feed-back__input.feed-back__message(
+        type='text',
+        name='message',
+        placeholder= messagePlaceholder,
+        maxlength='1000',
+        onkeyup='weightDistanceFormat(this)')
+
+      .feed-back__button
+        +button({
+          caption: formButtonCaption,
+          extension: 'calculatorForm'})

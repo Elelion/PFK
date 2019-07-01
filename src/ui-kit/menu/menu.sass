@@ -120,17 +120,7 @@
         display: block
 
       &:after
-        position: absolute
-        top: 100%
-        left: 0
-        width: 100%
-        height: $lineHeight
-        background-color: $colorYellow
-        opacity: 0
-        transition: $transition
-        transform: translateY(1rem)
-        content: ""
-        visibility: hidden
+        +link-effect__after($colorYellow)
 
         @media screen and (max-width: 1160px)
           width: 35%
@@ -138,6 +128,4 @@
           top: 80%
 
       &:hover::after
-        opacity: 1
-        transform: translateY(0rem)
-        visibility: visible
+        +link-effect__hover-after
