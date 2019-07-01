@@ -40,7 +40,7 @@ gulp.task('sass', function() {
 // **
 
 gulp.task('pug', function() {
-	return gulp.src('./src/index.pug')
+	return gulp.src('./src/*.pug')
     .pipe(pug({
       pretty: true
 		}))
