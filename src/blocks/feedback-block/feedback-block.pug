@@ -1,0 +1,27 @@
+mixin feedback-block(parameter)
+  -
+    var
+      feedbackDescription = parameter.feedbackDescription || "desc";
+      feedbackName = parameter.feedbackName || "name *";
+      feedbackPhone = parameter.feedbackPhone || "phone *";
+      feedbackMail = parameter.feedbackMail || "eMail";
+      feedbackMessage = parameter.feedbackMessage || "msg";
+      feedbackButton = parameter.feedbackButton || "send";
+
+  //-
+
+  .feedback-block
+    .feedback-block__wrapper
+      +chapter({
+        title: titleChapter[0]
+      })
+
+      +feed-back({
+        description: feedbackDescription,
+
+        namePlaceholder: feedbackName,
+        phonePlaceholder: feedbackPhone,
+        emailPlaceholder: feedbackMail,
+        messagePlaceholder: feedbackMessage,
+        formButtonCaption: feedbackButton
+      })

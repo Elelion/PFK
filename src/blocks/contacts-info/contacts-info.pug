@@ -1,0 +1,59 @@
+mixin contact-info(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      titleChapter = parameter.titleChapter || [
+        "title-1",
+        "title-2"
+      ];
+
+      contactImageName = parameter.contactImage || [
+        "phone",
+        "map-marker",
+        "mail"
+      ];
+
+      contactImageAlt = parameter.contactImageAlt || [
+        "",
+        "",
+        ""
+      ];
+
+      contactImageTitle = parameter.contactImageTitle || [
+        "",
+        "",
+        ""
+      ];
+
+      contactType = parameter.contactType || [
+        "phone",
+        "paragraph",
+        "mail"
+      ];
+
+      contactValue = parameter.contactValue || [
+        "text-1",
+        "text-2",
+        "text-3"
+      ];
+
+  //-
+
+  .contact-info
+    .contact-info__wrapper
+      +chapter({
+        title: titleChapter[0]
+      })
+
+      .contact-info__content
+        -for (var i = 1; i <= contactImageName.length; i++)
+          +contact({
+            imageName: contactImageName[i - 1],
+            imageAlt: contactImageAlt[i - 1],
+            imageTitle: contactImageTitle[i - 1],
+            type: contactType[i - 1],
+            value: contactValue[i - 1]
+          })
+
+          .contact-info__splitter
