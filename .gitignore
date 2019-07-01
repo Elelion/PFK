@@ -15,6 +15,7 @@ src/images/events/jpg
 src/images/services/jpg
 src/images/sliders/jpg
 src/images/logo/jpg
+src/images/contact/jpg
 
 #NOTE: web files
 src/*.css
