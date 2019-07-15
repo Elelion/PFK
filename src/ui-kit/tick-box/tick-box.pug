@@ -1,0 +1,14 @@
+mixin tick-box(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      id = parameter.id || "tick1";
+      caption = parameter.caption || "caption";
+
+  //-
+
+  .tick-box
+    input(id= id class= "tick-box__check" type="checkbox", value="1")
+    label.tick-box__label(for= id)
+    label.tick-box__caption(for= id)= caption
