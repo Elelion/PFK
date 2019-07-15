@@ -37,6 +37,33 @@
 			width: auto
 			height: auto
 
+		&-advanced
+			height: 52.5rem
+
+			@media screen and (max-width: 830px)
+				width: auto
+				height: auto
+				margin-bottom: $contentMarginBottom
+
+			&_additional
+				display: flex
+				width: 73.8rem
+				height: 4.7rem
+				margin: 2rem auto 1.8rem auto
+				+border-black
+				justify-content: space-around
+
+				@media screen and (max-width: 830px)
+					display: block
+					width: 29.8rem
+					height: 11.3rem
+
+				@media screen and (max-width: 360px)
+					display: flex
+					width: 14rem
+					height: auto
+					flex-direction: column
+
 	&__input
 		width: auto
 		height: 4.4rem
@@ -77,6 +104,8 @@
 		@media screen and (max-width: 360px)
 			width: auto
 
+	&__address,
+	&__description,
 	&__message
 		width: 70rem
 		margin: 1rem 1rem 1rem 1rem
