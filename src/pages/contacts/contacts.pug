@@ -19,11 +19,7 @@ body
   main.contacts-content
     section.contacts-content__info
       +contact-info({
-        titleChapter: [
-          "контакты",
-          "напишите нам"
-        ],
-
+        titleChapter: "контакты",
         contactImageAlt: [
           "",
           "",
@@ -46,6 +42,7 @@ body
 
     section.contacts-content__feed-back
       +feedback-block({
+        feedbackTitleChapter: "Напишите нам",
         feedbackDescription: `Ответим в ближайшее время,
           обязательные для заполнения поля помечены знаком *`,
 
