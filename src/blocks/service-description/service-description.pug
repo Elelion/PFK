@@ -1,0 +1,31 @@
+mixin service-description(parameter)
+  -
+    var
+      parameter = parameter || {};
+      article = parameter.article || "article";
+
+  //-
+
+  .service-description
+    .service-description__wrapper
+      article.service-description__article.
+        Оформление заявки через интернет позволит Вам:<br>
+        <br>
+        • Лучше сформулировать требования и предоставить более детальную
+          информацию и причину обращения.<br>
+        • Сократить время на оформление заявки.<br>
+        • Сократить время на ожидание выполнения заявки.<br>
+        • Получить код Вашей заявки, что бы в дальнейшем узнать у оператора
+          на каком этапе выполнения находится Ваша заявка.<br>
+        <br>
+        <b>Важно</b>:
+        <br>
+        • Выезд сотрудника сервисной службы на место - платный.<br>
+        • Нажав на кнопку "Отправить", Вы принимаете
+
+        <a class="service-description__article-link" href="docs/personal.docx" target="_blank">
+          «Соглашение об обработке персональных данных»</a>
+
+        и подтверждаете, что ознакомлены с
+        <a class="service-description__article-link" href="docs/privacy.docx" target="_blank">
+          «Политикой конфиденциальности»</a>.

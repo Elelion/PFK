@@ -1,6 +1,10 @@
 mixin feedback-block(parameter)
   -
     var
+      parameter = parameter || {};
+
+      feedbackType = parameter.feedback || "contact";
+      feedbackTitleChapter =parameter.feedbackTitleChapter || "title";
       feedbackDescription = parameter.feedbackDescription || "desc";
       feedbackName = parameter.feedbackName || "name *";
       feedbackPhone = parameter.feedbackPhone || "phone *";
@@ -13,7 +17,7 @@ mixin feedback-block(parameter)
   .feedback-block
     .feedback-block__wrapper
       +chapter({
-        title: titleChapter[0]
+        title: feedbackTitleChapter
       })
 
       +feed-back({

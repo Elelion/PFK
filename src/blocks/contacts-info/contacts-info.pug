@@ -3,11 +3,7 @@ mixin contact-info(parameter)
     var
       parameter = parameter || {};
 
-      titleChapter = parameter.titleChapter || [
-        "title-1",
-        "title-2"
-      ];
-
+      titleChapter = parameter.titleChapter || "title";
       contactImageName = parameter.contactImage || [
         "phone",
         "map-marker",
@@ -43,7 +39,7 @@ mixin contact-info(parameter)
   .contact-info
     .contact-info__wrapper
       +chapter({
-        title: titleChapter[0]
+        title: titleChapter
       })
 
       .contact-info__content
