@@ -36,7 +36,7 @@ class headerBlock {
     target.style.top = top + 'rem';
   }
 
-  private setHeight(target: any, height: number) {
+  private setHeight(target: any, height: number = 0) {
     target.style.height = height + 'rem';
   }
 
