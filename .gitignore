@@ -21,7 +21,7 @@ src/images/contact/png
 src/*.css
 src/css/*
 src/*.html
-src/*.js
+src/**/*.js
 
 #NOTE: differents
 *.ai
