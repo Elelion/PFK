@@ -3,15 +3,8 @@ mixin scripts-include
   //- FIXME: check the path, when importing the block to other projects
   -
     var
-      patchBlock = './blocks/';
-      patchUiKit = './ui-kit/';
-
-      buildPath = './js/';
+      path = './js/';
 
   //-
 
-  script(src = patchBlock + 'header-block/header-block.js' defer)
-  script(src = patchUiKit + 'button/button__ripple.js' defer)
-
-  script(src = buildPath + 'header-block.js' defer)
-  script(src = buildPath + 'button__ripple.js' defer)
+  script(src = path + 'scripts.js' defer)
