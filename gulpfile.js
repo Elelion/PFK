@@ -10,7 +10,8 @@ var
 	rename = require('gulp-rename'),
 	csso = require('gulp-csso'),
 	webp = require('gulp-webp'),
-	htmlmin = require('gulp-htmlmin');
+	htmlmin = require('gulp-htmlmin'),
+	uglify = require('gulp-uglify');
 
 // **
 
@@ -56,6 +57,14 @@ gulp.task('minify_HTML', () => {
 		}))
 
     .pipe(gulp.dest('./build/src/'));
+});
+
+// **
+
+gulp.task('minify_JS', () => {
+	return gulp.src('build/src/js/*.js')
+		.pipe(uglify())
+		.pipe(gulp.dest('build/src/js'))
 });
 
 // **
@@ -109,6 +118,7 @@ gulp.task('build',
 			'pug'
 		),
 
-		'minify_HTML'
+		'minify_HTML',
+		'minify_JS'
 	)
 );
