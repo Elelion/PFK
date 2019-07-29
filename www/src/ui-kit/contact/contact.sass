@@ -1,0 +1,52 @@
+.contact
+  display: flex
+  width: 40rem
+  height: 14rem
+  margin: 0.5rem auto 0.5rem 0
+  text-align: center
+  +border-blue
+  justify-content: center
+  align-items: center
+  flex-direction: column
+
+  @media screen and (max-width: 1210px)
+    &:nth-child(2n+1)
+      width: 25rem
+
+  @media screen and (max-width: 970px)
+    width: 100%
+
+    &:nth-child(2n+1)
+      width: 100%
+
+  @media screen and (max-width: 830px)
+    height: auto
+    min-height: 10rem
+
+  &__image
+    width: 3rem
+    height: 3rem
+    +border-blue
+
+  &__caption
+    margin-top: 1.5rem
+    text-decoration: none
+    color: $colorFontLink
+    +border-green
+    outline: none
+
+    @media screen and (max-width: 970px)
+      padding: 0 15rem 0 15rem
+
+    @media screen and (max-width: 830px)
+      padding: 0
+
+  &__phone,
+  &__mail
+    position: relative
+
+    &:after
+      +link-effect__after($colorYellow)
+
+    &:hover::after
+      +link-effect__hover-after

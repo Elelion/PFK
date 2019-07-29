@@ -1,0 +1,35 @@
+.mini-menu
+  width: auto
+  height: auto
+  margin-top: 0rem
+  padding: 0.8rem 0 0.2rem 0
+  font-size: $sizeSmallRegularFont
+  +border-black
+  letter-spacing: 0.05rem
+  word-spacing: 0.2rem
+
+  @media screen and (max-width: 1160px)
+    margin-bottom: 1rem
+
+  &:first-letter
+    text-transform: uppercase
+
+  &__link
+    position: relative
+    text-transform: lowercase
+    text-decoration: none
+    color: $colorFontLink
+    outline: none
+
+    &:after
+      +link-effect__after($colorFontLink)
+
+    &:hover::after
+      +link-effect__hover-after
+
+  &__paragraph
+    margin: 0
+    color: $colorFontText
+
+    &:first-letter
+      text-transform: uppercase

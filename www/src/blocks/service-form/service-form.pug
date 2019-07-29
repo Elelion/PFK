@@ -1,0 +1,40 @@
+mixin service-form(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      title = parameter.title || "titile";
+      feedBackCaptionButton = parameter.feedBackCaptionButton || "feedBack btn";
+      feedBackIdTick = parameter.feedBackIdTick || [
+        "feedBackTick-1",
+        "feedBackTick-2",
+        "feedBackTick-3",
+        "feedBackTick-4"
+      ];
+
+      feedBackCaptionTick = parameter.feedBackCaptionTick || [
+        "feedBack tick 1",
+        "feedBack tick 1",
+        "feedBack tick 1",
+        "feedBack tick 1"
+      ]
+
+  //-
+
+  .service-form
+    .service-form__wrapper
+      +chapter({
+        title: title
+      })
+
+    .service-form__content
+      +feed-back({
+        type: "advanced",
+        description: `Заполните заявку в сервисную службу,
+          обязательные для заполнения поля помечены знаком *`,
+
+        idTick: feedBackIdTick,
+        captionTick: feedBackCaptionTick,
+
+        formButtonCaption: feedBackCaptionButton
+      })

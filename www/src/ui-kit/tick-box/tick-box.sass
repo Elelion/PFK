@@ -1,0 +1,52 @@
+.tick-box
+  width: 14rem
+  height: 4.7rem
+  +border-black
+
+  @media screen and (max-width: 830px)
+    float: right
+    margin-bottom: 1.5rem
+
+    &:nth-child(2n+1)
+      float: left
+
+  @media screen and (max-width: 360px)
+    float: none
+
+  &__case
+    width: 6rem
+    min-height: 6rem
+    margin: 5.6rem 0.5rem 0 0.5rem
+    +border-red
+
+  &__check
+    display: none
+
+    &:checked + .tick-box__label:before
+      color: $colorYellow
+      background-color: $colorBlue
+      transition: $transition
+
+  &__label
+    cursor: pointer
+
+    &:before
+      position: absolute
+      width: 2.3rem
+      min-height: 1.6rem
+      margin: 1rem 0 0 0.8rem
+      padding-top: 0.7rem
+      font-size: 4rem
+      line-height: 0.2rem
+      color: #B6B6B6
+      background: #E5E5E5
+      border-radius: 5rem
+      transition: $transition
+      content: '\2713'
+
+  &__caption
+    padding: 0 0 0.5rem 4rem
+    line-height: 2
+    +border-red
+    cursor: pointer
+    user-select: none
