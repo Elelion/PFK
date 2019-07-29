@@ -1,0 +1,24 @@
+mixin head(parameter)
+	-
+		var
+			parameter = parameter || {};
+			keywords = parameter.keywords || "SEO keywords";
+			description = parameter.description || "SEO description";
+			title = parameter.title || "SEO title";
+
+	//-
+
+	head
+		title= title
+
+		meta(charset= "utf-8")
+		meta(http-equiv= "Content-Type", content= "text/html; charset=utf-8")
+		meta(name= "keywords", content= keywords)
+		meta(name= "description", content= description)
+		meta(name= "viewport", content= 'width=device-width, \
+			initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+
+		link(rel= "stylesheet", href= "./src/css/style.css")
+		link(rel= "preload" href="./src/fonts/Exo2.ttf" as="font")
+		link(rel= "shortcut icon", type="./src/image/x-icon",
+			href="src/images/logo/favicon.webp")

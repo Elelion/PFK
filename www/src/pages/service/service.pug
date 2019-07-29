@@ -1,0 +1,51 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `сервис окна пвх, где отремонтировать, цены ремонта,
+      пвх ремонт, рольставни ремонт, жалюзи ремонт, где отремонтировать,
+      подоконники восстановление`,
+
+    description: `Компания ПФК предлагает купить подоконники ПВХ,
+      комплектующие и фурнитуры для окон, оптом, от производителя по
+      выгодной цене. Продукция сертифицирована`,
+
+    title: `ПФК сервис.`
+  })
+
+body
+  header.header
+    +header-block
+
+  main.service__content
+    section.service__wrapper
+      +service-form({
+        title: "сервисная служба",
+        type: "advanced",
+        description: `Заполните заявку в сервисную службу,
+          обязательные для заполнения поля помечены знаком *`,
+
+        feedBackIdTick: [
+          "repair",
+          "dismantling",
+          "installation",
+          "order"
+        ],
+
+        feedBackCaptionTick: [
+          "Ремонт",
+          "Демонтаж",
+          "Монтаж",
+          "Прочее"
+        ],
+
+        feedBackCaptionButton: "Отправить"
+      })
+
+      +service-description
+
+  footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include
