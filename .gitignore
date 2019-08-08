@@ -4,24 +4,25 @@ build/
 npm_debug.*
 Thumbs.db
 
-build/src/sass/.sass-cache
-build/src/.sass-cache
-build/src/sass/.styles.css.map
+debug/src/sass/.sass-cache
+debug/src/.sass-cache
+debug/src/sass/.styles.css.map
 
 #NOTE: images
-build/src/images/articles/jpg
-build/src/images/articles/templates
-build/src/images/events/jpg
-build/src/images/services/jpg
-build/src/images/sliders/jpg
-build/src/images/logo/jpg
-build/src/images/contact/png
+debug/src/images/articles/jpg
+debug/src/images/articles/templates
+debug/src/images/events/jpg
+debug/src/images/sliders/jpg
+
+debug/src/images/contact/png
+debug/src/images/services/png
+debug/src/images/logo/png
 
 #NOTE: web files
-build/src/*.css
-build/src/css/*
-build/src/*.html
-build/src/**/*.js
+debug/src/*.css
+debug/src/css/*
+debug/src/*.html
+debug/src/**/*.js
 
 #NOTE: differents
 *.ai
