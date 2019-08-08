@@ -10,7 +10,7 @@ mixin feed-back(parameter)
       namePlaceholder = parameter.namePlaceholder || "name";
       phonePlaceholder = parameter.phonePlaceholder || "phone";
       emailPlaceholder = parameter.emailPlaceholder || "email";
-      descriptionPlaceholder = parameter.descriptionPlaceholder || "description";
+      descPlaceholder = parameter.descPlaceholder || "description";
       messagePlaceholder = parameter.messagePlaceholder || "message";
       formButtonCaption = parameter.formButtonCaption || "button";
 
@@ -67,7 +67,7 @@ mixin feed-back(parameter)
     input.feed-back__input.feed-back__description(
       type='text',
       name='description',
-      placeholder= descriptionPlaceholder,
+      placeholder= descPlaceholder,
       maxlength='150')
 
   //- TODO: weightDistanceFormat - do it for js...
