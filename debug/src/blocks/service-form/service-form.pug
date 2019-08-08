@@ -4,15 +4,22 @@ mixin service-form(parameter)
       parameter = parameter || {};
 
       title = parameter.title || "titile";
-      feedBackCaptionButton = parameter.feedBackCaptionButton || "feedBack btn";
-      feedBackIdTick = parameter.feedBackIdTick || [
+      fbNamePlhld = parameter.fbNamePlhld || "feedBack name";
+      fbPhonePlhld = parameter.fbPhonePlhld || "feedBack phone";
+      fbEmailPlhld = parameter.fbEmailPlhld || "feedBack email";
+      fbAddressPlhld = parameter.fbAddressPlhld || "feedBack address";
+      fbDescPlhld = parameter.fbDescPlhld || "feedBack description";
+      fbMessagePlhld = parameter.fbMessagePlhld || "feedBack message";
+      fbCaptionButton = parameter.fbCaptionButton || "feedBack btn";
+
+      fbIdTick = parameter.fbIdTick || [
         "feedBackTick-1",
         "feedBackTick-2",
         "feedBackTick-3",
         "feedBackTick-4"
       ];
 
-      feedBackCaptionTick = parameter.feedBackCaptionTick || [
+      fbCaptionTick = parameter.fbCaptionTick || [
         "feedBack tick 1",
         "feedBack tick 1",
         "feedBack tick 1",
@@ -33,8 +40,15 @@ mixin service-form(parameter)
         description: `Заполните заявку в сервисную службу,
           обязательные для заполнения поля помечены знаком *`,
 
-        idTick: feedBackIdTick,
-        captionTick: feedBackCaptionTick,
+        namePlaceholder: fbNamePlhld,
+        phonePlaceholder: fbPhonePlhld,
+        emailPlaceholder: fbEmailPlhld,
+        addressPlaceholder: fbAddressPlhld,
+        descPlaceholder: fbDescPlhld,
+        messagePlaceholder: fbMessagePlhld,
 
-        formButtonCaption: feedBackCaptionButton
+        idTick: fbIdTick,
+        captionTick: fbCaptionTick,
+
+        formButtonCaption: fbCaptionButton
       })
