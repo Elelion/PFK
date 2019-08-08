@@ -1,6 +1,6 @@
 'use strict';
 
-var
+const
 	gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	sass = require('gulp-sass'),
@@ -29,7 +29,7 @@ gulp.task('clean', function() {
 // **
 
 gulp.task('sass', function() {
-	return gulp.src('./src/sass/**/style.sass')
+	return gulp.src('./debug/src/sass/**/style.sass')
 
 	.pipe(sass())
 	.pipe(plumber())
@@ -45,7 +45,7 @@ gulp.task('sass', function() {
 // **
 
 gulp.task('pug', function() {
-	return gulp.src('./src/*.pug')
+	return gulp.src('./debug/src/*.pug')
     .pipe(pug({
       pretty: true
 		}))
@@ -68,59 +68,85 @@ gulp.task('minify_HTML', () => {
 gulp.task('build_TS', function () {
 	return tsProject.src()
 		.pipe(ts(tsProject))
-		.js.pipe(gulp.dest('./build/'))
+		.js.pipe(gulp.dest('./'))
 });
 
 gulp.task('minify_JS', () => {
-	return gulp.src('build/src/js/*.js')
+	return gulp.src('./build/src/js/*.js')
 		.pipe(uglify())
-		.pipe(gulp.dest('build/src/js'))
+		.pipe(gulp.dest('./build/src/js'))
 });
 
 // **
 
 gulp.task('copy_SRC', function() {
 	return gulp.src([
-		'./src/fonts/*.ttf',
-		'./src/images/**/*.{webp,svg}'
+		'./debug/src/fonts/*.ttf',
+		'./debug/src/images/**/*.{webp,svg}'
 	], {
-		base: 'src'
+		base: './debug'
 	})
 
-	.pipe(gulp.dest('build/src/'));
+	.pipe(gulp.dest('./build/'));
 });
 
-// gulp.task('copy_JS', function() {
-// 	return gulp.src([
-// 		'./src/blocks/header-block/header-block.js',
-// 		'./src/ui-kit/button/button__ripple.js'
-// 	], {
-// 		base: 'src'
-// 	})
+gulp.task('copy_JS', function() {
+	return gulp.src([
+		'./debug/src/js/*.js'
+	], {
+		base: './debug'
+	})
 
-// 	.pipe(rename({ dirname: '' }))
-// 	.pipe(gulp.dest('build/src/js/'));
-// });
+	.pipe(rename({ dirname: '' }))
+	.pipe(gulp.dest('./build/src/js'));
+});
+
+gulp.task('copy_PHP', function() {
+	return gulp.src([
+		'./debug/*.php'
+	], {
+		base: './debug'
+	})
+
+	.pipe(rename({ dirname: '' }))
+	.pipe(gulp.dest('./build/'));
+});
+
+gulp.task('copy_PHP_lib', function() {
+	return gulp.src([
+		'./debug/lib/*.php'
+	], {
+		base: './debug'
+	})
+
+	.pipe(gulp.dest('./build/'));
+});
 
 // **
 
 gulp.task('webp', () =>
-	gulp.src('src/images/events/**/*.webp')
+	gulp.src('./debug/src/images/events/**/*.webp')
 		.pipe(webp({quality: 70}))
 		.pipe(gulp.dest('build/src/images/events/')),
 
-	gulp.src('src/images/articles/**/*.webp')
+	gulp.src('./debug/src/images/articles/**/*.webp')
 		.pipe(webp({quality: 70}))
 		.pipe(gulp.dest('build/src/images/articles/'))
 );
 
 // **
 
+// NOTE: for build
 gulp.task('build',
 	gulp.series(
 		'clean',
-		'copy_SRC',
-		// 'copy_JS',
+
+		gulp.parallel(
+			'copy_SRC',
+			'copy_PHP',
+			'copy_PHP_lib',
+		),
+
 		'build_TS',
 		'webp',
 
@@ -131,5 +157,17 @@ gulp.task('build',
 
 		'minify_HTML',
 		'minify_JS'
+	)
+);
+
+// NOTE: for debug in build
+gulp.task('debug',
+	gulp.series(
+		'copy_JS',
+		'minify_JS',
+		'pug',
+		'minify_HTML',
+		'copy_PHP',
+		'copy_PHP_lib'
 	)
 );
