@@ -17,11 +17,6 @@ $resultList = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // **
 
-$is_auth = (bool) rand(0, 1);
-$userName = 'Константин';
-$title = 'NULL';
-$desc = 'NULL';
-
 foreach ($resultList as $row) {
   $title = $row['typeService'];
   $desc = $row['descriptionService'];
