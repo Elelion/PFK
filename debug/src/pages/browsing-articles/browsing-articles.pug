@@ -1,0 +1,36 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `новинки окна пвх, новинки, акции, распродажа,
+      жалюзи скидка, где купить, подоконники новинки`,
+
+    description: `Компания ПФК предлагает купить подоконники ПВХ,
+      комплектующие и фурнитуры для окон, оптом, от производителя по
+      выгодной цене. Продукция сертифицирована`,
+
+    title: `ПФК статьи.`
+  })
+
+body
+  header.header
+    +header-block
+
+  main.browsing-articles__content
+    section.browsing-articles__wrapper
+
+      .chapter.chapter__size-standard
+        p.chapter__title.chapter__color-standard
+          <?= $title ?>
+
+      .browsing-articles__time-data
+        p.browsing-articles__date-create <?= $time ?> / <?= $date ?>
+
+      .browsing-articles__description
+        <?= $desc ?>
+
+  footer.footer
+  +footer-block
+
+//-
+
++scripts-include

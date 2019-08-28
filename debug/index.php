@@ -1,7 +1,24 @@
 <?php
 require_once 'lib/functions.php';
 date_default_timezone_set('Europe/Moscow');
-RedirectNotSupportBrowser();
+new RedirectNotSupportBrowser();
+
+// **
+
+$link = connectDB();
+$sqlQuery = 'SELECT * FROM `articles` ORDER BY id DESC LIMIT 6';
+$getResultData = requestSQL($link, $sqlQuery);
+
+foreach ($getResultData as $row) {
+  $titleDB = $row['title'];
+  $miniDesc = $row['miniDescription'];
+  $imageDB = $row['image_file'];
+  $idDB = $row['id'];
+}
+
+$sqlQuery = 'SELECT * FROM articles ORDER BY id DESC LIMIT 2';
+$countRow = requestSQL($link, $sqlQuery, 'count');
+// echo "$countRow Rows\n";
 
 // $link = connectDB();
 
@@ -23,17 +40,7 @@ RedirectNotSupportBrowser();
 // $result_lot = mysqli_query($link, $sql_lot);
 // $product_list = mysqli_fetch_all($result_lot, MYSQLI_ASSOC);
 
-$is_auth = (bool) rand(0, 1);
-$user_name = 'Константин';
-
-$title = "Главная";
-
-// print(render('index', [
-//   'title' => $title,
-//   'user_name' => $user_name,
-//   'is_auth' => $is_auth,
-//   // 'category_list' => $category_list
-// ]));
+// $test = new connectDBase('test', 'test', 'test', 'test');
 
 $file = basename(__FILE__, ".php");
 require './src/' . $file . '.html';

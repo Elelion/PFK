@@ -1,4 +1,4 @@
-.browsing
+.browsing-articles
   &__content
     width: auto
     min-height: 100vh
@@ -23,6 +23,13 @@
 
     @media screen and (max-width: 360px)
       width: auto
+
+  &__time-data
+    +border-red
+
+  &__date-create
+    color: $colorFontTitle
+    font-size: $sizeSmallTitleFont
 
   &__description
     margin-bottom: $contentMarginBottom

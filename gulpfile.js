@@ -23,6 +23,9 @@ gulp.task('clean', function() {
 	del('./build/src/fonts/*')
 	del('./build/src/css/*')
 	del('./build/src/js/*')
+	del('./build/*.*')
+	del('./build/templates/*.*')
+	del('./build/lib/*.*')
 	return del('./build/src/*.html');
 });
 
@@ -112,6 +115,17 @@ gulp.task('copy_PHP', function() {
 	.pipe(gulp.dest('./build/'));
 });
 
+gulp.task('copy_PHP-templates', function() {
+	return gulp.src([
+		'./debug/src/**/*.php'
+	], {
+		base: './debug'
+	})
+
+	.pipe(rename({ dirname: '' }))
+	.pipe(gulp.dest('./build/templates/'));
+});
+
 gulp.task('copy_PHP_lib', function() {
 	return gulp.src([
 		'./debug/lib/*.php'
@@ -145,6 +159,7 @@ gulp.task('build',
 			'copy_SRC',
 			'copy_PHP',
 			'copy_PHP_lib',
+			'copy_PHP-templates',
 		),
 
 		'build_TS',

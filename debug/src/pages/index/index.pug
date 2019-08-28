@@ -82,51 +82,27 @@ body
         ],
 
         linkSheet: [
-          "template-service.php?id=1",
-          "template-service.php?id=2",
-          "template-service.php?id=3",
-          "template-service.php?id=4",
-          "template-service.php?id=5"
+          "browsing-services.php?idServices=1",
+          "browsing-services.php?idServices=2",
+          "browsing-services.php?idServices=3",
+          "browsing-services.php?idServices=4",
+          "browsing-services.php?idServices=5"
         ]
       })
 
     section.main-content__articles
-      +articles-block({
-        titleChapter: "статьи",
+      .articles-block
+        .articles-block__wrapper
+          +chapter({
+            title: "статьи"
+          })
 
-        titles: [
-          "Статья отсутствует",
-          "Статья отсутствует",
-          "Статья отсутствует",
-          "Статья отсутствует",
-          "Статья отсутствует",
-          "Статья отсутствует"
-        ],
+          .articles-block__content
+            //- FIXME: for debug
+            //- <?php require 'ui-kit/article/article.php'; ?>
 
-        descriptions: [
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`,
-          `Ой, что то пошло не так, и с статьей случилось что то
-            страшное и ужасное. Обещаем, что мы скоро все исправим!`
-        ],
-
-        images: [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
-      })
+            //- FIXME: for build
+            <?php require 'templates/article.php'; ?>
 
   footer.footer
     +footer-block

@@ -5,6 +5,7 @@ mixin articles-block(parameter)
 
       titleChapter = parameter.titleChapter || "titile";
 
+      linkSheet = parameter.linkSheet || ["#", "#"];
       titles = parameter.titles || ["title", "title"];
       descriptions = parameter.descriptions || ["desc", "desc"];
       images = parameter.images || ["none", "none"];
@@ -22,7 +23,8 @@ mixin articles-block(parameter)
           +article({
             title: titles[i - 1],
             description: descriptions[i - 1],
-            imageName: images[i - 1]
+            imageName: images[i - 1],
+            link: linkSheet[i - 1]
           })
 
         .articles-block__button
