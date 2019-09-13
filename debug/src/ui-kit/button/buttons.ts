@@ -3,10 +3,8 @@
 class Ripple {
 	private xPos: number;
 	private yPos: number;
-
 	private rippleName: string;
 	private buttonName: string;
-
 	private span: any;
 	private buttons: any;
 
