@@ -41,17 +41,18 @@ body
       })
 
     section.contacts-content__feed-back
-      +feedback-block({
-        feedbackTitleChapter: "Напишите нам",
-        feedbackDescription: `Ответим в ближайшее время,
-          обязательные для заполнения поля помечены знаком *`,
+      form(action='./mail-send.php', method='post')
+        +feedback-block({
+          feedbackTitleChapter: "Напишите нам",
+          feedbackDescription: `Ответим в ближайшее время,
+            обязательные для заполнения поля помечены знаком *`,
 
-        feedbackName: "Имя *",
-        feedbackPhone: "Телефон *",
-        feedbackMail: "eMail",
-        feedbackMessage: "Вопрос",
-        feedbackButton: "Отправить"
-      })
+          feedbackName: "Имя *",
+          feedbackPhone: "Телефон *",
+          feedbackMail: "eMail",
+          feedbackMessage: "Вопрос",
+          feedbackButton: "Отправить"
+        })
 
     section.contacts-content__map
       +contact-map
