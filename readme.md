@@ -33,6 +33,13 @@
 • Пишем в консоли `gulp build`<br>
 • Идем в папку ./build/src/ - и запускаем наш проект
 
+**Критические правки:**<br>
+index.pug<br>
+all-articles.pug<br>
+styles.sass<br>
+functions.php<br>
+tsconfig.json<br>
+
 ---
 
 ### Цель проекта:
