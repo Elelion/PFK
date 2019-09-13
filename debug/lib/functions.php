@@ -73,8 +73,7 @@ function elapsedTime($format = '%H Ч : %M M')
 function connectDB()
 {
 	// FIXME: for build
-	$link =
-		// mysqli_connect('localhost', '*', '*', '*');
+	
 
 	// FIXME: for debug
 	$link = mysqli_connect('127.0.0.1', 'root', '', 'proffurkom');
