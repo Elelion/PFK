@@ -36,7 +36,6 @@ class ButtonsFeedBackCheck {
 	private name: any;
 	private phone: any;
 	private mail: any;
-	private message: any;
 	private buttons: any;
 
 	// **
@@ -45,7 +44,6 @@ class ButtonsFeedBackCheck {
 		this.name = document.getElementsByClassName('feed-back__name')[0];
 		this.phone = document.getElementsByClassName('feed-back__phone')[0];
 		this.mail = document.getElementsByClassName('feed-back__email')[0];
-		this.message = document.getElementsByClassName('feed-back__message')[0];
 
 		this.buttons = document.querySelectorAll('.' + name);
 
@@ -61,8 +59,8 @@ class ButtonsFeedBackCheck {
 
 	// **
 
-	setCheckEmptyInput(event: any, target: any) {
-		if (target.value === '') {
+	setCheckEmptyInput(event: any, target: any, length: number) {
+		if (target.value.length < length) {
 			this.setStyleError(target, true);
 			event.preventDefault();
 		} else {
@@ -70,7 +68,7 @@ class ButtonsFeedBackCheck {
 		}
 	}
 
-	getcheckMailValidity(event: any) {
+	getCheckMailValidity(event: any) {
 		let check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
 		if (check.test(this.mail.value) === false) {
@@ -86,10 +84,9 @@ class ButtonsFeedBackCheck {
 	beginEvent() {
 		for (let i = 0; i < this.buttons.length; i += 1) {
 			this.buttons[i].addEventListener('click', (event: any) => {
-				this.setCheckEmptyInput(event, this.name);
-				this.setCheckEmptyInput(event, this.phone);
-				this.getcheckMailValidity(event);
-				this.setCheckEmptyInput(event, this.message);
+				this.setCheckEmptyInput(event, this.name, 2);
+				this.setCheckEmptyInput(event, this.phone, 11);
+				this.getCheckMailValidity(event);
 			});
 		}
 	}
