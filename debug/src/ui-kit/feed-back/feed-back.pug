@@ -51,7 +51,7 @@ mixin feed-back(parameter)
 
   mixin email
     input.feed-back__input.feed-back__email(
-      type='email',
+      type='text',
       name='email',
       placeholder= emailPlaceholder,
       maxlength='40')
@@ -116,5 +116,6 @@ mixin feed-back(parameter)
 
             .feed-back__button
               +button({
+                type: 'submit',
                 caption: formButtonCaption,
-                extension: 'calculatorForm'})
+                extension: 'contacts'})
