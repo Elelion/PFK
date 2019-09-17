@@ -10,7 +10,7 @@ let inputNumberOnly = function(name: string = '') {
 
 		let char = getCharForBrowsers(event);
 
-		if (char == null) {
+		if (char === null) {
 			return;
 		}
 
@@ -21,7 +21,7 @@ let inputNumberOnly = function(name: string = '') {
 
 	let getCharForBrowsers = function(event: any) {
 		// NOTE: for IE
-		if (event.which == null) {
+		if (event.which === null) {
 			if (event.keyCode < 32) {
 				return null;
 			}

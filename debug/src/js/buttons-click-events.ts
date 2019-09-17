@@ -36,7 +36,11 @@ class ButtonsFeedBackCheck {
 	private name: any;
 	private phone: any;
 	private mail: any;
+	private alert: any;
 	private buttons: any;
+	private nameCheckError: boolean;
+	private phoneCheckError: boolean;
+	private mailCheckError: boolean;
 
 	// **
 
@@ -45,21 +49,49 @@ class ButtonsFeedBackCheck {
 		this.phone = document.getElementsByClassName('feed-back__phone')[0];
 		this.mail = document.getElementsByClassName('feed-back__email')[0];
 
+		this.alert = document.getElementsByClassName('alert')[0];
+
 		this.buttons = document.querySelectorAll('.' + name);
+
+		this.nameCheckError = false;
+		this.phoneCheckError = false;
+		this.mailCheckError = false;
 
 		this.beginEvent();
 	}
 
 	// **
 
+	setCheckError(target: any, status: boolean) {
+		if (target === this.name) {
+			this.nameCheckError = status;
+			console.log('check name:' + this.nameCheckError);
+		} else {
+			if (target === this.phone) {
+				this.phoneCheckError = status;
+				console.log('check phone:' + this.phoneCheckError);
+			} else {
+				if (target === this.mail) {
+					this.mailCheckError = status;
+					console.log('check mail:' + this.mailCheckError);
+				}
+			}
+		}
+	}
+
 	setStyleError(target: any, status: boolean = false) {
-		target.style.borderBottom =
-			(status === true) ? '1.5px solid #FFCC00' : '1px solid #F2F2F2'
+		if (status === true) {
+			target.style.borderBottom = '1.5px solid #FFCC00';
+			this.setCheckError(target, true);
+		} else {
+			target.style.borderBottom = '1px solid #F2F2F2';
+			this.setCheckError(target, false);
+		}
 	}
 
 	// **
 
-	setCheckEmptyInput(event: any, target: any, length: number) {
+	setInputNameCheckEmpty(event: any, target: any, length: number) {
 		if (target.value.length < length) {
 			this.setStyleError(target, true);
 			event.preventDefault();
@@ -68,14 +100,37 @@ class ButtonsFeedBackCheck {
 		}
 	}
 
-	getCheckMailValidity(event: any) {
-		let check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	setInputPhoneOrMailCheckValidity(event: any, target: any, type: string) {
+		let check = null;
+		switch(type) {
+			case 'mail':
+				check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+				break;
+			default:
+				check = /^([0-9]{11})$/;
+				break;
+		}
 
-		if (check.test(this.mail.value) === false) {
-			this.setStyleError(this.mail, true);
+		if (check.test(target.value) === false) {
+			this.setStyleError(target, true);
 			event.preventDefault();
 		} else {
-			this.setStyleError(this.mail);
+			this.setStyleError(target);
+		}
+	}
+
+	// **
+
+	getAlertVisibility(target: any, status: boolean) {
+		target.style.visibility = (status === true) ? 'visible' : 'hidden';
+	}
+
+	setInputCheckBeforeMailSend(event: any) {
+		if (this.nameCheckError === false &&
+			this.phoneCheckError === false && this.mailCheckError === false) {
+				this.getAlertVisibility(this.alert, true);
+		} else {
+			event.preventDefault();
 		}
 	}
 
@@ -84,9 +139,10 @@ class ButtonsFeedBackCheck {
 	beginEvent() {
 		for (let i = 0; i < this.buttons.length; i += 1) {
 			this.buttons[i].addEventListener('click', (event: any) => {
-				this.setCheckEmptyInput(event, this.name, 2);
-				this.setCheckEmptyInput(event, this.phone, 11);
-				this.getCheckMailValidity(event);
+				this.setInputNameCheckEmpty(event, this.name, 2);
+				this.setInputPhoneOrMailCheckValidity(event, this.phone, 'phone');
+				this.setInputPhoneOrMailCheckValidity(event, this.mail, 'mail');
+				this.setInputCheckBeforeMailSend(event);
 			});
 		}
 	}
