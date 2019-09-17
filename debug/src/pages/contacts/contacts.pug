@@ -41,7 +41,7 @@ body
       })
 
     section.contacts-content__feed-back
-      form(action='./mail-send.php', method='post')
+      form(action='./contacts-mail-send.php', method='post')
         +feedback-block({
           feedbackTitleChapter: "Напишите нам",
           feedbackDescription: `Ответим в ближайшее время,
@@ -53,6 +53,10 @@ body
           feedbackMessage: "Вопрос",
           feedbackButton: "Отправить"
         })
+
+      +alert({
+        message: "Отправлено"
+      })
 
     section.contacts-content__map
       +contact-map
