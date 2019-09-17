@@ -1,0 +1,23 @@
+.alert
+  position: fixed
+  top: 50%
+  left: 50%
+  z-index: 9999
+  width: 30rem
+  height: 10rem
+  margin-top: -5rem
+  margin-left: -15rem
+  background: $colorBlue
+  +border-black
+  opacity: 0.9
+  box-shadow: 0 0 1.5rem black
+  visibility: hidden
+
+  &__content
+    width: 20rem
+    margin: 1.5rem auto 0 auto
+    +border-black
+
+  &__title
+    text-align: center
+    color: $colorYellow

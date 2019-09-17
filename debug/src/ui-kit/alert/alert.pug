@@ -1,0 +1,12 @@
+mixin alert(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      message = parameter.message || "msg";
+
+  //-
+
+  .alert
+    .alert__content
+      p.alert__title= message
