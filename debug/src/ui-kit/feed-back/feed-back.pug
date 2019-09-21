@@ -78,6 +78,14 @@ mixin feed-back(parameter)
       maxlength='1000',
       onkeyup='weightDistanceFormat(this)')
 
+  mixin spamBotCheck
+    input.feed-back__input.feed-back__check(
+      type='text',
+      name='spBtCheck',
+      placeholder= '',
+      maxlength='50'
+      value='')
+
   //-
 
   form(class= formName name= formName)
@@ -93,6 +101,7 @@ mixin feed-back(parameter)
           +address
           +description
           +message
+          +spamBotCheck
 
           //- NOTE: tick-box, look in ui-kit's
           .feed-back__form-advanced_additional
@@ -112,6 +121,7 @@ mixin feed-back(parameter)
             +phone
             +email
             +message
+            +spamBotCheck
 
             .feed-back__button
               +button({
