@@ -5,8 +5,11 @@ class ContactMailSend {
   private $theme = null;
   private $message = null;
   private $headers = null;
+  private $spam = null;
 
   public function __construct() {
+    $this->spam = $_POST['spBtCheck'];
+
     $this->beginEvent();
   }
 
@@ -43,7 +46,7 @@ class ContactMailSend {
   }
 
   public function getSendForClient() {
-    $this->getSendForCompany($_POST['email']);
+    $this->setSendMailAddress($_POST['email']);
     $this->setSendMailTheme('ПФК - статус обращения');
     $this->setSendMailMessage(
       'Здравствуйте, <br>' .
@@ -56,7 +59,9 @@ class ContactMailSend {
   // **
 
   public function getSendMail() {
-    mail($this->recipientMail, $this->theme, $this->message, $this->headers);
+    if (empty($_POST['spBtCheck'])) {
+      mail($this->recipientMail, $this->theme, $this->message, $this->headers);
+    }
   }
 
   // **
