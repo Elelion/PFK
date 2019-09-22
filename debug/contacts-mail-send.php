@@ -59,7 +59,8 @@ class ContactMailSend {
   // **
 
   public function getSendMail() {
-    if (empty($_POST['spBtCheck'])) {
+    // NOTE: spam check
+    if (empty($_POST['spBtCheck']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       mail($this->recipientMail, $this->theme, $this->message, $this->headers);
     }
   }
@@ -84,5 +85,5 @@ $ContactMailSend->getSendMail();
 $ContactMailSend->getSendForCompany();
 $ContactMailSend->getSendMail();
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ./alert.php?idContact=1');
 ?>
