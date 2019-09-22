@@ -1,0 +1,21 @@
+doctype html
+html(lang="ru")
+  +head
+
+body
+  header.header
+    +header-block
+
+  main.alert__content
+    section.alert__wrapper
+      .alert
+        h1.alert__title <?= $title ?>
+        p.alert__caption <?= $caption ?>
+        p.alert__description <?= $description ?>
+
+  footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include
