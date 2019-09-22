@@ -59,7 +59,7 @@ class ContactMailSend {
   // **
 
   public function getSendMail() {
-    // NOTE: spam check
+    // NOTE: spam check, if spam field is empty + if get data from POST
     if (empty($_POST['spBtCheck']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       mail($this->recipientMail, $this->theme, $this->message, $this->headers);
     }
