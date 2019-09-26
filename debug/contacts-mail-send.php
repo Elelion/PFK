@@ -1,13 +1,15 @@
 <?php
 
-class ContactMailSend {
+class ContactMailSend
+{
   private $recipientMail = null;
   private $theme = null;
   private $message = null;
   private $headers = null;
   private $spam = null;
 
-  public function __construct() {
+  public function __construct()
+  {
     $this->spam = $_POST['spBtCheck'];
 
     $this->beginEvent();
@@ -15,25 +17,30 @@ class ContactMailSend {
 
   // **
 
-  private function setSendMailAddress(string $address) {
+  private function setSendMailAddress(string $address)
+  {
     $this->recipientMail = $address;
   }
 
-  private function setSendMailTheme(string $theme) {
+  private function setSendMailTheme(string $theme)
+  {
     $this->theme = $theme;
   }
 
-  private function setSendMailMessage(string $msg) {
+  private function setSendMailMessage(string $msg)
+  {
     $this->message = $msg;
   }
 
-  private function setSendMailHeader(string $header) {
+  private function setSendMailHeader(string $header)
+  {
     $this->headers = $header;
   }
 
   // **
 
-  public function getSendForCompany() {
+  public function sendForCompany()
+  {
     $this->setSendMailAddress('elelion@yandex.ru');
     $this->setSendMailTheme('ПФК - заявка, контакты');
     $this->setSendMailMessage(
@@ -45,7 +52,8 @@ class ContactMailSend {
     );
   }
 
-  public function getSendForClient() {
+  public function sendForClient()
+  {
     $this->setSendMailAddress($_POST['email']);
     $this->setSendMailTheme('ПФК - статус обращения');
     $this->setSendMailMessage(
@@ -58,7 +66,8 @@ class ContactMailSend {
 
   // **
 
-  public function getSendMail() {
+  public function sendMail()
+  {
     // NOTE: spam check, if spam field is empty + if get data from POST
     if (empty($_POST['spBtCheck']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       mail($this->recipientMail, $this->theme, $this->message, $this->headers);
@@ -67,7 +76,8 @@ class ContactMailSend {
 
   // **
 
-  private function beginEvent() {
+  private function beginEvent()
+  {
     $this->setSendMailHeader(
       'MIME-Version: 1.0' . "\r\n" .
       'Content-type: text/html; charset=utf-8'
@@ -77,13 +87,37 @@ class ContactMailSend {
 
 // **
 
-$ContactMailSend = new ContactMailSend();
+function sendMailsFromContacts()
+{
+  $contactMailSend = new ContactMailSend();
 
-$ContactMailSend->getSendForClient();
-$ContactMailSend->getSendMail();
+  $contactMailSend->sendForClient();
+  $contactMailSend->sendMail();
 
-$ContactMailSend->getSendForCompany();
-$ContactMailSend->getSendMail();
+  $contactMailSend->sendForCompany();
+  $contactMailSend->sendMail();
+}
 
-header('Location: ./alert.php?idContact=1');
+// **
+
+if (empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['email'])) {
+  // NOTE: empty field error
+  header('Location: ./alert.php?idContact=default');
+} else {
+  if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    // NOTE: eMail error
+    header('Location: ./alert.php?idContact=mailError');
+  } else {
+    if (!filter_var(!$_POST['phone'], FILTER_VALIDATE_FLOAT) &&
+    strlen($_POST['phone']) < 11) {
+      // NOTE: phone error
+      header('Location: ./alert.php?idContact=phoneError');
+    } else {
+      // NOTE: it's ok
+      sendMailsFromContacts();
+      header('Location: ./alert.php?idContact=contactPageOk');
+    }
+  }
+}
+
 ?>
