@@ -31,4 +31,4 @@ if (empty($_GET['idArticles'])) {
 $file = basename(__FILE__, '.php');
 require './src/' . $file . '.html';
 
-// TODO: don't close!
+// NOTE: don't close!
