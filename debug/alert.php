@@ -4,33 +4,52 @@ date_default_timezone_set('Europe/Moscow');
 
 // **
 
-$title = 'Заявка отправлена.';
-$caption = 'Мы свяжемся с Вами в ближайшее время.';
-$description = 'Вы будете перенаправлены на предыдущую страницу...';
+$link = connectDB();
 
 // **
 
-/**
- * NOTE:
- * 1 - contact page
- * 2 - service page
- */
-$id = $_GET['idContact'];
+$idContact = $_GET['idContact'];
 
-// NOTE: delay of 3 seconds, to protect against spam bots
-switch ($id) {
-  case 1:
-    header('refresh: 3; url=http://proffurkom.ru/contacts.php');
-    break;
+if (empty($_GET['idContact'])) {
+  Error404();
+} else {
+  $idType = mysqli_real_escape_string($link, $_GET['idContact']);
+  $sqlQuery = "SELECT * FROM alert_errors WHERE errorType = '$idType'";
 
-  default:
-    break;
+  $result = mysqli_query($link, $sqlQuery);
+  $resultList = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+  foreach ($resultList as $row) {
+    $title = $row['errorTitle'];
+    $caption = $row['errorCaption'];
+    $description = $row['errorDescription'];
+  }
+
+  // NOTE: delay of few seconds, to protect against spam bots
+  switch ($idContact) {
+    case 'contactPageOk':
+      header('refresh: 3; url=http://proffurkom.ru/contacts.php');
+      break;
+
+    case 'mailError': {
+      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
+      break;
+    }
+
+    case 'phoneError': {
+      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
+      break;
+    }
+
+    default: {
+      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
+      break;
+    }
+  }
 }
 
 // header('Location: ' . $_SERVER['HTTP_REFERER']);
-
 $file = basename(__FILE__, '.php');
 require './src/' . $file . '.html';
 
-
-//НЕ ЗАКРЫВАТЬ PHP!!!...
+// NOTE: don't close!
