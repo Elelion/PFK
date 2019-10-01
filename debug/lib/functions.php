@@ -115,47 +115,6 @@ class DbHelper
 
 // ** ** ** **
 
-function requestSQL($link, $sqlQuery, $type = null) {
-	$sqlQueryData = $sqlQuery;
-	$sqlRequestData = mysqli_query($link, $sqlQueryData);
-
-	switch ($type) {
-		case 'count':
-			$result = mysqli_num_rows($sqlRequestData);
-			break;
-
-		default:
-			$result = mysqli_fetch_all($sqlRequestData, MYSQLI_ASSOC);
-			break;
-	}
-	return $result;
-}
-
-// **
-
-function connectDB()
-{
-	// FIXME: for build
-	$link =
-		// mysqli_connect('localhost', 'proffurkom', 'sm*d2*3kDK9s*', 'proffurkom');
-
-	// FIXME: for debug
-	$link = mysqli_connect('127.0.0.1', 'root', '', 'proffurkom');
-
-	mysqli_set_charset($link, 'utf8');
-
-	if (!$link) {
-		echo 'Ошибка: Невозможно установить соединение с MySQL.' . PHP_EOL;
-		echo 'Код ошибки errno: ' . mysqli_connect_errno() . PHP_EOL;
-		echo 'Текст ошибки error: ' . mysqli_connect_error() . PHP_EOL;
-		exit;
-	}
-
-	return $link;
-}
-
-// **
-
 function Error404()
 {
 	header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
