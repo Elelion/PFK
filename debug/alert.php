@@ -48,8 +48,7 @@ if (empty($_GET['idContact'])) {
   }
 }
 
-// header('Location: ' . $_SERVER['HTTP_REFERER']);
 $file = basename(__FILE__, '.php');
 require './src/' . $file . '.html';
 
-// NOTE: don't close!
+// TODO: don't close!
