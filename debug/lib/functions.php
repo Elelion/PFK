@@ -1,18 +1,21 @@
 <?php
-
-class RedirectNotSupportBrowser {
+class RedirectNotSupportBrowser
+{
 	private $browser = null;
 	private $userAgent = null;
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->beginEvent();
 	}
 
-	private function redirect(string $page) {
+	private function redirect(string $page)
+	{
 		header('Location: ./' . $page . '.php');
 	}
 
-	private function detectBrowser(string $pageRedirect) {
+	private function detectBrowser(string $pageRedirect)
+	{
 		if (strpos($this->userAgent, 'Firefox') !== false)
 			$this->browser = 'Firefox';
 		else if (strpos($this->userAgent, 'Opera') !== false)
@@ -30,7 +33,8 @@ class RedirectNotSupportBrowser {
 		}
 	}
 
-	private function beginEvent() {
+	private function beginEvent()
+	{
 		$this->browser = 'Undefined';
 		$this->userAgent = $_SERVER["HTTP_USER_AGENT"];
 
@@ -39,6 +43,77 @@ class RedirectNotSupportBrowser {
 }
 
 // **
+
+class DbHelper
+{
+	private $dbConnect;
+	private $dbLastError = null;
+	private $dbQueryResult = null;
+
+	protected $host = null;
+	protected $login = null;
+	protected $password = null;
+	protected $db = null;
+
+	// **
+
+	public function __construct()
+	{
+		$this->initConnect();
+
+		$this->dbConnect =
+			mysqli_connect($this->host, $this->login, $this->password, $this->db);
+
+		mysqli_set_charset($this->dbConnect, 'utf8');
+
+		if (!$this->dbConnect) {
+			$this->dbLastError = 'ErrorNO: ' . mysqli_connect_errno() . PHP_EOL;
+			$this->dbLastError .= '<br>';
+			$this->dbLastError .= 'Error: ' . mysqli_connect_error() . PHP_EOL;
+		}
+	}
+
+	// **
+
+	protected function initConnect()
+	{
+		// FIXME: for build
+		// ...
+
+		// FIXME: for debug
+		$this->host = '127.0.0.1';
+		$this->login = 'root';
+		$this->password = '';
+		$this->db = 'proffurkom';
+	}
+
+	// **
+
+	public function executeQuery($query)
+	{
+		$request = mysqli_query($this->dbConnect, $query);
+		$this->dbQueryResult = mysqli_fetch_all($request, MYSQLI_ASSOC);
+	}
+
+	// **
+
+	public function getConnect()
+	{
+		return $this->dbConnect;
+	}
+
+	public function getQueryResult()
+	{
+		return $this->dbQueryResult;
+	}
+
+	public function getLastError()
+	{
+		return $this->dbLastError;
+	}
+}
+
+// ** ** ** **
 
 function requestSQL($link, $sqlQuery, $type = null) {
 	$sqlQueryData = $sqlQuery;
@@ -58,22 +133,11 @@ function requestSQL($link, $sqlQuery, $type = null) {
 
 // **
 
-function elapsedTime($format = '%H Ч : %M M')
-{
-	// NOTE: tomorrow - означает, полночть
-	$tsMidnight = strtotime('tomorrow');
-
-	$secToMidnight = $tsMidnight - time();
-	$result = gmstrftime($format, $secToMidnight);
-	return $result;
-}
-
-// **
-
 function connectDB()
 {
 	// FIXME: for build
-	
+	$link =
+		// mysqli_connect('localhost', 'proffurkom', 'sm*d2*3kDK9s*', 'proffurkom');
 
 	// FIXME: for debug
 	$link = mysqli_connect('127.0.0.1', 'root', '', 'proffurkom');
@@ -96,5 +160,17 @@ function Error404()
 {
 	header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
 	exit();
+}
+
+// **
+
+function elapsedTime($format = '%H Ч : %M M')
+{
+	// NOTE: tomorrow - означает, полночть
+	$tsMidnight = strtotime('tomorrow');
+
+	$secToMidnight = $tsMidnight - time();
+	$result = gmstrftime($format, $secToMidnight);
+	return $result;
 }
 ?>
