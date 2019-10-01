@@ -2,21 +2,26 @@
 require_once 'lib/functions.php';
 date_default_timezone_set('Europe/Moscow');
 new RedirectNotSupportBrowser();
+$dbHelper = new DbHelper;
 
 // **
 
-$link = connectDB();
-$sqlQuery = 'SELECT * FROM `articles` ORDER BY id DESC';
-$getResultData = requestSQL($link, $sqlQuery);
-
-foreach ($getResultData as $row) {
-  $titleDB = $row['title'];
-  $miniDesc = $row['miniDescription'];
-  $imageDB = $row['image_file'];
-  $idDB = $row['id'];
+if (!$dbHelper->getLastError()) {
+  $dbHelper->executeQuery('SELECT * FROM `articles` ORDER BY id DESC');
 }
+
+$queryResult = $dbHelper->getQueryResult();
+
+foreach ($queryResult as $row) {
+  $title = $row['title'];
+  $time = $row['time_create'];
+  $date = $row['date_create'];
+  $desc = $row['fullDescription'];
+}
+
+// **
 
 $file = basename(__FILE__, ".php");
 require './src/' . $file . '.html';
 
-//НЕ ЗАКРЫВАТЬ PHP!!!...
+// TODO: don't close!
