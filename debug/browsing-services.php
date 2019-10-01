@@ -1,24 +1,22 @@
 <?php
 require_once 'lib/functions.php';
 date_default_timezone_set('Europe/Moscow');
+new RedirectNotSupportBrowser();
+$dbHelper = new DbHelper;
 
 // **
 
-$link = connectDB();
-
-// **
-
-// NOTE: services list
-if (empty($_GET['idServices'])) {
-  Error404();
+if ((empty($_GET['idServices'])) || (!is_numeric($_GET['idServices']))) {
+  header('Location: ./404.php');
 } else {
-  $id = mysqli_real_escape_string($link, $_GET['idServices']);
-  $sql_query = "SELECT * FROM main_service WHERE id = '$id'";
+  if (!$dbHelper->getLastError()) {
+    $id = mysqli_real_escape_string($dbHelper->getConnect(), $_GET['idServices']);
+    $dbHelper->executeQuery("SELECT * FROM main_service WHERE id = '$id'");
+  }
 
-  $result = mysqli_query($link, $sql_query);
-  $resultList = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $queryResult = $dbHelper->getQueryResult();
 
-  foreach ($resultList as $row) {
+  foreach ($queryResult as $row) {
     $title = $row['typeService'];
     $desc = $row['descriptionService'];
   }
