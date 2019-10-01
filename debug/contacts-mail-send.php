@@ -1,5 +1,4 @@
 <?php
-
 class ContactMailSend
 {
   private $recipientMail = null;
@@ -100,24 +99,27 @@ function sendMailsFromContacts()
 
 // **
 
+/**
+ * NOTE:
+ * default - empty field error
+ * mailError - email validation error
+ * phoneError - phone validation error
+ * contactPageOk - all validations it's ok
+ */
+
 if (empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['email'])) {
-  // NOTE: empty field error
   header('Location: ./alert.php?idContact=default');
 } else {
   if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    // NOTE: eMail error
     header('Location: ./alert.php?idContact=mailError');
   } else {
     if (!filter_var(!$_POST['phone'], FILTER_VALIDATE_FLOAT) &&
     strlen($_POST['phone']) < 11) {
-      // NOTE: phone error
       header('Location: ./alert.php?idContact=phoneError');
     } else {
-      // NOTE: it's ok
       sendMailsFromContacts();
       header('Location: ./alert.php?idContact=contactPageOk');
     }
   }
 }
-
 ?>
