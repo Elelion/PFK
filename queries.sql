@@ -1,8 +1,8 @@
 ﻿-- NOTE: table -> main_service
 INSERT INTO main_service (typeService, descriptionService) VALUES
 	("Комплексное остекление", "Компания
-		<a class="mini-menu__link mini-menu__link-anchor"
-		href="https://proffurkom.ru/">«ПФК»</a> осуществляет полный спектр по
+		<a class='mini-menu__link mini-menu__link-anchor'
+		href='https://proffurkom.ru/'>«ПФК»</a> осуществляет полный спектр по
 		остеклению любых типов сооружений, зданий и помещений.
 		<br>
 		<br>
@@ -91,8 +91,8 @@ INSERT INTO main_service (typeService, descriptionService) VALUES
 	("Гарантийное обслуживание", "Любая продукция, даже качественная с
 		профессиональным монтажом, время от времени нуждается в гарантийном
 		обслуживании. Компания
-		<a class="mini-menu__link mini-menu__link-anchor"
-		href="https://proffurkom.ru/">«ПФК»</a> предоставляет профессиональное
+		<a class='mini-menu__link mini-menu__link-anchor'
+		href='https://proffurkom.ru/'>«ПФК»</a> предоставляет профессиональное
 		гарантийное обслуживание на протяжении всего срока конкретной продукции,
 		устраняя различные недочеты, которые могут быть выявлены в процессе
 		эксплуатации, а в случае необходимости мы заменяем некачественные
@@ -112,8 +112,8 @@ INSERT INTO main_service (typeService, descriptionService) VALUES
 		соблюдении определенных правил.
 		<br>
 		<br>
-		Компания <a class="mini-menu__link mini-menu__link-anchor"
-		href="https://proffurkom.ru/">«ПФК»</a> не только производит замер
+		Компания <a class='mini-menu__link mini-menu__link-anchor'
+		href='https://proffurkom.ru/'>«ПФК»</a> не только производит замер
 		требуемых конструкций, но и консультирует заказчиков по любым интересующим
 		вопросам. И все это абсолютно бесплатно."),
 
@@ -133,8 +133,8 @@ INSERT INTO main_service (typeService, descriptionService) VALUES
 		для погрузки и транспортировок пластиковых окон и стекло пакетов.
 		<br>
 		<br>
-		Наша компания <a class="mini-menu__link mini-menu__link-anchor"
-		href="https://proffurkom.ru/">«ПФК»</a> так же гарантирует всем нашим
+		Наша компания <a class='mini-menu__link mini-menu__link-anchor'
+		href='https://proffurkom.ru/'>«ПФК»</a> так же гарантирует всем нашим
 		клиентам надежную и своевременную доставку, любых типов окон или стекло
 		пакетов. В любое удобное и оговоренное для Вас время, и место, мы
 		всегда доставим Вам Ваш заказ.")
