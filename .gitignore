@@ -29,3 +29,4 @@ debug/src/**/*.js
 *.log
 *.pdf
 *.psd
+pfk.code-workspace
