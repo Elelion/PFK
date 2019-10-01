@@ -30,4 +30,4 @@ $title = "Главная";
 $file = basename(__FILE__, ".php");
 require './src/' . $file . '.html';
 
-//НЕ ЗАКРЫВАТЬ PHP!!!...
+// TODO: don't close!
