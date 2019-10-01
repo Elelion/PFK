@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 
+// NOTE: index -> all articles button (see bottom of page)
 class ButtonsFollowing {
 	private buttonName: string;
 	private followingLink: string;
@@ -32,11 +33,10 @@ new ButtonsFollowing('button-standard__extension-articles', 'all-articles.php');
 
 // **
 
-class ButtonsFeedBackCheck {
+class ButtonsContactFeedBackCheck {
 	private name: any;
 	private phone: any;
 	private mail: any;
-	private alert: any;
 	private buttons: any;
 	private nameCheckError: boolean;
 	private phoneCheckError: boolean;
@@ -48,9 +48,6 @@ class ButtonsFeedBackCheck {
 		this.name = document.getElementsByClassName('feed-back__name')[0];
 		this.phone = document.getElementsByClassName('feed-back__phone')[0];
 		this.mail = document.getElementsByClassName('feed-back__email')[0];
-
-		this.alert = document.getElementsByClassName('alert')[0];
-
 		this.buttons = document.querySelectorAll('.' + name);
 
 		this.nameCheckError = false;
@@ -62,6 +59,7 @@ class ButtonsFeedBackCheck {
 
 	// **
 
+	// NOTE: for report debug
 	setCheckError(target: any, status: boolean) {
 		if (target === this.name) {
 			this.nameCheckError = status;
@@ -82,10 +80,10 @@ class ButtonsFeedBackCheck {
 	setStyleError(target: any, status: boolean = false) {
 		if (status === true) {
 			target.style.borderBottom = '1.5px solid #FFCC00';
-			this.setCheckError(target, true);
+			// this.setCheckError(target, true);
 		} else {
 			target.style.borderBottom = '1px solid #F2F2F2';
-			this.setCheckError(target, false);
+			// this.setCheckError(target, false);
 		}
 	}
 
@@ -121,31 +119,49 @@ class ButtonsFeedBackCheck {
 
 	// **
 
-	getAlertVisibility(target: any, status: boolean) {
-		target.style.visibility = (status === true) ? 'visible' : 'hidden';
-	}
-
-	setInputCheckBeforeMailSend(event: any) {
-		if (this.nameCheckError === false &&
-			this.phoneCheckError === false && this.mailCheckError === false) {
-				this.getAlertVisibility(this.alert, true);
-		} else {
-			event.preventDefault();
-		}
-	}
-
-	// **
-
 	beginEvent() {
 		for (let i = 0; i < this.buttons.length; i += 1) {
 			this.buttons[i].addEventListener('click', (event: any) => {
 				this.setInputNameCheckEmpty(event, this.name, 2);
 				this.setInputPhoneOrMailCheckValidity(event, this.phone, 'phone');
 				this.setInputPhoneOrMailCheckValidity(event, this.mail, 'mail');
-				this.setInputCheckBeforeMailSend(event);
 			});
 		}
 	}
 }
 
-new ButtonsFeedBackCheck('button-standard__extension-contacts');
+new ButtonsContactFeedBackCheck('button-standard__extension-contacts');
+
+// **
+
+class ButtonsServiceFeedBackCheck extends ButtonsContactFeedBackCheck {
+	private address: any;
+	private desc: any;
+	private question: any;
+	private btn: any;
+
+	constructor(name: string = '') {
+		super(name);
+
+		this.address = document.getElementsByClassName('feed-back__address')[0];
+		this.desc = document.getElementsByClassName('feed-back__description')[0];
+		this.question = document.getElementsByClassName('feed-back__message')[0];
+		this.btn = document.querySelectorAll('.' + name);
+
+		this.beginEventExtension();
+	}
+
+	// **
+
+	beginEventExtension() {
+		for (let i = 0; i < this.btn.length; i += 1) {
+			this.btn[i].addEventListener('click', (event: any) => {
+				super.setInputNameCheckEmpty(event, this.address, 10);
+				super.setInputNameCheckEmpty(event, this.desc, 15);
+				super.setInputNameCheckEmpty(event, this.question, 5);
+			});
+		}
+	}
+}
+
+new ButtonsServiceFeedBackCheck('button-standard__extension-calculatorForm');
