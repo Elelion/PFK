@@ -1,124 +1,81 @@
 <?php
-class RedirectNotSupportBrowser
+require_once 'lib/classes.php';
+
+// ----------------------------------------------------------------------------
+
+/**
+ * NOTE:
+ * bottom two functions
+ * for validation func (look down)
+ * new MailSend() -> classes.php -> MailSend
+ */
+function sendMailsFromContacts()
 {
-	private $browser = null;
-	private $userAgent = null;
+  $contactMailSend = new MailSend();
 
-	public function __construct()
-	{
-		$this->beginEvent();
-	}
+  $contactMailSend->sendForClient();
+  $contactMailSend->sendMail();
 
-	private function redirect(string $page)
-	{
-		header('Location: ./' . $page . '.php');
-	}
+  $contactMailSend->sendForCompany();
+  $contactMailSend->sendMail();
 
-	private function detectBrowser(string $pageRedirect)
-	{
-		if (strpos($this->userAgent, 'Firefox') !== false)
-			$this->browser = 'Firefox';
-		else if (strpos($this->userAgent, 'Opera') !== false)
-			$this->browser = 'Opera';
-		else if (strpos($this->userAgent, 'Chrome') !== false)
-			$this->browser = 'Chrome';
-		else if (strpos($this->userAgent, 'MSIE') !== false)
-			$this->browser = 'InternetExplorer';
-		else if (strpos($this->userAgent, 'Safari') !== false)
-			$this->browser = 'Safari';
-		else $browser = 'Undefined';
-
-		if ($this->browser === 'Safari' || $this->browser === 'Undefined') {
-			$this->redirect($pageRedirect);
-		}
-	}
-
-	private function beginEvent()
-	{
-		$this->browser = 'Undefined';
-		$this->userAgent = $_SERVER["HTTP_USER_AGENT"];
-
-		$this->detectBrowser('not-support');
-	}
+  header('Location: ./alert.php?id=pageOk');
+  die();
 }
 
-// **
-
-class DbHelper
+function sendMailsFromService()
 {
-	private $dbConnect;
-	private $dbLastError = null;
-	private $dbQueryResult = null;
+  $serviceMailSend = new MailSend();
 
-	protected $host = null;
-	protected $login = null;
-	protected $password = null;
-	protected $db = null;
+  $serviceMailSend->sendForClient();
+  $serviceMailSend->sendMail();
 
-	// **
+  $serviceMailSend->setSendMailMessage(
+    'Данные отправителя: <br>' .
+    'Имя: ' . trim(stripslashes($_POST['name'])) . '<br>' .
+    'E-mail: ' . trim(stripslashes($_POST['email'])) . '<br>' .
+    'Телефон: ' . trim(stripslashes($_POST['phone'])) . '<br>' .
+    'Адрес: ' . trim(stripslashes($_POST['address'])) . '<br>' .
+    'Проблема: ' . trim(stripslashes($_POST['description'])) . '<br>' .
+    'Вопрос: ' . trim(stripslashes($_POST['message'])) . '<br>'
+  );
 
-	public function __construct()
-	{
-		$this->initConnect();
+  $serviceMailSend->sendMail();
 
-		$this->dbConnect =
-			mysqli_connect($this->host, $this->login, $this->password, $this->db);
-
-		mysqli_set_charset($this->dbConnect, 'utf8');
-
-		if (!$this->dbConnect) {
-			$this->dbLastError = 'ErrorNO: ' . mysqli_connect_errno() . PHP_EOL;
-			$this->dbLastError .= '<br>';
-			$this->dbLastError .= 'Error: ' . mysqli_connect_error() . PHP_EOL;
-		}
-	}
-
-	// **
-
-	protected function initConnect()
-	{
-		// FIXME: for build
-		// ...
-
-		// FIXME: for debug
-		$this->host = '127.0.0.1';
-		$this->login = 'root';
-		$this->password = '';
-		$this->db = 'proffurkom';
-	}
-
-	// **
-
-	public function executeQuery($query)
-	{
-		$request = mysqli_query($this->dbConnect, $query);
-		$this->dbQueryResult = mysqli_fetch_all($request, MYSQLI_ASSOC);
-	}
-
-	// **
-
-	public function getConnect()
-	{
-		return $this->dbConnect;
-	}
-
-	public function getQueryResult()
-	{
-		return $this->dbQueryResult;
-	}
-
-	public function getLastError()
-	{
-		return $this->dbLastError;
-	}
+  header('Location: ./alert.php?id=pageOk');
 }
 
-// ** ** ** **
+// ----------------------------------------------------------------------------
 
-function Error404()
+// NOTE: for mail-send.php
+function validation($type)
 {
-	header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
-	exit();
+  // NOTE: basic validation (for contact form)
+  if (empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['email']))
+    header('Location: ./alert.php?id=default');
+  else if (strlen($_POST['name']) < 2)
+    header('Location: ./alert.php?id=nameError');
+  else if (!is_numeric($_POST['phone']) || strlen($_POST['phone']) < 11)
+    header('Location: ./alert.php?id=phoneError');
+  else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+    header('Location: ./alert.php?id=mailError');
+  else if ($type === 'basic')
+    // NOTE: look in the functions
+    sendMailsFromContacts();
+
+  // NOTE: advanced validation (for service form)
+  else if (empty($_POST['address']) || empty($_POST['description']) ||
+    empty($_POST['message']))
+      header('Location: ./alert.php?id=default');
+  else if (strlen($_POST['address']) < 10)
+    header('Location: ./alert.php?id=addressError');
+  else if (strlen($_POST['description']) < 15)
+    header('Location: ./alert.php?id=descriptionError');
+  else if (strlen($_POST['message']) < 5)
+    header('Location: ./alert.php?id=messageError');
+  else
+    // NOTE: look in the functions
+    sendMailsFromService();
 }
 
 // **
