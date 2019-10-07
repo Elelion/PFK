@@ -41,7 +41,7 @@ body
       })
 
     section.contacts-content__feed-back
-      form(action='./contacts-mail-send.php', method='post')
+      form(action='./mail-send.php?idType=contact', method='post')
         +feedback-block({
           feedbackTitleChapter: "Напишите нам",
           feedbackDescription: `Ответим в ближайшее время,
