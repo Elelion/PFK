@@ -1,50 +1,37 @@
 <?php
-require_once 'lib/functions.php';
+require_once 'lib/classes.php';
 date_default_timezone_set('Europe/Moscow');
+$dbHelper = new DbHelper;
 
 // **
 
-$link = connectDB();
-
-// **
-
-$idContact = $_GET['idContact'];
-
-if (empty($_GET['idContact'])) {
-  Error404();
+if (empty($_GET['id'])) {
+  header('Location: ./404.php');
 } else {
-  $idType = mysqli_real_escape_string($link, $_GET['idContact']);
-  $sqlQuery = "SELECT * FROM alert_errors WHERE errorType = '$idType'";
+  $id = $_GET['id'];
 
-  $result = mysqli_query($link, $sqlQuery);
-  $resultList = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  if (!$dbHelper->getLastError()) {
+    $idType = mysqli_real_escape_string($dbHelper->getConnect(), $id);
+    $dbHelper->executeQuery("SELECT * FROM alert_errors WHERE errorType = '$idType'");
+  }
 
-  foreach ($resultList as $row) {
+  $queryResult = $dbHelper->getQueryResult();
+
+  foreach ($queryResult as $row) {
     $title = $row['errorTitle'];
     $caption = $row['errorCaption'];
     $description = $row['errorDescription'];
   }
 
   // NOTE: delay of few seconds, to protect against spam bots
-  switch ($idContact) {
-    case 'contactPageOk':
-      header('refresh: 3; url=http://proffurkom.ru/contacts.php');
+  switch ($id) {
+    case 'pageOk':
+      header('refresh: 3; url=http://proffurkom.ru');
       break;
 
-    case 'mailError': {
-      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
+    default:
+      header('refresh: 20; url=http://proffurkom.ru');
       break;
-    }
-
-    case 'phoneError': {
-      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
-      break;
-    }
-
-    default: {
-      header('refresh: 25; url=http://proffurkom.ru/contacts.php');
-      break;
-    }
   }
 }
 
