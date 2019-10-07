@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/functions.php';
+require_once 'lib/classes.php';
 date_default_timezone_set('Europe/Moscow');
 new RedirectNotSupportBrowser();
 $dbHelper = new DbHelper;

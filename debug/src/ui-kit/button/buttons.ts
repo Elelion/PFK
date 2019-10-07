@@ -17,8 +17,6 @@ class Ripple {
 		this.span = document.createElement('span');
 		this.buttons = document.querySelectorAll('.' + this.buttonName);
 
-		// **
-
 		this.beginEvent();
 	}
 
@@ -44,8 +42,7 @@ class Ripple {
 
 				/**
 				 * NOTE:
-				 * get the center of the cursor event click,
-				 * for current coordinates
+				 * get the center of the cursor event click, for current coordinates
 				 */
 				const rippleDefineHorizonralCoordinates = () => {
 					this.xPos = event.layerX - rippleWidth / 2;

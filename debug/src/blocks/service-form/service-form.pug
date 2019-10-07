@@ -35,20 +35,21 @@ mixin service-form(parameter)
       })
 
     .service-form__content
-      +feed-back({
-        type: "advanced",
-        description: `Заполните заявку в сервисную службу,
-          обязательные для заполнения поля помечены знаком *`,
+      form(action='./mail-send.php?idType=service', method='post')
+        +feed-back({
+          type: "advanced",
+          description: `Заполните заявку в сервисную службу,
+            обязательные для заполнения поля помечены знаком *`,
 
-        namePlaceholder: fbNamePlhld,
-        phonePlaceholder: fbPhonePlhld,
-        emailPlaceholder: fbEmailPlhld,
-        addressPlaceholder: fbAddressPlhld,
-        descPlaceholder: fbDescPlhld,
-        messagePlaceholder: fbMessagePlhld,
+          namePlaceholder: fbNamePlhld,
+          phonePlaceholder: fbPhonePlhld,
+          emailPlaceholder: fbEmailPlhld,
+          addressPlaceholder: fbAddressPlhld,
+          descPlaceholder: fbDescPlhld,
+          messagePlaceholder: fbMessagePlhld,
 
-        idTick: fbIdTick,
-        captionTick: fbCaptionTick,
+          idTick: fbIdTick,
+          captionTick: fbCaptionTick,
 
-        formButtonCaption: fbCaptionButton
-      })
+          formButtonCaption: fbCaptionButton
+        })
