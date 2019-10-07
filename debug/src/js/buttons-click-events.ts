@@ -22,8 +22,8 @@ class ButtonsFollowing {
 	beginEvent() {
 		for (let i = 0; i < this.buttons.length; i += 1) {
 			this.buttons[i].addEventListener('click', (event: any) => {
-				event.preventDefault();
 				this.setFollowingLink(this.followingLink);
+				event.preventDefault();
 			});
 		}
 	}
@@ -41,8 +41,6 @@ class ButtonsContactFeedBackCheck {
 	private nameCheckError: boolean;
 	private phoneCheckError: boolean;
 	private mailCheckError: boolean;
-
-	// **
 
 	constructor(name: string = '') {
 		this.name = document.getElementsByClassName('feed-back__name')[0];
@@ -150,8 +148,6 @@ class ButtonsServiceFeedBackCheck extends ButtonsContactFeedBackCheck {
 
 		this.beginEventExtension();
 	}
-
-	// **
 
 	beginEventExtension() {
 		for (let i = 0; i < this.btn.length; i += 1) {
