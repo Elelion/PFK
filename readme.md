@@ -29,11 +29,30 @@
 **Как собрать проект:**<br>
 • Устанавливаем npm<br>
 • Устанавливаем gulp<br>
-• Проверяем, все ли зависимости установились<br>
+• Устанавливаем все зависимости:<br>
+  `for-in`<br>
+  `fresh`<br>
+  `fsevents`<br>
+  `gulp-autoprefixer`<br>
+  `gulp-csso`<br>
+  `gulp-htmlmin`<br>
+  `gulp-pug`<br>
+  `gulp-rename`<br>
+  `gulp-uglify`<br>
+  `gulp-webp`<br>
+  `node-sass`<br>
+  `typescript`<br>
+  `del`<br>
+  `gulp`<br>
+  `gulp-plumber`<br>
+  `gulp-sass`<br>
+  `gulp-tsc`<br>
+  `gulp-typescript`<br>
+
 • Пишем в консоли `gulp build`<br>
 • Идем в папку ./build/src/ - и запускаем наш проект
 
-**Критические правки:**<br>
+**Критические правки:** (смотрим в нутри комментарии)<br>
 index.pug<br>
 all-articles.pug<br>
 styles.sass<br>
