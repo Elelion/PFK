@@ -1,13 +1,13 @@
 <?php
-require_once 'lib/classes.php';
+require_once 'lib/MailSend.php';
 
 // ----------------------------------------------------------------------------
 
 /**
  * NOTE:
  * bottom two functions
- * for validation func (look down)
  * new MailSend() -> classes.php -> MailSend
+ * for validation func (look down)
  */
 function sendMailsFromContacts()
 {
@@ -78,11 +78,11 @@ function validation($type)
     sendMailsFromService();
 }
 
-// **
+// ----------------------------------------------------------------------------
 
 function elapsedTime($format = '%H Ч : %M M')
 {
-	// NOTE: tomorrow - означает, полночть
+	// NOTE: tomorrow -> mindight
 	$tsMidnight = strtotime('tomorrow');
 
 	$secToMidnight = $tsMidnight - time();
