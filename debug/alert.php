@@ -1,5 +1,6 @@
 <?php
-require_once 'lib/classes.php';
+require_once 'lib/DbHelper.php';
+
 date_default_timezone_set('Europe/Moscow');
 $dbHelper = new DbHelper;
 

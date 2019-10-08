@@ -1,6 +1,6 @@
 <?php
-require_once 'lib/classes.php';
 require_once 'lib/functions.php';
+
 date_default_timezone_set('Europe/Moscow');
 
 // **
