@@ -4,6 +4,7 @@ mixin service-form(parameter)
       parameter = parameter || {};
 
       title = parameter.title || "titile";
+      titleType = parameter.titleType || "";
       fbNamePlhld = parameter.fbNamePlhld || "feedBack name";
       fbPhonePlhld = parameter.fbPhonePlhld || "feedBack phone";
       fbEmailPlhld = parameter.fbEmailPlhld || "feedBack email";
@@ -31,7 +32,8 @@ mixin service-form(parameter)
   .service-form
     .service-form__wrapper
       +chapter({
-        title: title
+        title: title,
+        titleType: titleType
       })
 
     .service-form__content

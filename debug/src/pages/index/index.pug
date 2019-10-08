@@ -9,7 +9,7 @@ html(lang="ru")
       комплектующие и фурнитуры для окон, оптом, от производителя по
       выгодной цене. Продукция сертифицирована`,
 
-    title: `ПФК предлагает: пластиковые окна и подоконники по выгодной цене.`
+    title: `Компания ПФК: пластиковые окна и подоконники по выгодной цене.`
   })
 
 body
@@ -23,6 +23,7 @@ body
     section.main-content__news
       +events-block({
         titleChapter: "события",
+        titleType: "h3",
 
         imagesName: [
           "news-1",
@@ -56,6 +57,7 @@ body
     section.main-content__services
       +services-block({
         titleChapter: "услуги",
+        titleType: "h4",
 
         imagesName: [
           "service-1",
@@ -94,15 +96,16 @@ body
       .articles-block
         .articles-block__wrapper
           +chapter({
-            title: "статьи"
+            title: "статьи",
+            titleType: "h5"
           })
 
           .articles-block__content
             //- FIXME: for debug
-            <?php require 'ui-kit/article/article.php'; ?>
+            //- <?php require 'ui-kit/article/article.php'; ?>
 
             //- FIXME: for build
-            //- <?php require 'templates/article.php'; ?>
+            <?php require 'templates/article.php'; ?>
 
             .articles-block__button
               +button({

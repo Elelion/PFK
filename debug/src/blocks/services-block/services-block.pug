@@ -4,6 +4,7 @@ mixin services-block(parameter)
       parameter = parameter || {};
 
       titleChapter = parameter.titleChapter || "titile";
+      titleType = parameter.titleType || "";
 
       imagesName = parameter.imagesName || ["imageName", "imageName"];
       imagesAlt = parameter.imagesAlt || ["alt SEO", "alt SEO"];
@@ -17,6 +18,7 @@ mixin services-block(parameter)
     .services-block__wrapper
       +chapter({
           title: titleChapter,
+          titleType: titleType,
           indent: "true"
         })
 

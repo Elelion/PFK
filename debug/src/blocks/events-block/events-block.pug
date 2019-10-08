@@ -4,6 +4,7 @@ mixin events-block(parameter)
       parameter = parameter || {};
 
       titleChapter = parameter.titleChapter || "title";
+      titleType = parameter.titleType || "";
 
       imagesName = parameter.imagesName || ["imageName", "imageName"];
       imagesAlt = parameter.imagesAlt || ["alt SEO", "alt SEO"];
@@ -16,7 +17,8 @@ mixin events-block(parameter)
   .events-block
     .events-block__wrapper
       +chapter({
-        title: titleChapter
+        title: titleChapter,
+        titleType: titleType
       })
 
       .events-block__content
