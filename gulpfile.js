@@ -95,7 +95,7 @@ gulp.task('copy_SRC', function() {
 
 gulp.task('copy_JS', function() {
 	return gulp.src([
-		'./debug/src/js/*.js'
+		'./debug/src/js/yandexMetrika.js'
 	], {
 		base: './debug'
 	})
@@ -171,7 +171,10 @@ gulp.task('build',
 		),
 
 		'minify_HTML',
-		'minify_JS'
+		'minify_JS',
+
+		// NOTE: since only one file can be minified (containing all TS)
+		'copy_JS'
 	)
 );
 
