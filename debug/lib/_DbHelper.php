@@ -32,17 +32,16 @@ class DbHelper
 
 	protected function initConnect()
 	{
+		$this->host = 'localhost';
+		$this->db = 'proffurkom';
+
 		// FIXME: for build
-		// $this->host = 'localhost';
 		// $this->login = '...';
 		// $this->password = '...';
-		// $this->db = 'proffurkom';
 
 		// FIXME: for debug
-		$this->host = '127.0.0.1';
 		$this->login = 'root';
 		$this->password = '';
-		$this->db = 'proffurkom';
 	}
 
 	// **
