@@ -9,10 +9,10 @@ class DbHelperPDO
 
   protected $driver = null;
 	protected $host = null;
-	protected $login = null;
-	protected $password = null;
   protected $db = null;
   protected $charset = null;
+	protected $login = null;
+	protected $password = null;
 
 	public function __construct()
 	{
@@ -41,6 +41,7 @@ class DbHelperPDO
     $this->charset = 'utf8';
 
 		// FIXME: for build
+		
 
     // FIXME: for debug
 		$this->login = 'root';
