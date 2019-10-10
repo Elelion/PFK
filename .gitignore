@@ -22,7 +22,7 @@ debug/src/images/logo/png
 debug/src/*.css
 debug/src/css/*
 debug/src/*.html
-debug/src/**/*.js
+debug/src/**/scripts.js
 
 #NOTE: differents
 *.ai
