@@ -1,8 +1,8 @@
 <?php
-require_once 'lib/DbHelper.php';
+require_once 'lib/DbHelperPDO.php';
 
 date_default_timezone_set('Europe/Moscow');
-$dbHelper = new DbHelper;
+$dbHelperPDO = new DbHelperPDO;
 
 // **
 
@@ -11,12 +11,12 @@ if (empty($_GET['id'])) {
 } else {
   $id = $_GET['id'];
 
-  if (!$dbHelper->getLastError()) {
-    $idType = mysqli_real_escape_string($dbHelper->getConnect(), $id);
-    $dbHelper->executeQuery("SELECT * FROM alert_errors WHERE errorType = '$idType'");
+  if (!$dbHelperPDO->getLastError()) {
+    $idType = htmlspecialchars($_GET['id']);
+    $dbHelperPDO->executeQuery("SELECT * FROM alert_errors WHERE errorType = '$idType'");
   }
 
-  $queryResult = $dbHelper->getQueryResult();
+  $queryResult = $dbHelperPDO->getQueryResult();
 
   foreach ($queryResult as $row) {
     $title = $row['errorTitle'];

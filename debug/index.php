@@ -1,18 +1,18 @@
 <?php
 require_once 'lib/RedirectNotSupportBrowser.php';
-require_once 'lib/DbHelper.php';
+require_once 'lib/DbHelperPDO.php';
 
 date_default_timezone_set('Europe/Moscow');
 new RedirectNotSupportBrowser();
-$dbHelper = new DbHelper;
+$dbHelperPDO = new DbHelperPDO;
 
 // **
 
-if (!$dbHelper->getLastError()) {
-  $dbHelper->executeQuery('SELECT * FROM `articles` ORDER BY id DESC LIMIT 6');
+if (!$dbHelperPDO->getLastError()) {
+  $dbHelperPDO->executeQuery('SELECT * FROM `articles` ORDER BY id DESC LIMIT 6');
 }
 
-$queryResult = $dbHelper->getQueryResult();
+$queryResult = $dbHelperPDO->getQueryResult();
 
 // **
 
