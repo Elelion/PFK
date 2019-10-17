@@ -26,3 +26,14 @@ CREATE TABLE alert_errors (
 	errorDescription TEXT(32768)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE events (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(32),
+	miniDescription TEXT(128),
+	fullDescription TEXT(32768),
+	image_file VARCHAR(255),
+	active tinyint(8) DEFAULT 0,
+	redirect TEXT(128)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;

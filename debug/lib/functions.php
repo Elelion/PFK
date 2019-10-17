@@ -20,7 +20,6 @@ function sendMailsFromContacts()
   $contactMailSend->sendMail();
 
   header('Location: ./alert.php?id=pageOk');
-  die();
 }
 
 function sendMailsFromService()

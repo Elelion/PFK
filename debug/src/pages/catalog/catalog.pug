@@ -8,21 +8,24 @@ html(lang="ru")
       комплектующие и фурнитуры для окон, оптом, от производителя по
       выгодной цене. Продукция сертифицирована`,
 
-    title: `ПФК события.`
+    title: `ПФК статьи.`
   })
 
 body
   header.header
     +header-block
 
-  main.browsing-services__content
-    section.browsing-services__wrapper
+  main.browsing-articles__content
+    section.browsing-articles__wrapper
 
       .chapter.chapter__size-standard
         p.chapter__title.chapter__color-standard
           <?= $title ?>
 
-      p.browsing-services__description
+      .browsing-articles__time-data
+        p.browsing-articles__date-create <?= $time ?> / <?= $date ?>
+
+      article.browsing-articles__description
         <?= $desc ?>
 
   footer.footer

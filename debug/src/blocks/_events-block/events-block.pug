@@ -11,6 +11,7 @@ mixin events-block(parameter)
       imagesTitle = parameter.imagesTitle || ["title SEO", "title SEO"];
       titles = parameter.titles || ["title", "title"];
       descriptions = parameter.description || ["desc", "desc"];
+      linkSheet = parameter.linkSheet || ["#", "#"];
 
   //-
 
@@ -24,7 +25,7 @@ mixin events-block(parameter)
       .events-block__content
         -for (var i = 1; i <= titles.length; i++)
           +events({
-            link: "",
+            link: linkSheet[i - 1],
             imageName: imagesName[i - 1],
             imageAlt: imagesAlt[i - 1],
             imageTitle: imagesTitle[ i - 1],

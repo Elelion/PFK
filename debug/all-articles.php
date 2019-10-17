@@ -12,9 +12,9 @@ if (!$dbHelperPDO->getLastError()) {
   $dbHelperPDO->executeQuery('SELECT * FROM `articles` ORDER BY id DESC');
 }
 
-$queryResult = $dbHelperPDO->getQueryResult();
+$queryArticleResult = $dbHelperPDO->getQueryResult();
 
-foreach ($queryResult as $row) {
+foreach ($queryArticleResult as $row) {
   $title = $row['title'];
   $time = $row['time_create'];
   $date = $row['date_create'];

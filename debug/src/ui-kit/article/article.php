@@ -1,4 +1,4 @@
-<?php foreach ($queryResult as $row) { ?>
+<?php foreach ($queryArticleResult as $row) { ?>
 	<div class="article">
 		<img class="article__picture"
 			src="./src/images/articles/<?= $row['image_file'] ?>.webp"

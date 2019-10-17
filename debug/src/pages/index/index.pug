@@ -21,38 +21,19 @@ body
       +slider-block
 
     section.main-content__news
-      +events-block({
-        titleChapter: "события",
-        titleType: "h3",
+      .events-block
+        .events-block__wrapper
+          +chapter({
+            title: "события",
+            titleType: "h3"
+          })
 
-        imagesName: [
-          "news-1",
-          "news-2",
-          "news-3"
-        ],
+          .events-block__content
+            //- FIXME: for debug
+            <?php require 'ui-kit/events/events.php'; ?>
 
-        imagesAlt: [
-          "",
-          "",
-          "",
-        ],
-
-        imagesTitle: [
-
-        ],
-
-        titles: [
-          "новинки",
-          "лови момент",
-          "сайт в доработке"
-        ],
-
-        description: [
-          "просмотреть новинки от 01.06.2019",
-          "узнать подробности акции, до 1.06.2019",
-          "описание планируемых доработок и изменений"
-        ]
-      })
+            //- FIXME: for build
+            //- <?php require 'templates/events.php'; ?>
 
     section.main-content__services
       +services-block({
@@ -102,10 +83,10 @@ body
 
           .articles-block__content
             //- FIXME: for debug
-            //- <?php require 'ui-kit/article/article.php'; ?>
+            <?php require 'ui-kit/article/article.php'; ?>
 
             //- FIXME: for build
-            <?php require 'templates/article.php'; ?>
+            //- <?php require 'templates/article.php'; ?>
 
             .articles-block__button
               +button({

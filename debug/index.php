@@ -9,10 +9,14 @@ $dbHelperPDO = new DbHelperPDO;
 // **
 
 if (!$dbHelperPDO->getLastError()) {
-  $dbHelperPDO->executeQuery('SELECT * FROM `articles` ORDER BY id DESC LIMIT 6');
-}
+  // NOTE: to display events
+  $dbHelperPDO->executeQuery('SELECT * FROM `events` WHERE active = 1 LIMIT 3');
+  $queryEventsResult = $dbHelperPDO->getQueryResult();
 
-$queryResult = $dbHelperPDO->getQueryResult();
+  // NOTE: to display articles
+  $dbHelperPDO->executeQuery('SELECT * FROM `articles` ORDER BY id DESC LIMIT 6');
+  $queryArticleResult = $dbHelperPDO->getQueryResult();
+}
 
 // **
 
