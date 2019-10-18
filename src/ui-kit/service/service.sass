@@ -1,0 +1,56 @@
+.service
+  display: flex
+  width: 16rem
+  height: 22rem
+  border-bottom: $lineHeight solid white
+  transition: $transition
+  justify-content: center
+
+  &:hover
+    border-color: transparent
+
+  &:hover .service__image
+    opacity: $opacity
+    box-shadow: $box-shadow
+
+  @media screen and (max-width: 1250px)
+    margin: 0 2rem 0 0
+
+    &:last-child
+      margin-right: 0
+
+  @media screen and (max-width: 880px)
+    float: left
+    margin-right: 1rem
+    width: auto
+
+  @media screen and (max-width: 830px)
+    margin: 0 1rem 2rem 1rem
+
+  &__link
+    text-decoration: none
+    +border-blue
+    outline: none
+
+  &__image
+    width: 15rem
+    height: 15rem
+    transition: $transition
+
+    @media screen and (max-width: 880px)
+      max-width: 100%
+      object-fit: cover
+
+  &__title
+    height: 5rem
+    width: 13.7rem
+    margin: 0.5rem
+    font-size: $sizeRegularFont
+    text-transform: lowercase
+    text-align: center
+    color: $colorFontText
+    +border-red
+    overflow: hidden
+
+    &:first-letter
+      text-transform: uppercase

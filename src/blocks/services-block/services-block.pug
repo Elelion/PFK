@@ -1,0 +1,30 @@
+mixin services-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      titleChapter = parameter.titleChapter || "titile";
+
+      imagesName = parameter.imagesName || ["imageName", "imageName"];
+      imagesAlt = parameter.imagesAlt || ["alt SEO", "alt SEO"];
+      imagesTitle = parameter.imagesTitle || ["title SEO", "title SEO"];
+      titles = parameter.titles || ["title", "title"];
+
+  //-
+
+  .services-block
+    .services-block__wrapper
+      +chapter({
+          title: titleChapter,
+          indent: "true"
+        })
+
+      .services-block__content
+        -for (var i = 1; i <= titles.length; i++)
+          +service({
+            link: "",
+            imageName: imagesName[i - 1],
+            imageAlt: imagesAlt[i - 1],
+            imageTitile: imagesTitle[i - 1],
+            title: titles[i - 1]
+          })
