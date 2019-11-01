@@ -11,26 +11,49 @@ html(lang="ru")
     title: `ПФК статьи.`
   })
 
-body
-  header.header
-    +header-block
+  body
+    header.header
+      +header-block
 
-  main.browsing-articles__content
-    section.browsing-articles__wrapper
+    main.catalog
+      section.catalog__sidebar
+        +catalog-list({
+          title: [
+            "пластиковые подоконники",
+            "сэндвич панели, пластиковые ПВХ",
+            "оконные отливы",
+            "оконная фурнитура",
+            "уплотнители для окон и дверей",
+            "метизы",
+            "алюминевые окна",
+            "космофен",
+            "металлический сайдинг",
+            "нащельники ПВХ",
+            "клеи",
+            "пистолеты для пены и герметиков",
+            "алюминевый профиль для балконов",
+            "пластиковые окна",
+            "монтажная пена",
+            "псул",
+            "панели ПВХ",
+            "герметизирующие материалы",
+            "клейкие ленты",
+            "комплектующие для москитных сеток"
+          ]
+        })
 
-      .chapter.chapter__size-standard
-        p.chapter__title.chapter__color-standard
-          <?= $title ?>
+      section.catalog__content
+        .catalog__content-wrapper
+          //- FIXME: for debug
+          //- <?php require 'ui-kit/catalog-product/catalog-product.php'; ?>
 
-      .browsing-articles__time-data
-        p.browsing-articles__date-create <?= $time ?> / <?= $date ?>
+          //- FIXME: for build
+          //- <?php require 'templates/catalog-product.php'; ?>
+          <h1 class="chapter__title chapter__size-standard chapter__color-standard">Каталог в разработке...</h3>
 
-      article.browsing-articles__description
-        <?= $desc ?>
+    footer.footer
+    +footer-block
 
-  footer.footer
-  +footer-block
+  //-
 
-//-
-
-+scripts-include
+  +scripts-include

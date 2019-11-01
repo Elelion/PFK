@@ -12,56 +12,56 @@ html(lang="ru")
     title: `ПФК контакты.`
   })
 
-body
-  header.header
-    +header-block
+  body
+    header.header
+      +header-block
 
-  main.contacts-content
-    section.contacts-content__info
-      +contact-info({
-        titleChapter: "контакты",
-        titleType: "h1",
+    main.contacts-content
+      section.contacts-content__info
+        +contact-info({
+          titleChapter: "контакты",
+          titleType: "h1",
 
-        contactImageAlt: [
-          "",
-          "",
-          ""
-        ],
+          contactImageAlt: [
+            "",
+            "",
+            ""
+          ],
 
-        contactImageTitle: [
-          "",
-          "",
-          ""
-        ],
+          contactImageTitle: [
+            "",
+            "",
+            ""
+          ],
 
-        contactValue: [
-          "+7 (4742) 559 925",
-          `399140, Липецкая область, Добровский  район,
-            Доброе село, Советский переулок, дом № 6 А, кабинет 1`,
-          "elelion@yandex.ru"
-        ]
-      })
-
-    section.contacts-content__feed-back
-      form(action='./mail-send.php?idType=contact', method='post')
-        +feedback-block({
-          feedbackTitleChapter: "Напишите нам",
-          feedbackDescription: `Ответим в ближайшее время,
-            обязательные для заполнения поля помечены знаком *`,
-
-          feedbackName: "Имя *",
-          feedbackPhone: "Телефон *",
-          feedbackMail: "eMail *",
-          feedbackMessage: "Вопрос",
-          feedbackButton: "Отправить"
+          contactValue: [
+            "+7 (4742) 559 925",
+            `399140, Липецкая область, Добровский  район,
+              Доброе село, Советский переулок, дом № 6 А, кабинет 1`,
+            "elelion@yandex.ru"
+          ]
         })
 
-    section.contacts-content__map
-      +contact-map
+      section.contacts-content__feed-back
+        form(action='./mail-send.php?idType=contact', method='post')
+          +feedback-block({
+            feedbackTitleChapter: "Напишите нам",
+            feedbackDescription: `Ответим в ближайшее время,
+              обязательные для заполнения поля помечены знаком *`,
 
-  footer.footer
-    +footer-block
+            feedbackName: "Имя *",
+            feedbackPhone: "Телефон *",
+            feedbackMail: "eMail *",
+            feedbackMessage: "Вопрос",
+            feedbackButton: "Отправить"
+          })
 
-  //-
+      section.contacts-content__map
+        +contact-map
 
-  +scripts-include
+    footer.footer
+      +footer-block
+
+    //-
+
+    +scripts-include

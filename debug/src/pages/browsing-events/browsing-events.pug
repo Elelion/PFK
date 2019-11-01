@@ -9,23 +9,23 @@ html(lang="ru")
     title: `ПФК события.`
   })
 
-body
-  header.header
-    +header-block
+  body
+    header.header
+      +header-block
 
-  main.browsing-events__content
-    section.browsing-events__wrapper
+    main.browsing-events__content
+      section.browsing-events__wrapper
 
-      .chapter.chapter__size-standard
-        p.chapter__title.chapter__color-standard
-          <?= $title ?>
+        .chapter.chapter__size-standard
+          p.chapter__title.chapter__color-standard
+            <?= $title ?>
 
-      article.browsing-events__description
-        <?= $fullDesc ?>
+        article.browsing-events__description
+          <?= $fullDesc ?>
 
-  footer.footer
-  +footer-block
+    footer.footer
+    +footer-block
 
-//-
+  //-
 
-+scripts-include
+  +scripts-include

@@ -1,53 +1,34 @@
-.browsing-articles
-  &__content
-    width: auto
-    min-height: 100vh
-    height: 100%
-    +border-red
+.catalog
+  width: auto
+  height: 100%
+  min-height: 100vh
+  +border-red
 
-  &__wrapper
-    width: $contentWidth
-    height: 100%
-    margin: $contentMarginTop auto 0 auto
+  &__sidebar
+    float: left
+    position: absolute
+    width: 5rem
+    height: auto
+    margin-top: 10rem
     +border-black
+    border-top-right-radius: 0.5rem
+    border-bottom-right-radius: 0.5rem
+    background: $colorGeneralFon
+    transition: $transition
+    box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.7)
 
-    @media screen and (max-width: 1210px)
-      width: auto
-      margin-left: 1rem
-      margin-right: 1rem
+    &:hover
+      width: 35rem
 
-    @media screen and (max-width: 830px)
-      width: $generalMinWidthForBlock
-      margin-left: auto
-      margin-right: auto
+    // NOTE: look in catalog-menu.sass
+    &:hover .catalog-menu__title
+      display: block
 
-    @media screen and (max-width: 360px)
-      width: auto
+  &__content
+    width: 100%
+    min-height: 100vh
 
-  &__time-data
-    +border-red
-
-  &__date-create
-    color: $colorFontTitle
-    font-size: $sizeSmallTitleFont
-
-  &__description
-    margin-bottom: $contentMarginBottom
-    padding: 0.5rem 0 0.5rem 0
-    color: $colorFontText
-    +border-red
-
-    @media screen and (max-width: 970px)
-      justify-content: center
-      flex-direction: column
-
-    @media screen and (max-width: 830px)
-      width: $generalMinWidthForBlock
-
-    @media screen and (max-width: 360px)
-      width: auto
-      padding-left: 0.5rem
-      padding-right: 0.5rem
-
-    & b
-      color: $colorFontTitle
+    &-wrapper
+      width: 5rem
+      height: 5rem
+      margin: 8rem 0 0 7rem
