@@ -18,6 +18,7 @@ debug/src/images/contact/png
 debug/src/images/services/png
 debug/src/images/logo/png
 debug/src/images/catalog/menu/png
+debug/src/images/catalog/products
 
 #NOTE: web files
 debug/src/*.css
