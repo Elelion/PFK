@@ -19,10 +19,12 @@ class DbHelperPDO
     $this->initConnect();
 
     try {
-      $this->dbConnect = new PDO("$this->driver:host=$this->host;
-        dbname=$this->db;
-        charset=$this->charset",
-        $this->login, $this->password);
+			$this->dbConnect =
+				new PDO("$this->driver:host=$this->host;dbname=$this->db",
+					"$this->login",
+					"$this->password",
+					array(PDO::MYSQL_ATTR_INIT_COMMAND => "$this->charset")
+				);
     } catch (PDOException $e) {
       $this->dbLastError = 'Подключение не удалось: ' . $e->getMessage();
       $this->dbConnect = null;
@@ -38,10 +40,10 @@ class DbHelperPDO
     $this->driver = 'mysql';
 		$this->host = 'localhost';
     $this->db = 'proffurkom';
-    $this->charset = 'utf8';
+    $this->charset = 'SET NAMES utf8';
 
 		// FIXME: for build
-		
+
 
     // FIXME: for debug
 		$this->login = 'root';
