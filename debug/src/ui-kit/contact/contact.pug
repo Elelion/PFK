@@ -20,12 +20,12 @@ mixin contact(parameter)
 
     case type
       when "phone"
-        a.contact__caption.contact__phone(
+        a.contact__caption.contact__phone(itemprop="telephone")(
           href=`tel: + ${value}`)= value
       when "mail"
-        a.contact__caption.contact__mail(
+        a.contact__caption.contact__mail(itemprop="email")(
           href=`mailto: ${value}`)= value
       default
-        p.contact__caption= value
+        p.contact__caption(itemprop="address")= value
 
     .contact__border

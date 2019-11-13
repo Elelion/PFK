@@ -6,6 +6,7 @@ mixin button(parameter)
 			size = parameter.size || "standard";
 			caption = parameter.caption || "button";
 			extension = parameter.extension || "";
+			name = parameter.name || "";
 
 			type = parameter.type || "standard";
 			direction = parameter.direction || "left";
@@ -33,8 +34,8 @@ mixin button(parameter)
 
 	case type
 		when "submit"
-			input(type="submit" class=classes value=caption)
+			input(type="submit" class=classes value=caption name=name)
 
 		default
 			form
-				button(class=classes)= caption
+				button(class=classes name=name)= caption

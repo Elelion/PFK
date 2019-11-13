@@ -1,10 +1,14 @@
 .catalog-product
-  display: inline-block
+  float: left
+  margin: 0.5rem
   width: 30rem
   height: 38.5rem
   border: 0.1rem solid $colorGeneralFon
 
-  &:hover .events__image
+  &:hover
+    border-color: $colorYellow
+
+  &:hover .catalog-product__image
     opacity: $opacity
     transform: $transformEvents
 
