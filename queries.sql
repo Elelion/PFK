@@ -585,3 +585,9 @@ INSERT INTO events (image_file, active, redirect,
 				<b>Футер сайта</b>
 				<br>
 				Планируется доделать то, что есть и добавить чего нибудь новенького.")
+
+-- NOTE: table -> catalog_1
+INSERT INTO catalog_1 (title, price, image) VALUES
+		("title",
+			"price",
+			"img")
