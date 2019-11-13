@@ -136,6 +136,16 @@ gulp.task('copy_PHP_lib', function() {
 	.pipe(gulp.dest('./build/'));
 });
 
+gulp.task('copy_import_files', function() {
+	return gulp.src([
+		'./debug/import/*.*'
+	], {
+		base: './debug/import'
+	})
+
+	.pipe(gulp.dest('./build/import'));
+});
+
 // **
 
 gulp.task('webp', () =>
@@ -160,6 +170,7 @@ gulp.task('build',
 			'copy_PHP',
 			'copy_PHP_lib',
 			'copy_PHP-templates',
+			'copy_import_files',
 		),
 
 		'build_TS',
