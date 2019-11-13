@@ -37,15 +37,15 @@ class DbHelperPDO
 
 	protected function initConnect()
 	{
-    $this->driver = 'mysql';
+		$this->driver = 'mysql';
 		$this->host = 'localhost';
-    $this->db = 'proffurkom';
-    $this->charset = 'SET NAMES utf8';
+		$this->db = 'proffurkom';
+		$this->charset = 'SET NAMES utf8';
 
 		// FIXME: for build
+		
 
-
-    // FIXME: for debug
+		// FIXME: for debug
 		$this->login = 'root';
 		$this->password = '';
 	}
@@ -54,8 +54,8 @@ class DbHelperPDO
 
 	public function executeQuery($query)
 	{
-    $result = $this->dbConnect->query($query);
-    $this->dbQueryResult = $result->fetchAll(PDO::FETCH_ASSOC);
+		$result = $this->dbConnect->query($query);
+		$this->dbQueryResult = $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 
   // **
