@@ -1,0 +1,71 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: ``,
+
+    description: ``,
+
+    title: `Панель управления.`
+  })
+
+  body
+    header.header
+      +header-block
+
+    main.admin
+      section.admin__content
+        .admin__import-db
+          .admin__import-wrapper
+            .admin__import-from
+              p.admin__import-label Предварительный просмотр:
+                form(action='./admin.php', method='post')
+                  input.admin__input.admin__import-file(
+                    type='text',
+                    name='importFile',
+                    placeholder= 'test.csv',
+                    maxlength='30')
+
+                  .admin__import-button
+                    +button({
+                      type: 'submit',
+                      size: 'small',
+                      caption: 'Просмотр',
+                      extension: 'contacts',
+                      name: 'reviewImportFile'})
+
+            .admin__import-to
+              p.admin__import-label Загрузить в таблицу:
+                form(action='./admin-commands.php?idCommand=import', method='post')
+                  input.admin__input.admin__import-file(
+                    type='text',
+                    name='importFile',
+                    placeholder= 'Из test.csv файла',
+                    maxlength='30')
+
+                  input.admin__input.admin__export-to(
+                    type='text',
+                    name='exportDB',
+                    placeholder= 'В test таблицу (mySQL)',
+                    maxlength='30')
+
+                  .admin__export-button
+                    +button({
+                      type: 'submit',
+                      size: 'small',
+                      caption: 'Загрузить',
+                      extension: 'contacts',
+                      name: 'importFileToDB'})
+
+        .admin__import-view
+          //- FIXME: for debug
+          //- <?php require 'ui-kit/admin-view/admin-view.php'; ?>
+
+          //- FIXME: for build
+          <?php require 'templates/admin-view.php'; ?>
+
+    footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include
