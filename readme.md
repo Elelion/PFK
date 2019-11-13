@@ -55,8 +55,10 @@
 **Критические правки:** (смотрим в нутри комментарии)<br>
 index.pug<br>
 all-articles.pug<br>
+catalog.pug<br>
+admin.pug<br>
 styles.sass<br>
-functions.php<br>
+DBHelper.php<br>
 tsconfig.json<br>
 
 ---
