@@ -33,7 +33,7 @@ class DbHelperPDO
     }
 	}
 
-	// **
+	/**/
 
 	protected function initConnect()
 	{
@@ -43,14 +43,14 @@ class DbHelperPDO
 		$this->charset = 'SET NAMES utf8';
 
 		// FIXME: for build
-		
+
 
 		// FIXME: for debug
 		$this->login = 'root';
 		$this->password = '';
 	}
 
-	// **
+	/**/
 
 	public function executeQuery($query)
 	{
@@ -58,7 +58,7 @@ class DbHelperPDO
 		$this->dbQueryResult = $result->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-  // **
+  /**/
 
   public function getConnect()
 	{
@@ -75,4 +75,3 @@ class DbHelperPDO
 		return $this->dbLastError;
 	}
 }
-?>
