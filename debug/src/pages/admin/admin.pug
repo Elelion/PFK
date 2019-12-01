@@ -2,9 +2,7 @@ doctype html
 html(lang="ru")
   +head({
     keywords: ``,
-
     description: ``,
-
     title: `Панель управления.`
   })
 
@@ -18,50 +16,50 @@ html(lang="ru")
           .admin__import-wrapper
             .admin__import-from
               p.admin__import-label Предварительный просмотр:
-                form(action='./admin.php', method='post')
+                form(action="./admin.php", method="post")
                   input.admin__input.admin__import-file(
-                    type='text',
-                    name='importFile',
-                    placeholder= 'test.csv',
-                    maxlength='30')
+                    type="text",
+                    name="importFile",
+                    placeholder= "test.csv",
+                    maxlength="30")
 
                   .admin__import-button
                     +button({
-                      type: 'submit',
-                      size: 'small',
-                      caption: 'Просмотр',
-                      extension: 'contacts',
-                      name: 'reviewImportFile'})
+                      type: "submit",
+                      size: "small",
+                      caption: "Просмотр",
+                      extension: "contacts",
+                      name: "reviewImportFile"})
 
             .admin__import-to
               p.admin__import-label Загрузить в таблицу:
-                form(action='./admin-commands.php?idCommand=import', method='post')
+                form(action="./admin-commands.php?idCommand=import", method="post")
                   input.admin__input.admin__import-file(
-                    type='text',
-                    name='importFile',
-                    placeholder= 'Из test.csv файла',
-                    maxlength='30')
+                    type="text",
+                    name="importFile",
+                    placeholder= "Из test.csv файла",
+                    maxlength="30")
 
                   input.admin__input.admin__export-to(
-                    type='text',
-                    name='exportDB',
-                    placeholder= 'В test таблицу (mySQL)',
-                    maxlength='30')
+                    type="text",
+                    name="exportDB",
+                    placeholder= "В test таблицу (mySQL)",
+                    maxlength="30")
 
                   .admin__export-button
                     +button({
-                      type: 'submit',
-                      size: 'small',
-                      caption: 'Загрузить',
-                      extension: 'contacts',
-                      name: 'importFileToDB'})
+                      type: "submit",
+                      size: "small",
+                      caption: "Загрузить",
+                      extension: "contacts",
+                      name: "BtnImportFileToDB"})
 
         .admin__import-view
           //- FIXME: for debug
-          //- <?php require 'ui-kit/admin-view/admin-view.php'; ?>
+          <?php require 'ui-kit/admin-view/admin-view.php'; ?>
 
           //- FIXME: for build
-          <?php require 'templates/admin-view.php'; ?>
+          //- <?php require 'templates/admin-view.php'; ?>
 
     footer.footer
     +footer-block

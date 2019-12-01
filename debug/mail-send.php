@@ -3,7 +3,7 @@ require_once 'lib/functions.php';
 
 date_default_timezone_set('Europe/Moscow');
 
-// **
+/**/
 
 $idType = $_GET['idType'];
 
@@ -24,4 +24,3 @@ if (empty($idType)) {
       break;
   }
 }
-?>

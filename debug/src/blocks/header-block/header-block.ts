@@ -7,6 +7,8 @@ class headerBlock {
   private menu: object;
   private burgerMenu: object;
   private menuNav: object;
+  private authMenu: object;
+  private authAside: object;
   private headerBlockLogo: object;
 
   constructor() {
@@ -16,8 +18,13 @@ class headerBlock {
       document.body.clientWidth;
 
     this.menu = document.getElementsByClassName('header-block')[0];
+
     this.burgerMenu = document.getElementsByClassName('menu-nav__burger')[0];
     this.menuNav = document.getElementsByClassName('menu-nav')[0];
+
+    this.authMenu = document.getElementsByClassName('authorization__form-label')[0];
+    this.authAside = document.getElementsByClassName('authorization__aside')[0];
+
     this.headerBlockLogo =
       document.getElementsByClassName('header-block__logo')[0];
 
@@ -52,20 +59,32 @@ class headerBlock {
       if (this.scroll > 100) {
         this.setPosition(this.menu, 'fixed');
         this.setHeight(this.menu, 4.1);
+
         this.setTop(this.burgerMenu, 1);
-        this.setTop(this.menuNav, 2);
+        this.setTop(this.menuNav, 2.2);
+
+        this.setTop(this.authMenu, 0.5);
+        this.setTop(this.authAside, 4);
       } else {
         this.setPosition(this.menu, 'absolute');
         this.setHeight(this.menu, 7);
+
         this.setTop(this.burgerMenu, 2.3);
-        this.setTop(this.menuNav, 5);
+        this.setTop(this.menuNav, 5.1);
+
+        this.setTop(this.authMenu, 1.8);
+        this.setTop(this.authAside, 6.9);
       }
 
-      // NOTE: logo
-      if (this.scroll < 100 && this.widthClientBrowser >= 1160) {
-        this.setHeight(this.headerBlockLogo, 6.1);
-      } else {
-        this.setHeight(this.headerBlockLogo, 6.2);
+      // NOTE: fix for widescreen
+      if (this.widthClientBrowser >= 1160) {
+        if (this.scroll < 100) {
+          this.setHeight(this.headerBlockLogo, 6.1);
+          this.setTop(this.authAside, 7.1);
+        } else {
+          this.setHeight(this.headerBlockLogo, 6.2);
+          this.setTop(this.authAside, 4.2);
+        }
       }
     })
   }

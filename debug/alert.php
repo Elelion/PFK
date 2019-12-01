@@ -1,10 +1,12 @@
 <?php
 require_once 'lib/DbHelperPDO.php';
+require_once 'lib/Pictcha.php';
 
 date_default_timezone_set('Europe/Moscow');
 $dbHelperPDO = new DbHelperPDO;
+$pictcha = new Pictcha;
 
-// **
+/**/
 
 if (empty($_GET['id'])) {
   header('Location: ./404.php');
@@ -13,7 +15,10 @@ if (empty($_GET['id'])) {
 
   if (!$dbHelperPDO->getLastError()) {
     $idType = htmlspecialchars($_GET['id']);
-    $dbHelperPDO->executeQuery("SELECT * FROM alert_errors WHERE errorType = '$idType'");
+    $dbHelperPDO->executeQuery("SELECT * FROM alert_errors WHERE
+      errorType = '$idType'");
+  } else {
+    echo $dbHelperPDO->getLastError();
   }
 
   $queryResult = $dbHelperPDO->getQueryResult();
@@ -38,5 +43,3 @@ if (empty($_GET['id'])) {
 
 $file = basename(__FILE__, '.php');
 require './src/' . $file . '.html';
-
-// TODO: don't close!

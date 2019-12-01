@@ -44,7 +44,7 @@
       left: 45%
 
     @media screen and (max-width: 360px)
-      left: 50%
+      left: 40%
 
     @media screen and (max-width: 310px)
       display: none
@@ -69,14 +69,16 @@
     @media screen and (max-width: 1160px)
       float: right
 
-  // TODO: for step #4
   &__authorization
-    float: right
-    width: 15rem
+    float: left
+    width: 5rem
     height: inherit
     margin: 0 auto 0 auto
     +border-black
 
     @media screen and (max-width: 1160px)
       position: absolute
-      left: 0
+      left: 2rem
+
+    &-login
+      +border-red

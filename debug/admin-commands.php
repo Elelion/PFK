@@ -8,13 +8,13 @@ new RedirectNotSupportBrowser();
 $dbHelperPDO = new DbHelperPDO;
 $import = new Import;
 
-// **
+/**/
 
 $idCommand = $_GET['idCommand'];
 
 switch ($idCommand) {
   case 'import':
-    if (isset($_POST['importFileToDB'])) {
+    if (isset($_POST['BtnImportFileToDB'])) {
       if ( (!empty($_POST['importFile'])) && (!empty($_POST['exportDB'])) ) {
         $import->setFileName($_POST['importFile']);
         $import->setTableName($_POST['exportDB']);

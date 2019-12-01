@@ -1,12 +1,14 @@
 <?php
 require_once 'lib/RedirectNotSupportBrowser.php';
 require_once 'lib/DbHelperPDO.php';
+require_once 'lib/Pictcha.php';
 
 date_default_timezone_set('Europe/Moscow');
 new RedirectNotSupportBrowser();
 $dbHelperPDO = new DbHelperPDO;
+$pictcha = new Pictcha;
 
-// **
+/**/
 
 if ((empty($_GET['idEvents'])) || (!is_numeric($_GET['idEvents']))) {
   header('Location: ./404.php');
@@ -14,6 +16,8 @@ if ((empty($_GET['idEvents'])) || (!is_numeric($_GET['idEvents']))) {
   if (!$dbHelperPDO->getLastError()) {
     $id = htmlspecialchars(intval($_GET['idEvents']));
     $dbHelperPDO->executeQuery("SELECT * FROM events WHERE id = '$id'");
+  } else {
+    echo $dbHelperPDO->getLastError();
   }
 
   $queryResult = $dbHelperPDO->getQueryResult();
@@ -36,9 +40,7 @@ if ((empty($_GET['idEvents'])) || (!is_numeric($_GET['idEvents']))) {
   }
 }
 
-// **
+/**/
 
 $file = basename(__FILE__, '.php');
 require './src/' . $file . '.html';
-
-// TODO: don't close!

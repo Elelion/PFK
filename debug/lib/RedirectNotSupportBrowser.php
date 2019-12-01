@@ -43,4 +43,3 @@ class RedirectNotSupportBrowser
 		$this->detectBrowser('not-support');
 	}
 }
-?>

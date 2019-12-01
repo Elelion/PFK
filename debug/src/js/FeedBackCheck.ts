@@ -25,7 +25,7 @@ class ButtonsContactFeedBackCheck {
 	// **
 
 	// NOTE: for report debug
-	setCheckError(target: any, status: boolean) {
+	setCheckErrorDebug(target: any, status: boolean) {
 		if (target === this.name) {
 			this.nameCheckError = status;
 			console.log('check name:' + this.nameCheckError);
@@ -45,10 +45,10 @@ class ButtonsContactFeedBackCheck {
 	setStyleError(target: any, status: boolean = false) {
 		if (status === true) {
 			target.style.borderBottom = '1.5px solid #FFCC00';
-			// this.setCheckError(target, true);
+			// this.setCheckErrorDebug(target, true);
 		} else {
 			target.style.borderBottom = '1px solid #F2F2F2';
-			// this.setCheckError(target, false);
+			// this.setCheckErrorDebug(target, false);
 		}
 	}
 
@@ -65,6 +65,7 @@ class ButtonsContactFeedBackCheck {
 
 	setInputPhoneOrMailCheckValidity(event: any, target: any, type: string) {
 		let check = null;
+
 		switch(type) {
 			case 'mail':
 				check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -128,3 +129,73 @@ class ButtonsServiceFeedBackCheck extends ButtonsContactFeedBackCheck {
 }
 
 new ButtonsServiceFeedBackCheck('button-standard__extension-calculatorForm');
+
+// ----------------------------------------------------------------------------
+
+class ButtonLogin extends ButtonsContactFeedBackCheck {
+	private login: any;
+	private password: any;
+	private authorizationAnswer: any;
+	private pictchaFirstQuestion: any;
+	private pictchaSecondQuestion: any;
+	private btn: any;
+
+	constructor(name: string = '') {
+		super(name);
+
+		this.login =
+			document.getElementsByClassName('authorization__login-input')[0];
+
+		this.password =
+			document.getElementsByClassName('authorization__password-input')[0];
+
+		this.authorizationAnswer =
+			document.getElementsByClassName('authorization__pictcha-input')[0];
+
+		this.pictchaFirstQuestion =
+			document.getElementsByClassName('authorization__pictcha-first')[0];
+
+		this.pictchaSecondQuestion =
+			document.getElementsByClassName('authorization__pictcha-second')[0];
+
+		this.btn = document.querySelectorAll('.' + name);
+
+		this.beginEventExtension();
+	}
+
+	// **
+
+	setAnswerCheck(event: any, target: any, length: number) {
+		if (target.value.length < length) {
+			this.setStyleError(target, true);
+			event.preventDefault();
+		} else {
+			let pictchaFirst = Number(this.pictchaFirstQuestion.textContent);
+			let pictchaSecond = Number(this.pictchaSecondQuestion.textContent);
+			let userAnswer = Number(this.authorizationAnswer.value);
+			let answer = pictchaFirst + pictchaSecond;
+
+			if (userAnswer === answer) {
+				this.setStyleError(target);
+			} else {
+				this.setStyleError(target, true);
+				event.preventDefault();
+			}
+		}
+	}
+
+	// **
+
+	beginEventExtension() {
+		for (let i = 0; i < this.btn.length; i += 1) {
+			this.btn[i].addEventListener('click', (event: any) => {
+				super.setInputPhoneOrMailCheckValidity(event, this.login, 'mail');
+				super.setInputNameCheckEmpty(event, this.password, 2);
+
+				this.setAnswerCheck(event, this.authorizationAnswer, 1);
+			});
+		}
+	}
+}
+
+new ButtonLogin('button-standard__extension-login');

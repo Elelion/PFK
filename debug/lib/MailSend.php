@@ -16,7 +16,7 @@ class MailSend
     $this->beginEvent();
   }
 
-  // **
+  /**/
 
   private function setSendMailHeader(string $header)
   {
@@ -38,7 +38,7 @@ class MailSend
     $this->message = $msg;
   }
 
-  // **
+  /**/
 
   public function sendForCompany()
   {
@@ -65,7 +65,7 @@ class MailSend
     );
   }
 
-  // **
+  /**/
 
   public function sendMail()
   {
@@ -83,4 +83,3 @@ class MailSend
     );
   }
 }
-?>

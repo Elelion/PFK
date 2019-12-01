@@ -45,3 +45,9 @@ mixin header-block(parameter)
 
       //- TODO: for step #4
       .header-block__authorization
+        .header-block__authorization-login
+          +login({
+            login: "Логин (почта)",
+            password: "Пароль",
+            pictcha: "Ответ"
+          })

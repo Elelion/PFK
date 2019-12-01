@@ -1,8 +1,8 @@
 .catalog-product
   float: left
-  margin: 0.5rem
   width: 30rem
   height: 38.5rem
+  margin: 0.5rem
   border: 0.1rem solid $colorGeneralFon
 
   &:hover
@@ -45,23 +45,19 @@
     width: 28rem
     margin: 0.5rem 1rem 1rem 1rem
     font-size: $sizeSmallTitleFont
-    // text-overflow: ellipsis
     text-transform: lowercase
     color: $colorFontText
-    // overflow: hidden
-    // white-space: nowrap
 
     &:first-letter
       text-transform: uppercase
 
   &__price
     float: left
-    width: 20rem
+    width: auto
     height: auto
     margin: 0 1rem 0 1rem
     font-size: $sizeRegularFont
     text-transform: lowercase
-    // text-align: center
     color: $colorFontTitle
     +border-red
     overflow: hidden
@@ -74,4 +70,6 @@
     width: 4rem
     height: 4rem
     margin: 0 1rem 0 0
+
+    // TODO: make the basket
     // background: url('../../src/images/catalog/products/basket.webp') no-repeat

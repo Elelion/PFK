@@ -88,4 +88,3 @@ function elapsedTime($format = '%H Ч : %M M')
 	$result = gmstrftime($format, $secToMidnight);
 	return $result;
 }
-?>

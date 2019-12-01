@@ -16,21 +16,19 @@ class DbHelperPDO
 
 	public function __construct()
 	{
-    $this->initConnect();
+		$this->initConnect();
 
-    try {
+		try {
 			$this->dbConnect =
 				new PDO("$this->driver:host=$this->host;dbname=$this->db",
 					"$this->login",
 					"$this->password",
 					array(PDO::MYSQL_ATTR_INIT_COMMAND => "$this->charset")
 				);
-    } catch (PDOException $e) {
-      $this->dbLastError = 'Подключение не удалось: ' . $e->getMessage();
-      $this->dbConnect = null;
-
-      echo $this->dbLastError;
-    }
+		} catch (PDOException $e) {
+			$this->dbLastError = 'Подключение не удалось: ' . $e->getMessage();
+			$this->dbConnect = null;
+		}
 	}
 
 	/**/
@@ -43,7 +41,7 @@ class DbHelperPDO
 		$this->charset = 'SET NAMES utf8';
 
 		// FIXME: for build
-
+		
 
 		// FIXME: for debug
 		$this->login = 'root';
@@ -75,3 +73,50 @@ class DbHelperPDO
 		return $this->dbLastError;
 	}
 }
+
+/**/
+
+// TODO: make it
+// class DbHelperPDO
+// {
+//     private static $instance;
+//     private function __construct()
+//     {
+//     }
+//     private function __clone()
+//     {
+//     }
+//     private function __wakeup()
+//     {
+//     }
+//     /**
+//      * @param array $config
+//      * @throws Exception
+//      *
+//      * @return PDO
+//      */
+//     public static function getInstance(array $config = []): PDO
+//     {
+//         if (!self::$instance) {
+//             if (!$config) {
+//                 throw new Exception('Please provide a config');
+//             }
+//             extract($config);
+//             self::$instace = new PDO(
+//                 "{$driver}:host={$host};dbname={$dbname}",
+//                 $username,
+//                 $password,
+//                 [PDO::MYSQL_ATTR_INIT_COMMAND => "$charset"]
+//             );
+//         }
+//         return self::$instance;
+//     }
+// }
+// $helper = DbHelperPDO::getInstance([
+//     'driver'   => 'mysql',
+//     'host'     => 'localhost',
+//     'dbname'   => 'database',
+//     'username' => 'root',
+//     'password' => 'password',
+//     'charset'  => 'utf8',
+// ]);

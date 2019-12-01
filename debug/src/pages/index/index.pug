@@ -30,10 +30,10 @@ html(lang="ru")
 
             .events-block__content
               //- FIXME: for debug
-              //- <?php require 'ui-kit/events/events.php'; ?>
+              <?php require 'ui-kit/events/events.php'; ?>
 
               //- FIXME: for build
-              <?php require 'templates/events.php'; ?>
+              //- <?php require 'templates/events.php'; ?>
 
       section.main-content__services
         +services-block({
@@ -83,15 +83,15 @@ html(lang="ru")
 
             .articles-block__content
               //- FIXME: for debug
-              //- <?php require 'ui-kit/article/article.php'; ?>
+              <?php require 'ui-kit/article/article.php'; ?>
 
               //- FIXME: for build
-              <?php require 'templates/article.php'; ?>
+              //- <?php require 'templates/article.php'; ?>
 
               .articles-block__button
                 +button({
-                  caption: 'все статьи',
-                  extension: 'articles'})
+                  caption: "все статьи",
+                  extension: "articles"})
 
     footer.footer
       +footer-block
