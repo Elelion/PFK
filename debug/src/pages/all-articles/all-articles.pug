@@ -1,0 +1,37 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `окна статьи, статьи окна, новости ПВХ, пвх, окна, полезное,
+      окнай лайфхак, лайфхак, все об пластиковых окнах, интересное`,
+
+    description: `Компания ПФК предлагает к Вашему вниманию полезные и
+      интересные статьи об пластиковых окнах`,
+
+    title: `ПФК статьи`
+  })
+
+  body
+    header.header
+      +header-block
+
+    section.all-articles
+      .all-articles__block
+        .all-articles__wrapper
+          +chapter({
+            title: "статьи",
+            titleType: "h1",
+          })
+
+          .all-articles__content
+            //- FIXME: for debug
+            <?php require 'ui-kit/article/article.php'; ?>
+
+            //- FIXME: for build
+            //- <?php require 'templates/article.php'; ?>
+
+    footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include

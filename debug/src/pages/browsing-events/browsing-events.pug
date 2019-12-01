@@ -1,0 +1,31 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `события, новости, новости компании, события компании,
+      что нового`,
+
+    description: `Свежие новости и события компания ПФК`,
+
+    title: `ПФК события.`
+  })
+
+  body
+    header.header
+      +header-block
+
+    main.browsing-events__content
+      section.browsing-events__wrapper
+
+        .chapter.chapter__size-standard
+          p.chapter__title.chapter__color-standard
+            <?= $title ?>
+
+        article.browsing-events__description
+          <?= $fullDesc ?>
+
+    footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include

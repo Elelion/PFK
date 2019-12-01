@@ -1,0 +1,132 @@
+.menu
+  width: auto
+  height: auto
+  margin: 0 auto 0 atuo
+  +border-red
+
+  // NOTE: activate burger menu
+  @media screen and (max-width: 1160px)
+    .menu-nav__burger
+      position: absolute
+      top: 2.3rem
+      right: 2rem
+      z-index: 1
+      display: block
+      width: 2.5rem
+      height: 2.3rem
+      font-size: 0
+      color: transparent
+      background: url("../images/menu/menu-burger.svg") no-repeat
+      cursor: pointer
+
+    .menu-nav__burger-checkbox:checked + .menu-nav__burger
+      background-image: url("../images/menu/menu-cross.svg")
+
+    .menu-nav
+      position: absolute
+      top: 5rem
+      right: 0
+      z-index: 100
+      display: none
+      height: 0
+
+      .menu-nav__list
+        width: 30rem
+        border-bottom-left-radius: 0.5rem
+        background-color: #4583d8
+        box-shadow: -3px 3px 10px 0px rgba(0,0,0,0.7)
+
+      &__item
+        display: block
+        height: 5.6rem
+        width: 100%
+        text-align: center
+        text-decoration: none
+        color: #fff
+        background-color: #4583d8
+        transition: background-color 0.1s linear, color 0.1s linear
+        line-height: 5.6rem
+
+        @media screen and (max-width: 550px)
+          &:first-child
+            height: 7rem
+            padding-top: 1rem
+
+        @media screen and (max-width: 310px)
+          &:first-child
+            height: 5.6rem
+            padding-top: 0
+
+        &:not(:first-of-type)
+          border-top: 0.1rem solid rgba(255, 255, 255, 0.2)
+
+        &:not(:last-of-type)
+          border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2)
+
+        &:last-of-type
+          border-bottom-left-radius: 0.5rem
+          box-shadow: inset 0 -0.5rem 0.1rem -0.5rem rgba(0, 0, 0, 0.4)
+
+        &:hover
+          background-color: #2768c1
+
+        &:active
+          color: #fff
+          background-color: #2768c1
+
+    .menu-nav__burger-checkbox:checked ~ .menu-nav
+      display: block
+
+  // **
+
+  &-nav
+    display: flex
+    width: inherit
+    height: 3rem
+    align-items: center
+
+    &__burger-checkbox,
+    &__burger
+      display: none
+
+      &-checkbox
+        display: none
+
+    &__list
+      float: left
+      margin-left: 0
+      padding-left: 0
+      +border-green
+
+    &__item
+      float: left
+      width: 15rem
+      font-size: $sizeTitleFont
+      text-align: center
+      text-transform: lowercase
+      +border-green
+      list-style-type: none
+
+      &:first-letter
+        text-transform: uppercase
+
+    &__link
+      position: relative
+      padding-bottom: 0.2rem
+      text-decoration: none
+      color: $colorFontWhite
+      outline: none
+
+      @media screen and (max-width: 1160px)
+        display: block
+
+      &:after
+        +link-effect__after($colorYellow)
+
+        @media screen and (max-width: 1160px)
+          width: 35%
+          left: 32.5%
+          top: 80%
+
+      &:hover::after
+        +link-effect__hover-after

@@ -1,0 +1,15 @@
+mixin catalog-menu(parameter)
+  -
+    var
+      parameter = parameter || {};
+      caption = parameter.caption || "title";
+      img = parameter.img || "menu-1";
+      link = parameter.link || "#";
+
+  //-
+
+  .catalog-menu
+    a.catalog-menu__content(href="./catalog.php?id=" + link)
+      img.catalog-menu__image(src="./src/images/catalog/menu/" + img + ".webp"
+        title= caption alt= caption)
+      p.catalog-menu__title= caption

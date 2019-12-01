@@ -1,0 +1,26 @@
+mixin catalog-list(parameter)
+  -
+    var
+      parameter = parameter || {};
+      img = parameter.img || "menu-1";
+
+      link = parameter.link || [
+        "#",
+        "#"
+      ];
+
+      title = parameter.title || [
+        "title-1",
+        "title-2"
+      ];
+
+  //-
+
+  ul.catalog-list
+    -for (var i = 0; i <= 19; i++)
+      li.catalog-list__item
+        +catalog-menu({
+          img: "menu-" + i,
+          caption: title[i],
+          link: link[i]
+        })

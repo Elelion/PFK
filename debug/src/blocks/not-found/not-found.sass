@@ -1,0 +1,22 @@
+.not-found
+  width: auto
+  height: auto
+  text-align: center
+  color: $colorFontText
+  text-transform: lowercase
+
+  &__title
+    font-size: $sizeBigFont
+    color: $colorFontTitle
+
+  &__caption
+    font-size: $sizeTitleFont
+
+  &__title,
+  &__caption,
+  &__description
+    padding: 0 1rem 0 1rem
+    +border-blue
+
+    &:first-letter
+      text-transform: uppercase

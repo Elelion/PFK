@@ -1,0 +1,45 @@
+.catalog
+  width: auto
+  height: 100%
+  min-height: 100vh
+  +border-red
+
+  &__sidebar
+    float: left
+    position: absolute
+    width: 5rem
+    height: auto
+    margin-top: 10rem
+    +border-black
+    border-top-right-radius: 0.5rem
+    border-bottom-right-radius: 0.5rem
+    background: $colorGeneralFon
+    transition: $transition
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.7)
+
+    &:hover
+      width: 35rem
+
+    // NOTE: look in catalog-menu.sass
+    &:hover .catalog-menu__title
+      display: block
+
+  &__content
+    float: left
+    width: auto
+    height: auto
+    min-height: 100vh
+    background: white
+
+    &-wrapper
+      float: left
+      width: auto
+      height: 100%
+      // min-height: 100vh
+      margin: 8rem 0 $contentMarginBottom 7rem
+      background: white
+
+.footer
+  @media screen and (max-width: 1210px)
+    float: left
+    width: 100%

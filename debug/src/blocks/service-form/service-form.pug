@@ -1,0 +1,57 @@
+mixin service-form(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      title = parameter.title || "titile";
+      titleType = parameter.titleType || "";
+      fbNamePlhld = parameter.fbNamePlhld || "feedBack name";
+      fbPhonePlhld = parameter.fbPhonePlhld || "feedBack phone";
+      fbEmailPlhld = parameter.fbEmailPlhld || "feedBack email";
+      fbAddressPlhld = parameter.fbAddressPlhld || "feedBack address";
+      fbDescPlhld = parameter.fbDescPlhld || "feedBack description";
+      fbMessagePlhld = parameter.fbMessagePlhld || "feedBack message";
+      fbCaptionButton = parameter.fbCaptionButton || "feedBack btn";
+
+      fbIdTick = parameter.fbIdTick || [
+        "feedBackTick-1",
+        "feedBackTick-2",
+        "feedBackTick-3",
+        "feedBackTick-4"
+      ];
+
+      fbCaptionTick = parameter.fbCaptionTick || [
+        "feedBack tick 1",
+        "feedBack tick 1",
+        "feedBack tick 1",
+        "feedBack tick 1"
+      ]
+
+  //-
+
+  .service-form
+    .service-form__wrapper
+      +chapter({
+        title: title,
+        titleType: titleType
+      })
+
+    .service-form__content
+      form(action='./mail-send.php?idType=service', method='post')
+        +feed-back({
+          type: "advanced",
+          description: `Заполните заявку в сервисную службу,
+            обязательные для заполнения поля помечены знаком *`,
+
+          namePlaceholder: fbNamePlhld,
+          phonePlaceholder: fbPhonePlhld,
+          emailPlaceholder: fbEmailPlhld,
+          addressPlaceholder: fbAddressPlhld,
+          descPlaceholder: fbDescPlhld,
+          messagePlaceholder: fbMessagePlhld,
+
+          idTick: fbIdTick,
+          captionTick: fbCaptionTick,
+
+          formButtonCaption: fbCaptionButton
+        })

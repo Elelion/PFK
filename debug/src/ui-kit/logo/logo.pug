@@ -1,0 +1,23 @@
+mixin logo(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      image = parameter.image || "path";
+      altImage = parameter.altImage || "SEO alt";
+      titleImage = parameter.titleImage || "SEO title";
+
+      slogan = parameter.slogan || "Slogan";
+      sloganSpan = parameter.sloganSpan || "SloganSpan";
+
+  //-
+
+  .logo
+    .logo__wrapper
+      img.logo__image(itemprop="logo")(
+        src="./src/images/logo/" + image + ".webp"
+        alt= altImage
+        title= titleImage)
+
+      p.logo__slogan= slogan
+        span.logo__slogan-span= sloganSpan

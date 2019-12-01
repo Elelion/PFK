@@ -1,0 +1,41 @@
+mixin button(parameter)
+	-
+		var
+			parameter = parameter || {};
+
+			size = parameter.size || "standard";
+			caption = parameter.caption || "button";
+			extension = parameter.extension || "";
+			name = parameter.name || "";
+
+			type = parameter.type || "standard";
+			direction = parameter.direction || "left";
+
+	case type
+		when "arrow"
+			-var caption = "";
+			-
+				var classes = [
+					`button-${type}`,
+					`button-${type}__direction-${direction}`
+				];
+
+		default
+			-
+				var classes = [
+					`button-${type}`,
+					`button-standard__size-${size}`,
+					"button-standard__color",
+					"button-standard__effect",
+					`button-standard__extension-${extension}`
+				];
+
+	//-
+
+	case type
+		when "submit"
+			input(type="submit" class=classes value=caption name=name)
+
+		default
+			form
+				button(class=classes name=name)= caption

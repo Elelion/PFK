@@ -1,0 +1,101 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `пластиковые окна, производитель, купить, цены,
+      пвх, рольставни, жалюзи, пластиковые, оптом, розница, подоконники,
+      оптом, оптом от производителя`,
+
+    description: `Компания ПФК предлагает купить подоконники ПВХ,
+      комплектующие и фурнитуры для окон, оптом, от производителя по
+      выгодной цене. Продукция сертифицирована`,
+
+    title: `Компания ПФК: пластиковые окна и подоконники по выгодной цене.`
+  })
+
+  body
+    header.header
+      +header-block
+
+    main.main-content
+      section.main-content__slider
+        +slider-block
+
+      section.main-content__news
+        .events-block
+          .events-block__wrapper
+            +chapter({
+              title: "события",
+              titleType: "h3"
+            })
+
+            .events-block__content
+              //- FIXME: for debug
+              <?php require 'ui-kit/events/events.php'; ?>
+
+              //- FIXME: for build
+              //- <?php require 'templates/events.php'; ?>
+
+      section.main-content__services
+        +services-block({
+          titleChapter: "услуги",
+          titleType: "h4",
+
+          imagesName: [
+            "service-1",
+            "service-2",
+            "service-3",
+            "service-4",
+            "service-5"
+          ],
+
+          imagesAlt: [
+
+          ],
+
+          imagesTitle: [
+
+          ],
+
+          titles: [
+            "комплексное остекление",
+            "ремонт окон",
+            "гарантийное обслуживание",
+            "бесплатный замер",
+            "качественная доставка"
+          ],
+
+          linkSheet: [
+            "browsing-services.php?idServices=1",
+            "browsing-services.php?idServices=2",
+            "browsing-services.php?idServices=3",
+            "browsing-services.php?idServices=4",
+            "browsing-services.php?idServices=5"
+          ]
+        })
+
+      section.main-content__articles
+        .articles-block
+          .articles-block__wrapper
+            +chapter({
+              title: "статьи",
+              titleType: "h5"
+            })
+
+            .articles-block__content
+              //- FIXME: for debug
+              <?php require 'ui-kit/article/article.php'; ?>
+
+              //- FIXME: for build
+              //- <?php require 'templates/article.php'; ?>
+
+              .articles-block__button
+                +button({
+                  caption: "все статьи",
+                  extension: "articles"})
+
+    footer.footer
+      +footer-block
+
+    //-
+
+    +scripts-include

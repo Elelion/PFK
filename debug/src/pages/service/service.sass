@@ -1,0 +1,21 @@
+.service
+  &__content
+    display: flex
+    width: auto
+    +border-red
+    justify-content: center
+    align-items: center
+
+  &__wrapper
+    margin: 0 auto 0 auto
+    width: $contentWidth
+    height: 100%
+    min-height: 100vh
+    +border-red
+
+    @media screen and (max-width: 970px)
+      width: auto
+
+    @media screen and (max-width: 830px)
+      margin: 0 auto 0 auto
+      height: auto
