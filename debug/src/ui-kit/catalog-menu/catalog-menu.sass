@@ -1,0 +1,29 @@
+.catalog-menu
+  &__content
+    display: flex
+    position: relative
+    height: 3.5rem
+    text-decoration: none
+    +border-black
+
+    &:after
+      +link-effect__after($colorFontLink)
+
+    &:hover::after
+      +link-effect__hover-after
+
+  &__image
+    width: 3rem
+    height: 3rem
+    margin: 0.4rem 1rem 0 1rem
+
+  &__title
+    display: none
+    height: 2rem
+    margin-top: 1rem
+    font-size: $sizeSmallTitleFont
+    color: $colorFontTitle
+    +border-green
+
+    &:first-letter
+      text-transform: uppercase

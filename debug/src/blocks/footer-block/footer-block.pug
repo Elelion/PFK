@@ -1,0 +1,129 @@
+mixin footer-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      titles = parameter.titles || [
+        "мы в соц.сетях",
+        "покупателям",
+        "о компании",
+        "контакты"
+        ];
+
+      chapterSize = parameter.chapterSize || "small";
+
+      //- NOTE: we are in social networks
+      contentLink = parameter.contentLink || [
+        "https://www.instagram.com/elitkomplekt.ru/"
+      ];
+
+      contentImage = parameter.contentImage || [
+        "instagram"
+      ];
+
+
+      //- NOTE: to buyers
+      differentsTitle = parameter.differentsTitle || [
+        "способы оплаты",
+        "калькулятор расчета",
+        "гарантийная политика",
+        "обработка персональных данных"
+      ];
+
+      differentsLink = parameter.differentsLink || [
+        "",
+        "",
+        "",
+        ""
+      ];
+
+      //- NOTE: about
+      aboutTitle = parameter.aboutTitle || [
+        "вакансии",
+        "логистика",
+        "документы",
+        "скачать презентацию"
+      ];
+
+      aboutLink = parameter.aboutLink || [
+        "",
+        "",
+        "",
+        ""
+      ];
+
+      //- NOTE: contacts
+      contactsTitle = parameter.contactsTitle || [
+        "ООО «ПФК»",
+        "ИНН: 4805016829",
+        `399140, Липецкая область, Добровский  район, с.Доброе,
+        Советский переулок, дом № 6 А, кабинет 1`
+      ];
+
+  //-
+
+  .footer-block
+    .footer-block__wrapper
+      .footer-block__socials
+        .footer-block__socials-title
+          +chapter({
+            size: chapterSize,
+            title: titles[0]
+          })
+
+        .footer-block__socials-content
+          -for (var i = 1; i <= contentLink.length; i++)
+            +social({
+              link: contentLink[i - 1],
+              imageName: contentImage[i - 1]
+            })
+
+      //-
+
+      .footer-block__differents
+        .footer-block__contacts-title
+          +chapter({
+            size: chapterSize,
+            title: titles[1]
+          })
+
+        .footer-block__contacts-content
+          -for (var i = 1; i <= differentsTitle.length; i++)
+            +mini-menu({
+              value: differentsTitle[i - 1],
+              link: differentsLink[i - 1],
+              type: "url"
+            })
+
+      //-
+
+      .footer-block__about
+        .footer-block__about-title
+          +chapter({
+            size: chapterSize,
+            title: titles[2]
+          })
+
+        .footer-block__about-content
+          -for (var i = 1; i <= aboutTitle.length; i++)
+            +mini-menu({
+              value: aboutTitle[i - 1],
+              link: aboutLink[i - 1],
+              type: "url"
+            })
+
+      //-
+
+      .footer-block__contacts
+        .footer-block__contacts-title
+          +chapter({
+            size: chapterSize,
+            title: titles[3]
+          })
+
+        .footer-block__contacts-content
+          -for (var i = 1; i <= contactsTitle.length; i++)
+            +mini-menu({
+              value: contactsTitle[i - 1],
+              type: "paragraph"
+            })

@@ -1,0 +1,21 @@
+.not-found
+  &__content
+    display: flex
+    width: auto
+    min-height: 100vh
+    +border-red
+    justify-content: center
+    align-items: center
+
+  &__wrapper
+    margin: 0 auto 0 auto
+    width: $contentWidth
+    height: 20rem
+    +border-red
+
+    @media screen and (max-width: 970px)
+      width: auto
+
+    @media screen and (max-width: 830px)
+      margin: $contentMarginTop auto $contentMarginTop auto
+      height: auto

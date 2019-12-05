@@ -1,0 +1,15 @@
+mixin not-found(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      title = parameter.title || "titile";
+      caption = parameter.caption || "caption";
+      description = parameter.description || "desc";
+
+  //-
+
+  .not-found
+    h1.not-found__title= title
+    p.not-found__caption= caption
+    p.not-found__description= description

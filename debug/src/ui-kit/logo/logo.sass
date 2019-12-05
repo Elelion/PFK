@@ -1,0 +1,45 @@
+.logo
+  width: auto
+  height: 3rem
+  margin: 0.5rem auto 0.5rem auto
+  +border-blue
+  transition: $transition
+
+  &:hover
+    transform: $transform
+
+  &__wrapper
+    width: 14.5rem
+    height: 5.1rem
+    margin: 0 auto 0 auto
+
+    @media screen and (max-width: 1160px)
+      width: 7rem
+
+  &__image
+    float: left
+    width: 6.8rem
+    height: 4.6rem
+    margin: 0.3rem auto 0 auto
+    +border-green
+
+    @media screen and (max-width: 1160px)
+      margin-top: 0
+
+  &__slogan
+    float: right
+    width: 7rem
+    margin: 1.1rem auto 0 0
+    font-size: $sizeSmallRegularFont
+    font-weight: 700
+    text-transform: uppercase
+    text-align: center
+    color: $colorFontWhite
+    +border-green
+    word-spacing: 0.5rem
+
+    @media screen and (max-width: 1160px)
+      display: none
+
+    &-span
+      color: $colorYellow

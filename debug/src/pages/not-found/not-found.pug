@@ -1,0 +1,25 @@
+doctype html
+html(lang="ru")
+  +head
+
+  body
+    header.header
+      +header-block
+
+    main.not-found__content
+      section.not-found__wrapper
+        +not-found({
+          title: "Ошибка 404",
+          caption: `К сожалению, запрашиваемая вами страница
+            не может быть найдена.`,
+
+          description: `URL может быть написан с ошибкой или страница,
+            которую вы ищете, больше не доступна.`
+        })
+
+    footer.footer
+      +footer-block
+
+    //-
+
+    +scripts-include

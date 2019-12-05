@@ -1,0 +1,33 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `браузер не поддерживается`,
+
+    description: `Ваш браузер не поддерживается`,
+
+    title: `ПФК.`
+  })
+
+  body
+    main.template-service__content
+      section.template-service__wrapper
+
+        +chapter({
+          title: 'Ой!...'
+        })
+
+        +chapter({
+          title: 'Случилось что то ужасное и жутко страшное...'
+        })
+
+        +chapter({
+          title: 'И Safari теперь НЕ поддерживается'
+        })
+
+        +chapter({
+          title: 'Используйте, пожалуйста любой другой браузер, только НЕ Safari'
+        })
+
+  //-
+
+  +scripts-include

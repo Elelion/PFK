@@ -1,0 +1,131 @@
+mixin feed-back(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      type = parameter.type || "standard";
+      formName = parameter.formName || "feed-back";
+
+      //- NOTE: for standard
+      namePlaceholder = parameter.namePlaceholder || "name";
+      phonePlaceholder = parameter.phonePlaceholder || "phone";
+      emailPlaceholder = parameter.emailPlaceholder || "email";
+      descPlaceholder = parameter.descPlaceholder || "description";
+      messagePlaceholder = parameter.messagePlaceholder || "message";
+      formButtonCaption = parameter.formButtonCaption || "button";
+
+      //- NOTE: for advanced
+      description = parameter.description || "desc";
+      addressPlaceholder = parameter.addressPlaceholder || "address";
+      idTick = parameter.idTick || [
+        "tick1",
+        "tick2",
+        "tick3",
+        "tick4"
+      ];
+
+      captionTick = parameter.captionTick || [
+        "tick1",
+        "tick2",
+        "tick3",
+        "tick4"
+      ];
+
+  //-
+
+  mixin name
+    input.feed-back__input.feed-back__name(
+      type='text',
+      name='name',
+      placeholder= namePlaceholder,
+      maxlength='50')
+
+  //- TODO: phoneFormat - do it for js...
+  mixin phone
+    input.feed-back__input.feed-back__phone(
+      type='text',
+      name='phone',
+      placeholder= phonePlaceholder,
+      maxlength='11')
+
+  mixin email
+    input.feed-back__input.feed-back__email(
+      type='text',
+      name='email',
+      placeholder= emailPlaceholder,
+      maxlength='40')
+
+  mixin address
+    input.feed-back__input.feed-back__address(
+      type='text',
+      name='address',
+      placeholder= addressPlaceholder,
+      maxlength='300')
+
+  mixin description
+    input.feed-back__input.feed-back__description(
+      type='text',
+      name='description',
+      placeholder= descPlaceholder,
+      maxlength='150')
+
+  //- TODO: weightDistanceFormat - do it for js...
+  mixin message
+    input.feed-back__input.feed-back__message(
+      type='text',
+      name='message',
+      placeholder= messagePlaceholder,
+      maxlength='1000',
+      onkeyup='weightDistanceFormat(this)')
+
+  mixin spamBotCheck
+    input.feed-back__input.feed-back__check(
+      type='text',
+      name='spBtCheck',
+      placeholder= '',
+      maxlength='50'
+      value='')
+
+  //-
+
+  form(class= formName name= formName)
+    .feed-back__label-wrapper
+      p.feed-back__label= description
+
+    case type
+      when "advanced"
+        .feed-back__form.feed-back__form-advanced
+          +name
+          +phone
+          +email
+          +address
+          +description
+          +message
+          +spamBotCheck
+
+          //- NOTE: tick-box, look in ui-kit's
+          .feed-back__form-advanced_additional
+            -for (var i = 1; i <= idTick.length; i++)
+              +tick-box({
+                id: idTick[i - 1],
+                caption: captionTick[i - 1]
+              })
+
+          .feed-back__button
+            +button({
+              type: 'submit',
+              caption: formButtonCaption,
+              extension: 'calculatorForm'})
+      default
+          .feed-back__form
+            +name
+            +phone
+            +email
+            +message
+            +spamBotCheck
+
+            .feed-back__button
+              +button({
+                type: 'submit',
+                caption: formButtonCaption,
+                extension: 'contacts'})

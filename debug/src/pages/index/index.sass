@@ -1,0 +1,91 @@
+.main-content
+  width: auto
+  height: auto
+  // +border-red
+
+  &__slider,
+  &__news,
+  &__services,
+  &__articles
+    width: auto
+    height: auto
+    // +border-red
+
+// **
+
+.articles-block
+  display: flex
+  width: 100%
+  min-height: auto
+  +border-red
+
+  &__wrapper
+    width: $contentWidth
+    height: 100%
+    margin: 0 auto $contentMarginBottom auto
+    +border-black
+
+    @media screen and (max-width: 830px)
+      width: $generalMinWidthForBlock
+
+  &__content
+    width: 100%
+    height: 100%
+    +border-black
+    margin: 0 auto 0 auto
+
+    @media screen and (max-width: 1210px)
+      width: 95rem
+      height: 55rem
+
+    @media screen and (max-width: 970px)
+      width: 80rem
+
+    @media screen and (max-width: 830px)
+      width: $generalMinWidthForBlock
+      height: 163rem
+
+    @media screen and (max-width: 360px)
+      width: auto
+
+  &__button
+    float: right
+    width: 20rem
+    height: 5rem
+    margin-top: 2.5rem
+    +border-green
+
+// **
+
+.events-block
+  width: 100%
+  height: 45.5rem
+  +border-red
+
+  @media screen and (max-width: 830px)
+    height: auto
+
+  &__wrapper
+    width: $contentWidth
+    height: inherit
+    margin: 0 auto 0 auto
+    +border-black
+
+    @media screen and (max-width: 1250px)
+      width: auto
+      margin: 0 1rem 0 1rem
+
+    @media screen and (max-width: 830px)
+      width: $generalMinWidthForBlock
+      height: auto
+      margin: 0 auto 0 auto
+
+    @media screen and (max-width: 360px)
+      width: auto
+
+  &__content
+    display: flex
+    justify-content: space-between
+
+    @media screen and (max-width: 830px)
+      flex-direction: column
