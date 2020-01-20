@@ -1,0 +1,92 @@
+.panel-user
+  width: auto
+  height: auto
+  margin-top: 1.8rem
+  +border-red
+
+  &__form
+    &-label
+      position: absolute
+      top: 1.8rem
+      z-index: 1
+      display: block
+      width: 2.5rem
+      height: 2.3rem
+      font-size: 0
+      color: transparent
+      background: url("../images/menu/login.webp") no-repeat
+      cursor: pointer
+
+    &-checkbox
+      display: none
+
+.panel-user__form-checkbox:checked + .panel-user__form-label
+  background-image: url("../images/menu/logout.webp")
+
+.panel-user__form-checkbox:checked ~ .panel-user__aside
+  display: block
+
+// **
+
+.panel-user
+  &__aside
+    position: absolute
+    top: 7.1rem
+    z-index: 100
+    display: none
+    width: 30rem
+    height: auto
+    margin-left: -15rem
+    border-bottom-left-radius: 0.5rem
+    border-bottom-right-radius: 0.5rem
+    background: $colorGeneralFon
+    transition: $transition
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.7)
+
+    @media screen and (max-width: 1250px)
+      right: 4rem
+      margin-left: 0
+
+    @media screen and (max-width: 1160px)
+      top: 6.9rem
+      right: 0
+      left: 0
+      margin-left: -2.5rem
+
+  &__menu-block,
+  &__description-block
+    width: 100%
+    height: auto
+    +border-black
+
+  &__list
+    width: auto
+    height: auto
+    margin: 0
+    padding: 2rem 0 0.5rem 2rem
+
+  &__item
+    margin: 0
+    padding: 1rem 0 1rem 0
+    list-style-type: none
+
+  &__menu
+    color: $colorFontText
+    outline: none
+
+
+  &__buttons-wrapper
+    margin-top: 1.5rem
+    margin-left: 5.5rem
+
+  &__description
+    &-wrapper
+      width: auto
+      height: auto
+      margin: 1rem
+
+    &-text
+      margin: 1rem 0 0 0
+      text-align: center
+      color: $colorFontText
+      font-size: $sizeSmallTitleFont

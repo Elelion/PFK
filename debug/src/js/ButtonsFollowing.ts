@@ -29,4 +29,7 @@ class ButtonsFollowing {
 	}
 }
 
-new ButtonsFollowing('button-standard__extension-articles', 'all-articles.php');
+new ButtonsFollowing(
+  'button-standard__extension-articles',
+  'all-articles.php'
+);

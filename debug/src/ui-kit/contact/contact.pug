@@ -26,6 +26,6 @@ mixin contact(parameter)
         a.contact__caption.contact__mail(itemprop="email")(
           href=`mailto: ${value}`)= value
       default
-        p.contact__caption(itemprop="address")= value
+        p.contact__caption.contact__info(itemprop="address")= value
 
     .contact__border

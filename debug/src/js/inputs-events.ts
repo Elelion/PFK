@@ -43,5 +43,6 @@ let inputNumberOnly = function(name: string = '') {
 }
 
 inputNumberOnly('feed-back__phone');
+// inputNumberOnly('registration-form__phone');
 
 // **

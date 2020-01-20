@@ -1,0 +1,55 @@
+mixin registration-block(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      title = parameter.title || "titile";
+      titleType = parameter.titleType || "";
+
+      descriptionCaption = parameter.descriptionCaption || "desc";
+
+      surnamePhysical = parameter.surnamePhysical || "reg surname";
+      namePhysical = parameter.namePhysical || "reg name";
+      patronymicPhysical = parameter.patronymicPhysical || "reg patronymic";
+      phonePhysical = parameter.phonePhysical || "reg phone";
+      addressPhysical = parameter.addressPhysical || "reg address";
+      emailPhysical = parameter.emailPhysical || "reg email";
+      passwordPhysical = parameter.passwordPhysical || "reg password";
+
+      orgLegal = parameter.orgLegal || "reg org";
+      innLegal = parameter.innLegal|| "reg inn";
+      cityLegal = parameter.cityLegal|| "reg city";
+
+      buttonCaptionPhysical = parameter.buttonCaptionPhysical || "reg btn";
+
+  //-
+
+  .registration-block
+    .registration-block__wrapper
+      +chapter({
+        title: title,
+        titleType: titleType
+      })
+
+      .registration-block__content
+        .registration-form__label-wrapper
+          p.registration-form__label= descriptionCaption
+
+        .registration-block__select
+          +registration-type
+
+        +registration-form({
+          surnamePlaceholder: surnamePhysical,
+          namePlaceholder: namePhysical,
+          patronymicPlaceholder: patronymicPhysical,
+          phonePlaceholder: phonePhysical,
+          addressPlaceholder: addressPhysical,
+          emailPlaceholder: emailPhysical,
+          passwordPlaceholder: passwordPhysical,
+
+          organizationPlaceholder: orgLegal,
+          innPlaceholder: innLegal,
+          cityPlaceholder: cityLegal,
+
+          formButtonCaption: buttonCaptionPhysical
+        })

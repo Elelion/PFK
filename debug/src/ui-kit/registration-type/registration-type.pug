@@ -1,0 +1,21 @@
+mixin registration-type
+
+  //-
+
+  // NOTE: all actions see in RegistrationCheck.ts
+  .registration-type
+    .registration-type__physical
+      img.registration-type__physical-image(
+        src="./src/images/registration/physical.webp"
+        alt= imageAlt
+        title= imageTitle)
+      input#regPhysical.registration-type__physical-checkbox(type="checkbox")
+      label.registration-type__physical-label(for="regPhysical") Физ. лицо
+
+    .registration-type__legal
+      img.registration-type__legal-image(
+        src="./src/images/registration/legal.webp"
+        alt= imageAlt
+        title= imageTitle)
+      input#regLegal.registration-type__legal-checkbox(type="checkbox")
+      label.registration-type__legal-label(for="regLegal") Юр. лицо

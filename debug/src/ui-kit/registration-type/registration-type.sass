@@ -1,0 +1,32 @@
+.registration-type
+  width: 44rem
+  height: 4rem
+  margin: 0 auto 0 auto
+  +border-black
+
+  &__physical
+    float: left
+
+  &__legal
+    float: right
+
+  &__physical,
+  &__legal
+    width: 20rem
+    height: inherit
+    margin-bottom: 3.5rem
+
+    &-checkbox
+      display: none
+
+    &-image
+      width: 3.4rem
+      height: 3.4rem
+      margin: 0.2rem 0.2rem 0.2rem 2.2rem
+      cursor: pointer
+
+    &-label
+      position: absolute
+      margin: 0.3rem 0 0 0.5rem
+      cursor: pointer
+      font-size: $sizeTitleFont

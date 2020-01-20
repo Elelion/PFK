@@ -1,0 +1,37 @@
+mixin panel-user(parameter)
+  -
+    var
+      parameter = parameter || {};
+      userMenu = parameter.userMenu || [
+        "Ваша скидка 0%"
+      ];
+
+  //-
+
+  .panel-user
+    form(action="./authorization.php", method="post")
+      input#panelUserBlock.panel-user__form-checkbox(type="checkbox")
+      label.panel-user__form-label.panel-general__label-position(
+        for="panelUserBlock") Авторизация
+
+      .panel-user__aside.panel-general__aside-position
+        .panel-user__menu-block
+          ul.panel-user__list
+            -for (var i = 1; i <= userMenu.length; i++)
+              li.panel-user__item
+                p.panel-user__menu= userMenu[i - 1]
+
+        .panel-user__buttons-block
+          .panel-user__buttons-wrapper
+            +button({
+              type: "submit",
+              caption: "Выйти",
+              extension: "logout",
+              name: "logoutBtn"
+            })
+
+        .panel-user__description-block
+          .panel-user__description-wrapper
+            p.panel-user__description-text
+              | <?= $userSession->getUserName(); ?>
+              |  (<?= $userSession->getAccess(); ?>)

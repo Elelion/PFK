@@ -43,11 +43,16 @@ mixin header-block(parameter)
           links: menuLinks
         })
 
-      //- TODO: for step #4
       .header-block__authorization
         .header-block__authorization-login
-          +login({
-            login: "Логин (почта)",
-            password: "Пароль",
-            pictcha: "Ответ"
-          })
+          <?php if ($userSession->getAuthorizationStatus() == false) { ?>
+            +panel-authorization
+          <?php } ?>
+
+          <?php if ($userSession->getAuthorizationStatus() == true && $userSession->getAccess() == 'admin') { ?>
+            +panel-admin
+          <?php } ?>
+
+          <?php if ($userSession->getAuthorizationStatus() == true && $userSession->getAccess() == 'user') { ?>
+            +panel-user
+          <?php } ?>

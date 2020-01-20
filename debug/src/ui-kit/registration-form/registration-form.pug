@@ -1,0 +1,173 @@
+mixin registration-form(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      surnamePlaceholder = parameter.surnamePlaceholder || "surname";
+      namePlaceholder = parameter.namePlaceholder || "name";
+      patronymicPlaceholder = parameter.patronymicPlaceholder || "patronymic";
+      addressPlaceholder = parameter.addressPlaceholder || "address";
+      phonePlaceholder = parameter.phonePlaceholder || "phone";
+      emailPlaceholder = parameter.emailPlaceholder || "email";
+      passwordPlaceholder = parameter.passwordPlaceholder || "password";
+
+      organizationPlaceholder = parameter.organizationPlaceholder || "org";
+      innPlaceholder = parameter.innPlaceholder || "inn";
+      cityPlaceholder = parameter.cityPlaceholder || "city";
+
+      formButtonCaption = parameter.formButtonCaption || "button";
+
+  //-
+
+  mixin surname
+    input.registration-form__input.registration-form__surname-physical(
+      type="text",
+      name="surname",
+      placeholder= surnamePlaceholder,
+      maxlength="50")
+
+  mixin name
+    input.registration-form__input.registration-form__name-physical(
+      type="text",
+      name="name",
+      placeholder= namePlaceholder,
+      maxlength="50")
+
+  mixin patronymic
+    input.registration-form__input.registration-form__patronymic-physical(
+      type="text",
+      name="patronymic",
+      placeholder= patronymicPlaceholder,
+      maxlength="50")
+
+  mixin address
+    input.registration-form__input.registration-form__address-physical(
+      type="text",
+      name="address",
+      placeholder= addressPlaceholder,
+      maxlength="100")
+
+  //- TODO: phoneFormat - do it for js...
+  mixin phone
+    input.registration-form__input.registration-form__phone-physical(
+      type="text",
+      name="phone",
+      placeholder= phonePlaceholder,
+      maxlength="11")
+
+  mixin email
+    input.registration-form__input.registration-form__email-physical(
+      type="text",
+      name="email",
+      placeholder= emailPlaceholder,
+      maxlength="40")
+
+  mixin password
+    input.registration-form__input.registration-form__password-physical(
+      type="password",
+      name="password",
+      placeholder= passwordPlaceholder,
+      maxlength="50",
+      onkeyup="weightDistanceFormat(this)")
+
+  //-
+
+  mixin organization-legal
+    input.registration-form__input.registration-form__organization-legal(
+      type="text",
+      name="organization-legal",
+      placeholder= organizationPlaceholder,
+      maxlength="100")
+
+  mixin inn-legal
+    input.registration-form__input.registration-form__inn-legal(
+      type="text",
+      name="inn-legal",
+      placeholder= innPlaceholder,
+      maxlength="10")
+
+  mixin phone-legal
+    input.registration-form__input.registration-form__phone-legal(
+      type="text",
+      name="phone-legal",
+      placeholder= phonePlaceholder,
+      maxlength="11")
+
+  mixin email-legal
+    input.registration-form__input.registration-form__email-legal(
+      type="text",
+      name="email-legal",
+      placeholder= emailPlaceholder,
+      maxlength="40")
+
+  mixin city-legal
+    input.registration-form__input.registration-form__city-legal(
+      type="text",
+      name="city-legal",
+      placeholder= cityPlaceholder,
+      maxlength="20")
+
+  mixin address-legal
+    input.registration-form__input.registration-form__address-legal(
+      type="text",
+      name="address-legal",
+      placeholder= addressPlaceholder,
+      maxlength="100")
+
+  mixin password-legal
+    input.registration-form__input.registration-form__password-legal(
+      type="password",
+      name="password-legal",
+      placeholder= passwordPlaceholder,
+      maxlength="50",
+      onkeyup="weightDistanceFormat(this)")
+
+  // -
+
+  mixin spamBotCheck
+    input.registration-form__input.registration-form__check(
+      type="text",
+      name="spBtCheck",
+      placeholder= "",
+      maxlength="50"
+      value="")
+
+
+  //-
+
+  .registration-form__form.registration-form__form-physical
+    form(action="./registration-account.php?id=physical", method="post")
+      +surname
+      +name
+      +patronymic
+      +phone
+      +email
+      +address
+      +password
+      +spamBotCheck
+
+      .registration-form__button
+        +button({
+          type: "submit",
+          caption: formButtonCaption,
+          extension: "registration",
+          name: "registrationBtn"
+        })
+
+  .registration-form__form.registration-form__form-legal
+    form(action="./registration-account.php?id=legal", method="post")
+      +organization-legal
+      +inn-legal
+      +phone-legal
+      +email-legal
+      +city-legal
+      +address-legal
+      +password-legal
+
+      .registration-form__button
+        +button({
+          type: "submit",
+          caption: formButtonCaption,
+          extension: "registration",
+          name: "registrationBtn"
+        })

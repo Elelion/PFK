@@ -21,6 +21,7 @@ debug/src/images/catalog/menu/png
 debug/src/images/catalog/temp
 debug/src/images/catalog/products/png
 debug/src/images/menu/png
+debug/src/images/registration/png
 
 #NOTE: web files
 debug/src/*.css
@@ -33,4 +34,5 @@ debug/src/**/scripts.js
 *.log
 *.pdf
 *.psd
-pfk.code-workspace
+desktop.ini
+.idea

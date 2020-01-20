@@ -1,0 +1,109 @@
+.registration-form
+  &__label-wrapper
+    width: auto
+    height: auto
+    margin-bottom: 3.5rem
+
+  &__label
+    width: auto
+    height: auto
+    margin: 0
+    padding: 0.5rem 0.5rem 0.7rem 0.5rem
+    font-size: $sizeRegularFont
+    text-align: left
+    color: $colorFontText
+    +border-black
+
+    &:first-letter
+      text-transform: uppercase
+
+    @media screen and (max-width: 970px)
+      padding-left: 5rem
+      padding-right: 5rem
+      text-align: center
+
+    @media screen and (max-width: 830px)
+      padding-left: 0
+      padding-right: 0
+
+  &__form
+    width: 73.8rem
+    height: auto
+    margin: 0 auto 0 auto
+    +border-black
+
+    @media screen and (max-width: 830px)
+      width: auto
+      height: auto
+
+    &-physical,
+    &-legal
+      //height: 52.5rem
+
+      @media screen and (max-width: 830px)
+        //width: auto
+        //height: auto
+        //margin-bottom: $contentMarginBottom
+
+    &-legal
+      //display: none
+
+  // NOTE: + look in js -> buttons-click-events
+  &__input
+    width: auto
+    height: 4.4rem
+    padding-left: 2rem
+    font-size: $sizeRegularFont
+    color: $colorFontText
+    border: none
+    border-bottom: 0.1rem solid $colorGeneralFon
+    border-radius: 0.7rem
+
+  &__phone-physical,
+  &__email-physical,
+  &__password-physical,
+  &__inn-legal,
+  &__city-legal,
+  &__phone-legal,
+  &__email-legal,
+  &__password-legal
+    width: 32.9rem
+    margin: 1rem 0 1.5rem 1rem
+
+    @media screen and (max-width: 830px)
+      width: 31rem
+
+    @media screen and (max-width: 360px)
+      width: auto
+
+  &__surname-physical,
+  &__name-physical,
+  &__patronymic-physical,
+  &__address-physical,
+  &__address-legal,
+  &__organization-legal
+    width: 70rem
+    margin: 1rem 1rem 1rem 1rem
+
+    @media screen and (max-width: 830px)
+      width: 31rem
+
+    @media screen and (max-width: 360px)
+      width: auto
+
+  &__check
+    display: none
+
+  &__button
+    float: right
+    width: 20rem
+    margin: 1rem 0 $contentMarginBottom 0
+    +border-blue
+
+    @media screen and (max-width: 830px)
+      float: none
+      margin: 5.6rem auto 0 auto
+
+    @media screen and (max-width: 420px)
+      width: auto
+      margin: 2.6rem auto 0 auto

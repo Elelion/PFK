@@ -1,0 +1,75 @@
+mixin panel-authorization
+  -
+    var
+      parameter = parameter || {};
+      login = parameter.login || "Логин (почта)";
+      password = parameter.password || "Пароль";
+      pictcha = parameter.pictcha || "Ответ";
+
+  //-
+
+  mixin login
+    input.panel-authorization__input.panel-authorization__login-input(
+      type="text",
+      name="login",
+      placeholder= login,
+      maxlength="40")
+
+  mixin password
+    input.panel-authorization__input.panel-authorization__password-input(
+      type="password",
+      name="password",
+      placeholder= password,
+      maxlength="40")
+
+  mixin pictcha
+    input.panel-authorization__input.panel-authorization__pictcha-input(
+      type="text",
+      name="pictcha",
+      placeholder= pictcha,
+      maxlength="40")
+
+  //-
+
+  .panel-authorization
+    form(action="./authorization.php", method="post")
+      input#authBlock.panel-authorization__form-checkbox(type="checkbox")
+      label.panel-authorization__form-label.panel-general__label-position(
+        for="authBlock") Авторизация
+
+      .panel-authorization__aside.panel-general__aside-position
+        .panel-authorization__login-block
+          +login
+
+        .panel-authorization__password-block
+          +password
+
+        .panel-authorization__pictcha-block
+          .panel-authorization__pictcha_quest-wrapper
+            p.panel-authorization__pictcha_quest-text.authorization__pictcha-first
+              <?= $randomNumbers[0]; ?>
+
+            p.panel-authorization__pictcha_quest-text +
+
+            p.panel-authorization__pictcha_quest-text.authorization__pictcha-second
+              <?= $randomNumbers[1]; ?>
+
+            p.panel-authorization__pictcha_quest-text =
+
+          +pictcha
+
+        .panel-authorization__buttons-block
+          .panel-authorization__buttons-wrapper
+            +button({
+              type: "submit",
+              caption: "Войти",
+              extension: "login",
+              name: "loginBtn"
+            })
+
+        .panel-authorization__description-block
+          .panel-authorization__description-wrapper
+            p.panel-authorization__description-text
+              a.panel-authorization__description-link(href="./registration.php")
+                | Регистрация 
+              | позволит получить больше скидок

@@ -1,0 +1,46 @@
+doctype html
+html(lang="ru")
+  +head({
+    keywords: `регистрация, регистрация пользователя, регистрация
+      нового пользователя, создание пользователя, создание нового пользователя`,
+
+    description: `Регистрация нового пользователя`,
+
+    title: `Регистрация.`
+  })
+
+body
+  header.header
+    +header-block
+
+  main.registration
+    section.service__wrapper
+      +registration-block({
+        descriptionCaption: `Заполните необходимые данные, обязательные для
+          заполнения поля помечены знаком *.
+          После заполнения, на указанный в форме e-mail
+          придет запрос на подтверждение регистрации.`,
+
+        title: "Регистрация",
+        titleType: "h1",
+        surnamePhysical: "Фамилия *",
+        namePhysical: "Имя *",
+        patronymicPhysical: "Отчество",
+        phonePhysical: "Мобильный телефон *",
+        addressPhysical: "Адрес доставки *",
+        emailPhysical: "eMail *",
+        passwordPhysical: "Пароль *",
+
+        orgLegal: "Наименование организации *",
+        innLegal: "ИНН *",
+        cityLegal: "Город *",
+
+        buttonCaptionPhysical: "Регистрация"
+      })
+
+  footer.footer
+    +footer-block
+
+  //-
+
+  +scripts-include

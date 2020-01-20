@@ -22,8 +22,10 @@ class headerBlock {
     this.burgerMenu = document.getElementsByClassName('menu-nav__burger')[0];
     this.menuNav = document.getElementsByClassName('menu-nav')[0];
 
-    this.authMenu = document.getElementsByClassName('authorization__form-label')[0];
-    this.authAside = document.getElementsByClassName('authorization__aside')[0];
+    this.authMenu =
+      document.getElementsByClassName('panel-general__label-position')[0];
+    this.authAside =
+      document.getElementsByClassName('panel-general__aside-position')[0];
 
     this.headerBlockLogo =
       document.getElementsByClassName('header-block__logo')[0];
@@ -63,8 +65,8 @@ class headerBlock {
         this.setTop(this.burgerMenu, 1);
         this.setTop(this.menuNav, 2.2);
 
-        this.setTop(this.authMenu, 0.5);
-        this.setTop(this.authAside, 4);
+        this.setTop(this.authMenu, 0.6); //0.5
+        this.setTop(this.authAside, 4.2); //4.3
       } else {
         this.setPosition(this.menu, 'absolute');
         this.setHeight(this.menu, 7);
@@ -72,8 +74,8 @@ class headerBlock {
         this.setTop(this.burgerMenu, 2.3);
         this.setTop(this.menuNav, 5.1);
 
-        this.setTop(this.authMenu, 1.8);
-        this.setTop(this.authAside, 6.9);
+        this.setTop(this.authMenu, 1.7);
+        this.setTop(this.authAside, 7.1); //6.9
       }
 
       // NOTE: fix for widescreen

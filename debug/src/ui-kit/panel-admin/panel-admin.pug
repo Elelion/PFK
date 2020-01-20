@@ -1,0 +1,40 @@
+mixin panel-admin(parameter)
+  -
+    var
+      parameter = parameter || {};
+      caption = parameter.caption || [
+        "Импорт из CSV в БД"
+      ];
+
+      links = parameter.link || [
+        "./admin.php"
+      ];
+
+  //-
+  .panel-admin
+    form(action="./authorization.php", method="post")
+      input#panelAdminBlock.panel-admin__form-checkbox(type="checkbox")
+      label.panel-admin__form-label.panel-general__label-position(
+        for="panelAdminBlock") Авторизация
+
+      .panel-admin__aside.panel-general__aside-position
+        .panel-admin__menu-block
+          ul.panel-admin__list
+            -for (var i = 1; i <= caption.length; i++)
+              li.panel-admin__item
+                a.panel-admin__import(href= links[i - 1])= caption[i - 1]
+
+        .panel-admin__buttons-block
+          .panel-admin__buttons-wrapper
+            +button({
+              type: "submit",
+              caption: "Выйти",
+              extension: "logout",
+              name: "logoutBtn"
+            })
+
+        .panel-admin__description-block
+          .panel-admin__description-wrapper
+            p.panel-admin__description-text
+              | <?= $userSession->getUserName(); ?>
+              |  (<?= $userSession->getAccess(); ?>)

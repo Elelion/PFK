@@ -1,4 +1,4 @@
-<?php foreach ($queryEventsResult as $row) { ?>
+<?php foreach ($queryEventsResult as $row): ?>
 	<div class="events">
 		<a class="events__link" href="browsing-events.php?idEvents=<?= $row['id'] ?>">
 			<img class="events__image"
@@ -7,8 +7,8 @@
 
 			<div class="events__content">
 				<p class="events__title"><?= $row['title'] ?></p>
-				<p class="events__desc"><?= $row['miniDescription'] ?></p>
+				<p class="events__desc"><?= $row['mini_description'] ?></p>
 			</div>
 		</a>
 	</div>
-<?php }; ?>
+<?php endforeach; ?>

@@ -2,18 +2,25 @@
 require_once 'lib/RedirectNotSupportBrowser.php';
 require_once 'lib/DbHelperPDO.php';
 require_once 'lib/Pictcha.php';
+require_once 'lib/UserSession.php';
 
 date_default_timezone_set('Europe/Moscow');
 new RedirectNotSupportBrowser();
 $dbHelperPDO = new DbHelperPDO;
 $pictcha = new Pictcha;
+$userSession = new UserSession;
 
 /**/
 
+$randomNumbers = $_SESSION['pictcha'] = [
+	$pictcha->getRandomNumber(),
+	$pictcha->getRandomNumber()
+];
+
 if (!$dbHelperPDO->getLastError()) {
-  $dbHelperPDO->executeQuery('SELECT * FROM `catalog_1` ORDER BY id');
+	$dbHelperPDO->executeQuery('SELECT * FROM `catalog_1` ORDER BY id');
 } else {
-  echo $dbHelperPDO->getLastError();
+	echo $dbHelperPDO->getLastError();
 }
 
 $queryCatalogResult = $dbHelperPDO->getQueryResult();
