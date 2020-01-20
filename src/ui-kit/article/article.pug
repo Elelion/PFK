@@ -1,0 +1,26 @@
+mixin article(parameter)
+  -
+    var
+      parameter = parameter || {};
+      link = parameter.link || "#";
+      imageName = parameter.imageName || "none";
+      imageAlt = parameter.imageAlt || "SEO alt";
+      imageTitle = parameter.imageTitle || "SEO title";
+      title = parameter.title || "title";
+      description = parameter.description || "desc";
+
+  //-
+
+  .article
+    img.article__picture(
+      src="./images/articles/" + imageName + ".webp"
+      alt= imageAlt
+      title= imageTitle)
+
+    a.article__link(href= link)
+      img.article__image(
+        src="./images/articles/quotes.svg"
+        alt= "Статьи"
+        title= "Блок полезных статей")
+      p.article__title= title
+      article.article__desc= description

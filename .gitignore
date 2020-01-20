@@ -1,14 +1,28 @@
+#NOTE: caches
+node_modules/
+build/
+npm_debug.*
+Thumbs.db
+
+src/sass/.sass-cache
+src/.sass-cache
+src/sass/.styles.css.map
+
+#NOTE: images
+src/images/articles/jpg
+src/images/articles/templates
+src/images/events/jpg
+src/images/services/jpg
+src/images/sliders/jpg
+src/images/logo/jpg
+
+#NOTE: web files
+src/*.css
+src/css/*
+src/*.html
+
+#NOTE: differents
 *.ai
 *.log
 *.pdf
 *.psd
-
-node_modules/
-npm_debug.*
-Thumbs.db
-
-src/css/*.css
-src/css/.sass-cache
-src/css/.styles.css.map
-
-index.html

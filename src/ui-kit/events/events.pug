@@ -1,0 +1,23 @@
+mixin events(parameter)
+  -
+    var
+      parameter = parameter || {};
+
+      link = parameter.link || "link";
+      imageName = parameter.imageName || "news";
+      imageAlt = parameter.imageAlt || "SEO alt";
+      imageTitle = parameter.imageTitle || "SEO title";
+      title = parameter.title || "title";
+      description = parameter.description || "desc";
+
+  //-
+
+  .events
+    a.events__link(href= link)
+      img.events__image(
+        src="./images/events/" + imageName + ".webp"
+        alt= imageAlt
+        title= imageTitle)
+      .events__content
+        p.events__title= title
+        p.events__desc= description
